@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup (
   name='accessible-pygments',
-  version='0.0.0',
+  version='0.0.1',
   description='A Collection of Accessible Pygments Styles',
   license='BSD',
   keywords='pygments style accessible a11',
@@ -18,7 +18,7 @@ setup (
   ],
 
   entry_points ={
-    "pygments.styles": ["a11-light = a11-pygments.a11-light:A11LightStyle"]
+    "pygments.styles": ["a11-light = a11_pygments.a11_light:A11LightStyle"]
   },
 
   classifiers=[
