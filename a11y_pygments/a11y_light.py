@@ -56,7 +56,7 @@ class A11yLightStyle(Style):
         Name.Exception:            Colors.purple,   # class: 'ne'
         Name.Function:             Colors.blue,     # class: 'nf'
         Name.Property:             Colors.blue,     # class: 'py'
-        # Name.Label:                "",            # class: 'nl'
+        Name.Label:                Colors.orange,   # class: 'nl'
         Name.Namespace:            Colors.black,    # class: 'nn'
         # Name.Other:                "",            # class: 'nx'
         Name.Tag:                  Colors.blue,     # class: 'nt'
@@ -77,7 +77,7 @@ class A11yLightStyle(Style):
         # Literal.Date:              "",            # class: 'ld'
 
         String:                    Colors.green,    # class: 's'
-        # String.Backtick:           "",            # class: 'sb'
+        String.Backtick:           Colors.green,    # class: 'sb'
         # String.Char:               "",            # class: 'sc'
         # String.Doc:                "",            # class: 'sd'
         # String.Double:             "",            # class: 's2'
@@ -91,13 +91,13 @@ class A11yLightStyle(Style):
 
         # Generic:                   "",            # class: 'g'
         Generic.Deleted:           Colors.blue,     # class: 'gd',
-        Generic.Emph:              "italic",      # class: 'ge'
+        Generic.Emph:              "italic",        # class: 'ge'
         # Generic.Error:             "",            # class: 'gr'
-        # Generic.Heading:           "",            # class: 'gh'
+        Generic.Heading:           Colors.blue,     # class: 'gh'
+        Generic.Subheading:        Colors.blue,     # class: 'gu'
         # Generic.Inserted:          "",            # class: 'gi'
         # Generic.Output:            "",            # class: 'go'
         # Generic.Prompt:            "",            # class: 'gp'
-        Generic.Strong:            "bold",        # class: 'gs'
-        # Generic.Subheading:        "",            # class: 'gu'
+        Generic.Strong:            "bold",          # class: 'gs'
         # Generic.Traceback:         "",            # class: 'gt'
     }
