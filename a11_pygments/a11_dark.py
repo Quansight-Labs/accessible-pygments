@@ -5,25 +5,25 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#696969"
-    red = "#d91e18"
-    orange = "#aa5d00"
-    yellow = "#aa5d00"
-    green = "#008000"
-    blue = "#007faa"
-    purple = "#7928a1"
-    black = "#545454"
+    comment = "#d4d0ab"
+    red = "#ffa07a"
+    orange = "#f5ab35"
+    yellow = "#ffd700"
+    green = "#abe338"
+    blue = "#00e0e0"
+    purple = "#dcc6e0"
+    black = "#f8f8f2"
 
 
-class A11LightStyle(Style):
+class A11DarkStyle(Style):
     """
     This style mimics the a11 light theme from eric bailey's accessible themes.
     """
 
     default_style = ''
 
-    background_color = "#fefefe"
-    highlight_color = "b7860b13"
+    background_color = "#2b2b2b"
+    highlight_color = "#ffd9001a"
 
     styles = {
         Text:                      Colors.black,    # class:  ''
@@ -91,13 +91,13 @@ class A11LightStyle(Style):
 
         # Generic:                   "",            # class: 'g'
         Generic.Deleted:           Colors.blue,     # class: 'gd',
-        Generic.Emph:              "italic",      # class: 'ge'
+        Generic.Emph:              "italic",        # class: 'ge'
         # Generic.Error:             "",            # class: 'gr'
         # Generic.Heading:           "",            # class: 'gh'
         # Generic.Inserted:          "",            # class: 'gi'
         # Generic.Output:            "",            # class: 'go'
         # Generic.Prompt:            "",            # class: 'gp'
-        Generic.Strong:            "bold",        # class: 'gs'
+        Generic.Strong:            "bold",          # class: 'gs'
         # Generic.Subheading:        "",            # class: 'gu'
         # Generic.Traceback:         "",            # class: 'gt'
     }

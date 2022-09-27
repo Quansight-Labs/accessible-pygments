@@ -18,7 +18,10 @@ setup (
   ],
 
   entry_points ={
-    "pygments.styles": ["a11-light = a11_pygments.a11_light:A11LightStyle"]
+    "pygments.styles": [
+        "a11-light = a11_pygments.a11_light:A11LightStyle",
+        "a11-dark = a11_pygments.a11_dark:A11DarkStyle"
+        ]
   },
 
   classifiers=[
