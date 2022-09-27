@@ -15,7 +15,7 @@ class Colors:
     black = "#f8f8f2"
 
 
-class A11DarkStyle(Style):
+class A11yDarkStyle(Style):
     """
     This style mimics the a11 light theme from eric bailey's accessible themes.
     """
@@ -60,7 +60,7 @@ class A11DarkStyle(Style):
         Name.Namespace:            Colors.black,    # class: 'nn'
         # Name.Other:                "",            # class: 'nx'
         Name.Tag:                  Colors.blue,     # class: 'nt'
-        Name.Variable:             Colors.orange,   # class: 'nv'
+        Name.Variable:             Colors.red,      # class: 'nv'
         Name.Variable.Magic:       Colors.orange,
         # Name.Variable.Class:       "",            # class: 'vc'
         # Name.Variable.Global:      "",            # class: 'vg'
@@ -79,7 +79,7 @@ class A11DarkStyle(Style):
         String:                    Colors.green,    # class: 's'
         # String.Backtick:           "",            # class: 'sb'
         # String.Char:               "",            # class: 'sc'
-        # String.Doc:                "",            # class: 'sd'
+        # String.Doc:                Colors.blue,            # class: 'sd'
         # String.Double:             "",            # class: 's2'
         # String.Escape:             "",            # class: 'se'
         # String.Heredoc:            "",            # class: 'sh'
