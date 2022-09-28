@@ -32,6 +32,8 @@ The current themes available include,
 
 ###  A11y light
 
+![Screenshot of the light accessibility theme in a bash script](/images/a11y-light.png)
+
 Background color: ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
 
 Highlight color: ![#b7860b13](https://via.placeholder.com/20/b7860b13/b7860b13.png) `#b7860b13`
@@ -50,6 +52,8 @@ Highlight color: ![#b7860b13](https://via.placeholder.com/20/b7860b13/b7860b13.p
 | ![#545454](https://via.placeholder.com/20/545454/545454.png) | `#545454` | 7.51 : 1 | AAA | AAA |
 
 ### A11y dark
+
+![Screenshot of the dark accessibility theme in a bash script](/images/a11y-dark.png)
 
 Background color: ![#2b2b2b](https://via.placeholder.com/20/2b2b2b/2b2b2b.png) `#2b2b2b`
 
