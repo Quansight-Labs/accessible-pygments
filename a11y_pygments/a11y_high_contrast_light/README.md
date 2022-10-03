@@ -1,6 +1,10 @@
 # A11y light high contrast
 
+This is the pygments implementation of [`a11y light`](https://github.com/ericwbailey/a11y-syntax-highlighting) with high contrast.
+
 ![Screenshot of the light accessibility theme in a bash script](/images/a11y-high-contrast-light.png)
+
+## Colors
 
 Background color: ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
 
