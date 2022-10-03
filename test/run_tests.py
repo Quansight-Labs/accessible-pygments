@@ -36,9 +36,13 @@ for language in languages:
     for theme in themes:
         style = get_style_by_name(theme)
         formatter = HtmlFormatter(style=style, full=True)
-
         result = pygments_highlight(lines, lexer, formatter)
 
-        out = osp.join(outdir, theme + '-' + ext + '.html')
+        theme_outdir = osp.join(outdir, theme)
+
+        if not osp.exists(theme_outdir):
+            os.mkdir(theme_outdir)
+
+        out = osp.join(theme_outdir, ext + '.html')
         with open(out, 'w') as f:
             f.write(result)
