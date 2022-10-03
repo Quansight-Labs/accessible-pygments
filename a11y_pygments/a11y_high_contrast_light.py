@@ -5,17 +5,17 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#696969"
+    comment = "#797129"
     red = "#d91e18"
-    orange = "#aa5d00"
-    yellow = "#aa5d00"
+    orange = "#797129"
+    yellow = "#797129"
     green = "#008000"
     blue = "#007faa"
     purple = "#7928a1"
     black = "#545454"
 
 
-class A11yLightStyle(Style):
+class A11yHighContrastLightStyle(Style):
     """
     This style mimics the a11 light theme from eric bailey's accessible themes.
     """
@@ -23,7 +23,7 @@ class A11yLightStyle(Style):
     default_style = ''
 
     background_color = "#fefefe"
-    highlight_color = "797129"
+    highlight_color = "#797129"
 
     styles = {
         Text:                      Colors.black,    # class:  ''

@@ -16,7 +16,7 @@ languages = {
     "markdown": "md",
     }
 
-themes = ["a11y-light", "a11y-dark", "a11y-dark-high-contrast"]
+themes = ["a11y-light", "a11y-dark", "a11y-dark-high-contrast", "a11y-light-high-contrast"]
 
 actdir = osp.dirname(__file__)
 outdir = osp.join(actdir, 'results')
