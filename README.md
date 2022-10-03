@@ -76,7 +76,7 @@ Highlight color: ![#ffd900](https://via.placeholder.com/20/ffd900/ffd900.png) `#
 
 ### A11y dark high contrast
 
-![Screenshot of the dark accessibility theme in a bash script](/images/a11y-dark-high-contrast.png)
+![Screenshot of the dark accessibility theme in a bash script](/images/a11y-high-contrast-dark.png)
 
 Background color: ![#2b2b2b](https://via.placeholder.com/20/2b2b2b/2b2b2b.png) `#2b2b2b`
 
