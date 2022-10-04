@@ -2,7 +2,7 @@
 
 This is the pygments implementation of [`pitaya smoothie`](https://github.com/trallard/pitaya_smoothie).
 
-![Screenshot of the light accessibility theme in a bash script](/images/pitaya_smoothie.png)
+![Screenshot of the light accessibility theme in a bash script](/images/pitaya-smoothie.png)
 
 ## Colors
 
