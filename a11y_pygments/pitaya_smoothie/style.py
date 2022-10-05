@@ -16,7 +16,7 @@ class Colors:
     black = "#FEFEFF"
 
 
-class PitayaSmoothieStyle(Style):
+class Theme(Style):
     """
     This style mimics the a11 light theme from eric bailey's accessible themes.
     """

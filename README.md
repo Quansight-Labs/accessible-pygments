@@ -6,8 +6,8 @@ Our current themes include,
 
 - `a11y-light`
 - `a11y-dark`
-- `a11y-light-high-contrast`
-- `a11y-dark-high-contrast`
+- `a11y-high-contrast-light`
+- `a11y-high-contrast-dark`
 - `pitaya-smoothie`
 
 ## Installation

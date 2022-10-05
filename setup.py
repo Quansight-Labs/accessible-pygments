@@ -1,4 +1,21 @@
+from gettext import find
+from importlib.metadata import entry_points
 from setuptools import setup, find_packages
+
+from a11y_pygments.utils.utils import find_all_themes_packages
+
+
+def find_entrypoints():
+    themes = find_all_themes_packages()
+    entrypoints = []
+    base_package = 'a11y_pygments'
+    for theme in themes:
+        name = theme.replace('_', '-')
+        package = '{}.{}.style:Theme'.format(base_package, theme)
+        entrypoints.append('{} = {}'.format(name, package))
+    print(entrypoints)
+    return entrypoints
+
 
 setup (
   name='accessible-pygments',
@@ -18,13 +35,7 @@ setup (
   ],
 
   entry_points ={
-    "pygments.styles": [
-        "a11y-light = a11y_pygments.a11y_light.style:A11yLightStyle",
-        "a11y-dark = a11y_pygments.a11y_dark.style:A11yDarkStyle",
-        "a11y-dark-high-contrast = a11y_pygments.a11y_high_contrast_dark.style:A11yHighContrastDarkStyle",
-        "a11y-light-high-contrast = a11y_pygments.a11y_high_contrast_light.style:A11yHighContrastLightStyle",
-        "pitaya-smoothie = a11y_pygments.pitaya_smoothie.style:PitayaSmoothieStyle",
-        ]
+    "pygments.styles": find_entrypoints()
   },
 
   classifiers=[

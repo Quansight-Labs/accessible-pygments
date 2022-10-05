@@ -15,7 +15,7 @@ class Colors:
     black = "#f8f8f2"
 
 
-class A11yHighContrastDarkStyle(Style):
+class Theme(Style):
     """
     This style mimics the a11 light theme from eric bailey's accessible themes.
     """

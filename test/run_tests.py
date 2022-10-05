@@ -6,6 +6,8 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
 
+from a11y_pygments.utils.utils import find_all_themes
+
 
 languages = {
     "python": "py",
@@ -16,13 +18,7 @@ languages = {
     "markdown": "md",
     }
 
-themes = [
-    "a11y-light",
-    "a11y-dark",
-    "a11y-dark-high-contrast",
-    "a11y-light-high-contrast",
-    "pitaya-smoothie"
-    ]
+themes = find_all_themes()
 
 actdir = osp.dirname(__file__)
 outdir = osp.join(actdir, 'results')
