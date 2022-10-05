@@ -43,6 +43,7 @@ for language in languages:
         style = get_style_by_name(theme)
         formatter = HtmlFormatter(style=style, full=True)
         result = pygments_highlight(lines, lexer, formatter)
+        the_css = formatter.get_style_defs()
 
         theme_outdir = osp.join(outdir, theme)
 
@@ -52,3 +53,6 @@ for language in languages:
         out = osp.join(theme_outdir, ext + '.html')
         with open(out, 'w') as f:
             f.write(result)
+
+        with open(osp.join(theme_outdir, ext + '.css'), 'w') as f:
+            f.write(the_css)

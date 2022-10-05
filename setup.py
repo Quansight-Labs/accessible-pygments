@@ -19,11 +19,11 @@ setup (
 
   entry_points ={
     "pygments.styles": [
-        "a11y-light = a11y_pygments.a11y_light.a11y_light:A11yLightStyle",
-        "a11y-dark = a11y_pygments.a11y_dark.a11y_dark:A11yDarkStyle",
-        "a11y-dark-high-contrast = a11y_pygments.a11y_high_contrast_dark.a11y_high_contrast_dark:A11yHighContrastDarkStyle",
-        "a11y-light-high-contrast = a11y_pygments.a11y_high_contrast_light.a11y_high_contrast_light:A11yHighContrastLightStyle",
-        "pitaya-smoothie = a11y_pygments.pitaya_smoothie.pitaya_smoothie:PitayaSmoothieStyle",
+        "a11y-light = a11y_pygments.a11y_light.style:A11yLightStyle",
+        "a11y-dark = a11y_pygments.a11y_dark.style:A11yDarkStyle",
+        "a11y-dark-high-contrast = a11y_pygments.a11y_high_contrast_dark.style:A11yHighContrastDarkStyle",
+        "a11y-light-high-contrast = a11y_pygments.a11y_high_contrast_light.style:A11yHighContrastLightStyle",
+        "pitaya-smoothie = a11y_pygments.pitaya_smoothie.style:PitayaSmoothieStyle",
         ]
   },
 
