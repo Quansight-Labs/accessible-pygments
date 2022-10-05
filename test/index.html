@@ -5,7 +5,12 @@
 	<title>Accessible Pygments Themes</title>
 
 	<!-- themes -->
-    <link rel="stylesheet" type="text/css" title="dark a11y" href="./../a11y_pygments/a11y_high_contrast_light/style.css">
+    <link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
+    <link rel="stylesheet" type="text/css" title="a11y light" href="./../a11y_pygments/a11y_light/style.css">
+    <link rel="stylesheet" type="text/css" title="a11y dark (high contrast)" href="./../a11y_pygments/a11y_high_contrast_dark/style.css">
+    <link rel="stylesheet" type="text/css" title="a11y light (high contrast)" href="./../a11y_pygments/a11y_high_contrast_light/style.css">
+    <link rel="stylesheet" type="text/css" title="pitaya smoothie" href="./../a11y_pygments/pitaya_smoothie/style.css">
+    <!-- <link rel="stylesheet" type="text/css" title="theme name" href="./../a11y_pygments/THEME-NAME/style.css"> -->
 
     <style>
         body {
@@ -60,6 +65,54 @@
 
         pre { padding: 0 5px; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
     </style>
+
+    <!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<script>
+	$(function(){
+		var t,
+			$links = $('link[title]'),
+			$select = $('select'),
+			theme = "a11y dark",
+			ls = false,
+			selectTheme = function(theme){
+				$links.prop('disabled', true);
+				$links.filter('[title="' + theme + '"]').prop('disabled', false);
+			};
+		if ("localStorage" in window) {
+			try {
+				window.localStorage.setItem('_tmptest', 'temp');
+				ls = true;
+				window.localStorage.removeItem('_tmptest');
+			} catch(e) {}
+		}
+		if (ls) {
+			theme = localStorage['a11y dark'] || theme;
+		}
+
+		t = '';
+		$links.each(function(){
+			t += '<option>' + this.title + '</option>';
+		});
+		$select
+			.append(t)
+			.on('change', function(){
+				selectTheme(this.value);
+				if (ls) {
+					localStorage['a11y dark'] = this.value;
+				}
+			})
+			.val(theme);
+
+		$(window).on('load', function() {
+			$select.val(theme);
+			selectTheme(theme);
+		});
+
+	});
+	</script>
+
 </head>
 <body>
     <div class="title">
@@ -68,10 +121,6 @@
     <div class="selection">
         <label>Choose a theme:</label>
         <select name="themes" id="themes">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
         </select>
     </div>
     <div class="cards">
