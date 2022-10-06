@@ -101,6 +101,8 @@ The **most** important part for us, is to add a table with the contrast ratios o
 
 Any acknowledgements to other repositories that you may used as base please add them as well to the main readme in the repo under the `acknowledgements` section.
 
+Also, don't forget to add the name of your theme to our list of supported themes in the main readme.
+
 ### Generate source `style.css` file
 
 We have an automatic way to generate this file by,
