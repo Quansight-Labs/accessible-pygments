@@ -68,7 +68,7 @@ For adding a new theme, please create a folder with your new theme name, like `w
 
 ### Fill `style.py` file
 
-You can use as a base one of our existing themes, this file needs to define a new class with the new colors and rules you want.
+You can use as a base one of our existing themes, this file needs to define a new class named `Theme` with the new colors and rules you want.
 
 ---
 📝 **NOTE** 📝
@@ -77,37 +77,21 @@ Please try to encapsulate all the raw colors in the `Colors` enum and call them 
 
 ---
 
-In order to see and debug your theme please add an entrypoint to it in the `setup.py` file found in the root of this repo,
+### Visualize and debug your theme
+
+In order to see and debug your theme please re-install the package via,
 
 ```
-...
-
-  entry_points ={
-    "pygments.styles": [
-        "a11y-light = a11y_pygments.a11y_light.style:A11yLightStyle",
-        "a11y-dark = a11y_pygments.a11y_dark.style:A11yDarkStyle",
-        "my-theme = a11y_pygments.my_theme.style:MyTheme",
-        ]
-  },
-
-...
+pip install -e .
 ```
 
-Then, you will be able to add it to the list of themes in `run_tests.py` file,
+Then generate the html results,
 
 ```
-...
-
-themes = [
-    "a11y-light",
-    "a11y-dark",
-    "my-theme"
-    ]
-
-...
+python test/run_tests.py
 ```
 
-Afterwards, you will be able to run the tests and see the results of your new theme under `test/results` in html format.
+Afterwards, you will see the results of your new theme under `test/results/YOUR-THEME` in html format.
 
 ### Fill `README.md` file
 
@@ -122,10 +106,25 @@ Any acknowledgements to other repositories that you may used as base please add 
 We have an automatic way to generate this file by,
 
 ```
-python a11y_pygments/utils/generate_css.py
+python a11y_pygments/test/run_css.py
 ```
 
 The file should appear in the folder of your new theme.
+
+#### Add your theme to our static page
+
+We have a demo page where you will be able to change the style of different languages at the same time. To add your new theme please go to the file `test/index.html`. Under themes, we have a link to all of the generated css files, where you will manually add the route at the end to your new theme css,
+
+```
+...
+<!-- themes -->
+<link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
+<link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/YOUR-THEME-HERE/style.css">
+...
+
+```
+
+With this change you will be able to open `test/index.html` in your favorite browser and visualize your new theme in our demo!
 
 ### Create a Pull Request
 
