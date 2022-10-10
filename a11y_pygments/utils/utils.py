@@ -1,3 +1,4 @@
+import os
 import os.path as osp
 
 from setuptools import find_packages
@@ -27,7 +28,7 @@ def find_all_themes() -> List[ str ]:
     return themes
 
 
-def generate_css(themes: List[ str ]):
+def generate_css(themes: List[ str ], save_dir = ''):
     """Generate css for the given themes."""
     basedir = 'a11y_pygments'
     for theme in themes:
@@ -37,8 +38,14 @@ def generate_css(themes: List[ str ]):
         css += "\n .highlight { background: %s; color: %s; }"%(
             style.background_color, style.styles[Text]
         )
-        print(style.background_color, style.styles[Text])
         package = theme.replace('-', '_')
         out = osp.join( basedir, package, 'style.css' )
         with open( out, 'w' ) as f:
             f.write( css )
+
+        if save_dir:
+            if not osp.exists(osp.join(save_dir, 'css')):
+                os.mkdir(osp.join(save_dir, 'css'))
+            out = osp.join(save_dir, 'css', package + '-style.css')
+            with open( out, 'w' ) as f:
+                f.write( css )
