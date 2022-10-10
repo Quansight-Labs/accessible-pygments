@@ -12,7 +12,17 @@ Our current themes include,
 
 ## Installation
 
-Just open a terminal and run,
+Our package is available in both conda and pip via,
+
+```
+conda install -c conda-forge accessible-pygments
+```
+
+```
+pip install accessible-pygments
+```
+
+If you want to install it directly from source,
 
 ```
 git clone git@github.com:Quansight-Labs/accessible-pygments.git
