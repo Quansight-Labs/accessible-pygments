@@ -2,7 +2,7 @@
 
 This is the pygments implementation of [`github dark (Default)`](https://github.com/primer/github-vscode-theme).
 
-![Screenshot of the dark accessibility theme in a bash script](./images/github-light.png)
+![Screenshot of the dark accessibility theme in a bash script](./images/github-dark.png)
 
 ## Colors
 
