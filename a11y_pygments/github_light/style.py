@@ -5,24 +5,24 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#6a737d"
-    red = "#d73a49"
-    orange = "#c24e00"
-    green = "#22863a"
-    blue = "#005cc5"
-    purple = "#6f42c1"
-    black = "#24292e"
+    comment = "#6e7781"  # grey[5]
+    red = "#cf222e"  # red[5]
+    orange = "#953800"  # orange[6]
+    green = "#116329"  # green[6]
+    blue = "#0550ae"  # blue[6]
+    purple = "#8250df"  # purple[5]
+    black = "#24292f"  # fg.default
 
 
 class Theme(Style):
     """
-    This style mimics the a11 light theme from eric bailey's accessible themes.
+    This style mimics the github light theme from vscode themes.
     """
 
     default_style = ''
 
-    background_color = "#ffffff"
-    highlight_color = "#5a32a3"
+    background_color = "#ffffff"  # canvas.default
+    highlight_color = "#0969da"  # accent.fg
 
     styles = {
         Text:                      Colors.black,    # class:  ''
@@ -31,20 +31,20 @@ class Theme(Style):
 
         Comment:                   Colors.comment,  # class: 'c'
 
-        Keyword:                   Colors.red,   # class: 'k'
-        Keyword.Constant:          Colors.blue,   # class: 'kc'
+        Keyword:                   Colors.red,      # class: 'k'
+        Keyword.Constant:          Colors.blue,     # class: 'kc'
         # Keyword.Declaration:       "",            # class: 'kd'
         # Keyword.Namespace:         "",            # class: 'kn'
         # Keyword.Pseudo:            "",            # class: 'kp'
         # Keyword.Reserved:          "",            # class: 'kr'
-        Keyword.Type:              Colors.red,   # class: 'kt'
+        Keyword.Type:              Colors.red,      # class: 'kt'
 
-        # Operator:                  Colors.green,    # class: 'o'
-        # Operator.Word:             Colors.purple,   # class: 'ow'
+        Operator:                  Colors.green,    # class: 'o'
+        Operator.Word:             Colors.purple,   # class: 'ow'
 
         Punctuation:               Colors.black,    # class: 'p'
 
-        Name:                      Colors.purple,    # class: 'n'
+        Name:                      Colors.purple,   # class: 'n'
         Name.Attribute:            Colors.orange,   # class: 'na'
         Name.Builtin:              Colors.orange,   # class: 'nb'
         Name.Builtin.Pseudo:       Colors.orange,   # class: 'bp'
@@ -58,8 +58,8 @@ class Theme(Style):
         Name.Label:                Colors.orange,   # class: 'nl'
         Name.Namespace:            Colors.black,    # class: 'nn'
         # Name.Other:                "",            # class: 'nx'
-        Name.Tag:                  Colors.green,     # class: 'nt'
-        Name.Variable:             Colors.orange,      # class: 'nv'
+        Name.Tag:                  Colors.green,    # class: 'nt'
+        Name.Variable:             Colors.orange,   # class: 'nv'
         Name.Variable.Magic:       Colors.orange,
         # Name.Variable.Class:       "",            # class: 'vc'
         # Name.Variable.Global:      "",            # class: 'vg'
@@ -75,8 +75,8 @@ class Theme(Style):
         Literal:                   Colors.orange,   # class: 'l'
         # Literal.Date:              "",            # class: 'ld'
 
-        String:                    Colors.blue,    # class: 's'
-        String.Backtick:           Colors.blue,    # class: 'sb'
+        String:                    Colors.blue,     # class: 's'
+        String.Backtick:           Colors.blue,     # class: 'sb'
         # String.Char:               "",            # class: 'sc'
         # String.Doc:                "",            # class: 'sd'
         # String.Double:             "",            # class: 's2'
@@ -84,7 +84,7 @@ class Theme(Style):
         # String.Heredoc:            "",            # class: 'sh'
         # String.Interpol:           "",            # class: 'si'
         # String.Other:              "",            # class: 'sx'
-        String.Regex:              Colors.blue,      # class: 'sr'
+        String.Regex:              Colors.blue,     # class: 'sr'
         # String.Single:             "",            # class: 's1'
         String.Symbol:             Colors.blue,     # class: 'ss'
 
