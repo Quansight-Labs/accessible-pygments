@@ -35,8 +35,9 @@ def generate_css(themes: List[ str ], save_dir = ''):
         style = get_style_by_name( theme )
         formatter = HtmlFormatter( style=style, full=True )
         css = formatter.get_style_defs()
-        css += "\n .highlight { background: %s; color: %s; }"%(
-            style.background_color, style.styles[Text]
+        color = style.style_for_token(Text)['color']
+        css += "\n .highlight { background: %s; color: #%s; }"%(
+            style.background_color, color
         )
         package = theme.replace('-', '_')
         out = osp.join( basedir, package, 'style.css' )
