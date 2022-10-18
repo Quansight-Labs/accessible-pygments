@@ -16,7 +16,7 @@ class Colors:
 
 class Theme(Style):
     """
-    This style mimics the a11 light theme from eric bailey's accessible themes.
+    This style mimics the github light theme from vscode themes.
     """
 
     default_style = ''
