@@ -2,7 +2,7 @@
 
 This is the pygments implementation of [`a11y dark`](https://github.com/ericwbailey/a11y-syntax-highlighting) with high contrast.
 
-![Screenshot of the dark accessibility theme in a bash script](/images/a11y-high-contrast-dark.png)
+![Screenshot of the dark accessibility theme in a bash script](./images/a11y-high-contrast-dark.png)
 
 ## Colors
 
