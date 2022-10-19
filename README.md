@@ -15,6 +15,8 @@ Our current themes include,
 - `github-dark`
 - `github-light-colorblind`
 - `github-dark-colorblind`
+- `github-light-high-contrast`
+- `github-dark-high-contrast`
 
 ## Installation
 
