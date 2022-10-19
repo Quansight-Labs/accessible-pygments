@@ -11,6 +11,9 @@ Our current themes include,
 - `a11y-high-contrast-light`
 - `a11y-high-contrast-dark`
 - `pitaya-smoothie`
+- `github-light`
+- `github-dark`
+- `github-dark-colorblind`
 
 ## Installation
 
