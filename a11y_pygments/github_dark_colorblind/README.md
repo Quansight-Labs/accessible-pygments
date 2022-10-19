@@ -1,4 +1,4 @@
-# Github dark
+# Github dark colorblind
 
 This is the pygments implementation of [`github dark colorblind`](https://github.com/primer/github-vscode-theme).
 
