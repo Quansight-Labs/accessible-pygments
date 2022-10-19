@@ -13,6 +13,7 @@ Our current themes include,
 - `pitaya-smoothie`
 - `github-light`
 - `github-dark`
+- `github-light-colorblind`
 - `github-dark-colorblind`
 
 ## Installation
