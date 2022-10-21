@@ -4,6 +4,8 @@
 
 This package includes a collection of accessible themes for pygments based on different sources.
 
+![Gif showcasing some of the supported themes](themes.gif)
+
 Our current themes include,
 
 - `a11y-light`
