@@ -4,7 +4,9 @@
 
 This package includes a collection of accessible themes for pygments based on different sources.
 
-![Gif showcasing some of the supported themes](themes.gif)
+<p align="center">
+  <img src="./themes.gif">
+</p>
 
 Our current themes include,
 
