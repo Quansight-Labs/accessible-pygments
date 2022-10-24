@@ -21,6 +21,7 @@ Our current themes include,
 - `github-dark-colorblind`
 - `github-light-high-contrast`
 - `github-dark-high-contrast`
+- `gotthard-light`
 - `gotthard-dark`
 
 ## Installation
