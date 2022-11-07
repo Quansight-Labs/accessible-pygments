@@ -23,6 +23,8 @@ Our current themes include,
 - `github-dark-high-contrast`
 - `gotthard-light`
 - `gotthard-dark`
+- `blinds-light`
+- `blinds-dark`
 
 ## Installation
 
