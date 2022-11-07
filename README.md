@@ -25,6 +25,7 @@ Our current themes include,
 - `gotthard-dark`
 - `blinds-light`
 - `blinds-dark`
+- `greative`
 
 ## Installation
 
