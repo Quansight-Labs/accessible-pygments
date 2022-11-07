@@ -5,24 +5,24 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#737373"
-    orange = "#BF5400"
-    yellow = "#996B00"
-    green = "#008561"
-    blue = "#0072b2"
-    purple = "#CC398B"
-    black = "#000000"
+    comment = "#8C8C8C"
+    orange = "#ee6677"
+    yellow = "#ccbb44"
+    green = "#66ccee"
+    blue = "#5391CF"
+    purple = "#D166A3"
+    black = "#bbbbbb"
 
 
 class Theme(Style):
     """
-    This style mimics the blinds light theme from vscode themes.
+    This style mimics the blinds dark theme from vscode themes.
     """
 
     default_style = ''
 
-    background_color = "#fcfcfc"
-    highlight_color = "#add6ff"
+    background_color = "#242424"
+    highlight_color = "#666666"
 
     styles = {
         Text:                      Colors.black,    # class:  ''
@@ -51,7 +51,7 @@ class Theme(Style):
         Name.Class:                Colors.orange,   # class: 'nc'
         Name.Constant:             Colors.orange,   # class: 'no'
         Name.Decorator:            Colors.yellow,   # class: 'nd'
-        Name.Entity:               Colors.blue,     # class: 'ni'
+        Name.Entity:               Colors.yellow,   # class: 'ni'
         Name.Exception:            Colors.blue,     # class: 'ne'
         Name.Function:             Colors.green,    # class: 'nf'
         Name.Property:             Colors.blue,     # class: 'py'
