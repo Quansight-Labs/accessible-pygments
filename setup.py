@@ -26,7 +26,8 @@ def get_long_description():
 
 def get_version(module='a11y_pygments'):
     """Get version."""
-    path = os.path.join(os.path.abspath(__file__), module, '__init__.py')
+    dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(dir, module, '__init__.py')
     with open(path, 'r') as f:
         data = f.read()
     lines = data.split('\n')
