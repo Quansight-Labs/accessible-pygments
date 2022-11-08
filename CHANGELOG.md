@@ -1,3 +1,82 @@
+# Version 0.0.2 ( 08-11-2022 )
+
+- Merge pull request #18 from Quansight-Labs/update-docs. [Stephannie
+  Jimenez Gacha]
+
+  Improve readme
+- Add direct links to demo page and replace the gif with static image of
+  all the current themes. [Stephannie Jimenez]
+- Merge pull request #17 from Quansight-Labs/add-creative. [Stephannie
+  Jimenez Gacha]
+
+  Add greative theme
+- Add greative to main readme. [Stephannie Jimenez]
+- Add greative theme. [Stephannie Jimenez]
+- Merge pull request #16 from Quansight-Labs/add-blinds. [Stephannie
+  Jimenez Gacha]
+
+  Add blinds themes
+- Add color theme names in main readme. [Stephannie Jimenez]
+- Add blinds dark theme. [Stephannie Jimenez]
+- Add blinds light theme. [Stephannie Jimenez]
+- Merge pull request #14 from Quansight-Labs/add-gotthard. [Stephannie
+  Jimenez Gacha]
+- Add gotthard light theme. [Stephannie Jimenez]
+- Add gotthard dark theme. [Stephannie Jimenez]
+- Center gif. [Stephannie Jimenez]
+- Upload gif with themes. [Stephannie Jimenez]
+- Update supported themes. [Stephannie Jimenez Gacha]
+- Merge pull request #11 from Quansight-Labs/add-github-hcontrast.
+  [Stephannie Jimenez Gacha]
+
+  Add github light and dark high contrast
+- Add github light high contrast theme. [Stephannie Jimenez]
+- Add github dark high contrast theme. [Stephannie Jimenez]
+- Update theme list. [Stephannie Jimenez Gacha]
+- Fix typos. [Stephannie Jimenez]
+- Merge pull request #9 from Quansight-Labs/github-light-colorblind.
+  [Stephannie Jimenez Gacha]
+
+  Add github light colorblind theme
+- Add github light colorblind theme. [Stephannie Jimenez]
+- Update current themes. [Stephannie Jimenez Gacha]
+- Merge pull request #8 from Quansight-Labs/add-github-dark-colorblind.
+  [Stephannie Jimenez Gacha]
+
+  Add github dark colorblind theme
+- Add github dark colorblind theme. [Stephannie Jimenez]
+- Merge pull request #7 from Quansight-Labs/fix-github-light.
+  [Stephannie Jimenez Gacha]
+
+  Fix github light theme
+- Update screenshot. [Stephannie Jimenez]
+- Update readme. [Stephannie Jimenez]
+- Fix github light colors. [Stephannie Jimenez]
+- Merge pull request #6 from Quansight-Labs/github-dark-theme.
+  [Stephannie Jimenez Gacha]
+
+  Add `github-dark` theme
+- Fix typo. [Stephannie Jimenez]
+- Add readme.md. [Stephannie Jimenez]
+- Add github-dark theme. [Stephannie Jimenez]
+- Merge pull request #5 from Quansight-Labs/github-light-theme.
+  [Stephannie Jimenez Gacha]
+
+  Add `github light` theme
+- Add github light theme. [Stephannie Jimenez]
+- Merge pull request #4 from Quansight-Labs/move-images. [Stephannie
+  Jimenez Gacha]
+
+  Move theme images to corresponding folder
+- Move theme images to corresponding folder. [Stephannie Jimenez]
+- Add badges. [Stephannie Jimenez]
+- Fix css loading in demo. [Stephannie Jimenez]
+- Move demo page to docs folder. [Stephannie Jimenez]
+- Update README.md installation. [Stephannie Jimenez Gacha]
+- Set development version to 0.0.2. [Stephannie Jimenez]
+- Release v0.0.1. [Stephannie Jimenez]
+- Create changelog and release instructions. [Stephannie Jimenez]
+
 # Version 0.0.1 ( 06-08-2022 )
 
 - Update contributing guide. [Stephannie Jimenez]
