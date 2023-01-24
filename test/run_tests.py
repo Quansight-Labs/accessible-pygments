@@ -37,7 +37,7 @@ for language in languages:
 
     for theme in themes:
         style = get_style_by_name(theme)
-        formatter = HtmlFormatter(style=style, full=True)
+        formatter = HtmlFormatter(style=style, full=True, hl_lines=[2,3,4])
         result = pygments_highlight(lines, lexer, formatter)
 
         theme_outdir = osp.join(outdir, theme)

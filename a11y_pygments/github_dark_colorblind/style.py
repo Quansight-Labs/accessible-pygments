@@ -22,7 +22,7 @@ class Theme(Style):
     default_style = ''
 
     background_color = "#0d1117"  # canvas.default
-    highlight_color = "#58A6FF"  # accent.fg
+    highlight_color = "#58a6ff70"  # accent.fg
 
     styles = {
         Text:                      Colors.black,    # class:  ''
