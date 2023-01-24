@@ -8,7 +8,7 @@ This is the pygments implementation of [`github light high contrast`](https://gi
 
 Background color: ![#ffffff](https://via.placeholder.com/20/ffffff/ffffff.png) `#ffffff`
 
-Highlight color: ![#0969da](https://via.placeholder.com/20/0969da/0969da.png) `#0969da`
+Highlight color: ![#0969da4a](https://via.placeholder.com/20/0969da4a/0969da4a.png) `#0969da4a`
 
 **WCAG compliance**
 
