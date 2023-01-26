@@ -23,7 +23,7 @@ class Theme(Style):
     default_style = ''
 
     background_color = "#000000"
-    highlight_color = "#333333"
+    highlight_color = "#4c4b4be8"
 
     styles = {
         Text:                      Colors.black,    # class:  ''

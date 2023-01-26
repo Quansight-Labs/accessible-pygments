@@ -8,7 +8,7 @@ This is the pygments implementation of [`gotthard dark`](https://github.com/janb
 
 Background color: ![#000000](https://via.placeholder.com/20/000000/000000.png) `#000000`
 
-Highlight color: ![#333333](https://via.placeholder.com/20/333333/333333.png) `#333333`
+Highlight color: ![#4c4b4be8](https://via.placeholder.com/20/4c4b4be8/4c4b4be8.png) `#4c4b4be8`
 
 **WCAG compliance**
 

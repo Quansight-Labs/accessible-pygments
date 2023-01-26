@@ -8,7 +8,7 @@ This is the pygments implementation of [`blinds dark`](https://github.com/orbula
 
 Background color: ![#242424](https://via.placeholder.com/20/242424/242424.png) `#242424`
 
-Highlight color: ![#666666](https://via.placeholder.com/20/666666/666666.png) `#666666`
+Highlight color: ![#66666691](https://via.placeholder.com/20/66666691/66666691.png) `#66666691`
 
 **WCAG compliance**
 

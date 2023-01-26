@@ -8,7 +8,7 @@ This is the pygments implementation of [`github dark (Default)`](https://github.
 
 Background color: ![#0d1117](https://via.placeholder.com/20/0d1117/0d1117.png) `#0d1117`
 
-Highlight color: ![#58A6FF](https://via.placeholder.com/20/58A6FF/58A6FF.png) `#58A6FF`
+Highlight color: ![#6e768182](https://via.placeholder.com/20/6e768182/6e768182.png) `#6e768182`
 
 **WCAG compliance**
 

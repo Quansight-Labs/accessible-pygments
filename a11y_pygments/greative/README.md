@@ -8,7 +8,7 @@ This is the pygments implementation of [`greative`](https://github.com/SumanKhdk
 
 Background color: ![#010726](https://via.placeholder.com/20/010726/010726.png) `#010726`
 
-Highlight color: ![#FFE792](https://via.placeholder.com/20/FFE792/FFE792.png) `#FFE792`
+Highlight color: ![#473d18](https://via.placeholder.com/20/473d18/473d18.png) `#473d18`
 
 **WCAG compliance**
 

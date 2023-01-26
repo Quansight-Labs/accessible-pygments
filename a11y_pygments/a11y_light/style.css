@@ -3,7 +3,7 @@ td.linenos .normal { color: inherit; background-color: transparent; padding-left
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
-.hll { background-color: 797129 }
+.hll { background-color: #7971292e }
 .c { color: #696969 } /* Comment */
 .err { color: #d91e18 } /* Error */
 .k { color: #7928a1 } /* Keyword */
@@ -46,7 +46,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .nt { color: #007faa } /* Name.Tag */
 .nv { color: #d91e18 } /* Name.Variable */
 .ow { color: #7928a1 } /* Operator.Word */
-.pm { color: #545454 } /* Punctuation.Marker */
 .w { color: #545454 } /* Text.Whitespace */
 .mb { color: #aa5d00 } /* Literal.Number.Bin */
 .mf { color: #aa5d00 } /* Literal.Number.Float */

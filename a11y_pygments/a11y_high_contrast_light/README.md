@@ -8,7 +8,7 @@ This is the pygments implementation of [`a11y light`](https://github.com/ericwba
 
 Background color: ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
 
-Highlight color: ![#797129](https://via.placeholder.com/20/797129/797129.png) `#797129`
+Highlight color: ![#7971292e](https://via.placeholder.com/20/7971292e/7971292e.png) `#7971292e`
 
 **WCAG compliance**
 

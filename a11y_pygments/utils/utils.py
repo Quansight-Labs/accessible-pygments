@@ -7,6 +7,7 @@ from typing import List
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
 from pygments.token import Text
+from pygments import highlight
 
 
 def find_all_themes_packages() -> List[ str ]:
@@ -33,7 +34,7 @@ def generate_css(themes: List[ str ], save_dir = ''):
     basedir = 'a11y_pygments'
     for theme in themes:
         style = get_style_by_name( theme )
-        formatter = HtmlFormatter( style=style, full=True )
+        formatter = HtmlFormatter( style=style, full=True, hl_lines=[2,3,4] )
         css = formatter.get_style_defs()
         color = style.style_for_token(Text)['color']
         css += "\n .highlight { background: %s; color: #%s; }"%(
