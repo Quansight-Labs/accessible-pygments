@@ -1,3 +1,21 @@
+# Version 0.0.3 ( 09-02-2023 )
+
+- Merge pull request #22 from Quansight-Labs/update-readme. [Stephannie
+  Jimenez Gacha]
+
+  Document accessibility features in main readme
+- Document accessibility features in main readme. [Stephannie Jimenez]
+- Merge pull request #20 from Quansight-Labs/fix-highlight. [Stephannie
+  Jimenez Gacha]
+
+  Check the highlight color and add highlighted examples to the demo page
+- Update themes readme with new colors. [Stephannie Jimenez]
+- Check the highlight color and add highlighted examples to the demo
+  page. [Stephannie Jimenez]
+- Set development version to 0.0.3. [Stephannie Jimenez]
+- Release v0.0.2. [Stephannie Jimenez]
+- Update changelog. [Stephannie Jimenez]
+
 # Version 0.0.2 ( 08-11-2022 )
 
 - Merge pull request #18 from Quansight-Labs/update-docs. [Stephannie
