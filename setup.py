@@ -53,7 +53,7 @@ setup (
 
   url='https://github.com/Quansight-Labs/accessible-pygments',
 
-  packages=find_packages(),
+  packages=find_packages(exclude=['test']),
   install_requires=[
     'pygments >= 1.5'
   ],
