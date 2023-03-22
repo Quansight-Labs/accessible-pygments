@@ -1,3 +1,15 @@
+# Version 0.0.4 ( 22-03-2023 )
+
+- Merge pull request #24 from mgorny/setup-exclude. [Tania Allard]
+
+  Exclude "test" package from being installed
+- Exclude "test" package from being installed. [Michał Górny]
+
+  Add `test` to excludes for `find_packages()`, to prevent the package
+  from wrongly installing the `test` directory into site-packages, e.g.:
+
+      /usr/lib/python3.11/site-packages/test
+
 # Version 0.0.3 ( 09-02-2023 )
 
 - Merge pull request #22 from Quansight-Labs/update-readme. [Stephannie
