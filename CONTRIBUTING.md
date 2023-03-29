@@ -45,7 +45,6 @@ python test/run_tests.py
 
 You will see the results under `test/results` in html format for each supported theme. We recommend to use your favorite browser to visualize fully visualize the result.
 
-
 ## Adding a new theme 🎨
 
 ### Where to put my new theme 👩🏼‍🎨
@@ -71,6 +70,7 @@ For adding a new theme, please create a folder with your new theme name, like `w
 You can use as a base one of our existing themes, this file needs to define a new class named `Theme` with the new colors and rules you want.
 
 ---
+
 📝 **NOTE** 📝
 
 Please try to encapsulate all the raw colors in the `Colors` enum and call them in the rules section. This will help us with maintenance 🙏.

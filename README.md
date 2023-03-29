@@ -80,7 +80,6 @@ python test/run_tests.py
 
 You will see the results under `test/results` in html format for each supported theme.
 
-
 ## Acknowledgements
 
 We want to thank the following sources for being the source of inspiration of one or more themes that are available in this repository,
