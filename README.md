@@ -14,7 +14,7 @@
     - [Installation 💻](#installation-)
     - [Using the themes directly in your code or app](#using-the-themes-directly-in-your-code-or-app)
     - [Using the themes with Sphinx documentation](#using-the-themes-with-sphinx-documentation)
-    - [Building the themes samples](#building-the-themes-samples)
+  - [Development and contribution](#development-and-contribution)
   - [Acknowledgments 🤝](#acknowledgments-)
   - [License 📑](#license-)
 
@@ -109,15 +109,9 @@ HtmlFormatter(style='a11y-light').style
 
 3. Build your documentation as usual.
 
-### Building the themes samples
+## Development and contribution
 
-From the top-level directory of the repository, run the following command:
-
-```bash
-python test/run_tests.py
-```
-
-You will see the resulting examples under `test/results` in HTML format for each supported theme.
+You can find our contribution guides on [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Acknowledgments 🤝
 

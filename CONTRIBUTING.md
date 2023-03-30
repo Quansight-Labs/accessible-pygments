@@ -2,56 +2,75 @@
 
 Welcome! And thanks for taking your time to contribute to this project 🤩
 
+- [Contributing to accessible pygments themes](#contributing-to-accessible-pygments-themes)
+  - [Submit an issue 📬](#submit-an-issue-)
+  - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
+    - [Fork this repository ⏬](#fork-this-repository-)
+    - [Install dependencies 💽](#install-dependencies-)
+    - [Run the tests 🏃🏻‍♀️ 🏃‍♂️](#run-the-tests-️-️)
+  - [Adding a new theme 🎨](#adding-a-new-theme-)
+    - [Where to add a new theme 👩🏼‍🎨](#where-to-add-a-new-theme-)
+    - [Customize your `style.py` file](#customize-your-stylepy-file)
+    - [Visualize and debug your theme](#visualize-and-debug-your-theme)
+    - [Update the `README.md` file](#update-the-readmemd-file)
+    - [Generate source `style.css` file](#generate-source-stylecss-file)
+      - [Add your theme to our static page](#add-your-theme-to-our-static-page)
+    - [Create a Pull Request](#create-a-pull-request)
+
 ## Submit an issue 📬
 
-Please share your thoughts for fixes and features in the issue tracker. Add a clear description and please provide useful environment information.
+Please share your thoughts for fixes and features in the issue tracker.
+When doing so, please a clear description and provide useful environment information.
 
 ## Creating your development environment 👩🏻‍💻 👨🏼‍💻
 
-For creating your development environment locally please be sure to have the following tools installed,
+For creating your development environment locally you will need to have the following tools installed:
 
 - 🐍 An environment manager like `conda` or `pyenv`
 - 📝 `git`
+- Python >= 3.9
 
 ### Fork this repository ⏬
 
-Fork this repository to your profile and clone it,
+Fork this repository to your profile and clone it to your local machine:
 
-```
+```bash
 git clone <LINK-TO-YOUR-FORK>
 ```
 
-Remember that this fork is a copy of the repository and any change done in it doesn't damage the original one.
+Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
 
 ### Install dependencies 💽
 
-Once you have the local clone in your machine, we need to install the dependencies. For it, first we will create a new environment,
+Once you have the local clone in your machine, you need to install the dependencies.
+You can create a new environment for this project and install the dependencies there:
 
-```
+```bash
 conda create -n a11y-pygments-dev python=3.9
 conda activate a11y-pygments-dev
 pip install -e .
 ```
 
-After running this instructions you will have an environment named `a11y-pygments-dev`, with the requirements installed and this package installed in development version.
+After running these instructions you will have an environment named `a11y-pygments-dev`, with the requirements installed and this package installed in development version.
 
 ### Run the tests 🏃🏻‍♀️ 🏃‍♂️
 
-Once the development environment is ready just run,
+Once the development environment is ready run the following command:
 
-```
+```bash
 python test/run_tests.py
 ```
 
-You will see the results under `test/results` in html format for each supported theme. We recommend to use your favorite browser to visualize fully visualize the result.
+You will see the results under `test/results` in HTML format for each supported theme.
+We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
 
-### Where to put my new theme 👩🏼‍🎨
+### Where to add a new theme 👩🏼‍🎨
 
-Our package is divided by themes, where each folder has the style of each theme, a description in markdown and the source css file.
+Our package is divided by themes, where each folder has the style of each theme, a description in Markdown and the source CSS file.
 
-```
+```text
 ├── a11y_pygments
 │   ├── a11y_dark
 │   │   ├── style.py
@@ -63,51 +82,46 @@ Our package is divided by themes, where each folder has the style of each theme,
 │   │   ├── README.md
 ```
 
-For adding a new theme, please create a folder with your new theme name, like `white-cats` and add the three files described before.
+To add a new theme, please create a folder with your new theme name, like `white-cats` and add the three files described before (so that it matches the rest of the themes).
 
-### Fill `style.py` file
+### Customize your `style.py` file
 
 You can use as a base one of our existing themes, this file needs to define a new class named `Theme` with the new colors and rules you want.
 
----
-
-📝 **NOTE** 📝
-
-Please try to encapsulate all the raw colors in the `Colors` enum and call them in the rules section. This will help us with maintenance 🙏.
-
----
+> **NOTE** 📝
+> Please try to encapsulate all the raw colors in the `Colors` `enum` and call them in the rules section. This will help us with maintenance 🙏.
 
 ### Visualize and debug your theme
 
-In order to see and debug your theme please re-install the package via,
+To see and debug your theme re-install the package via:
 
-```
+```bash
 pip install -e .
 ```
 
-Then generate the html results,
+Then generate the HTML results:
 
-```
+```bash
 python test/run_tests.py
 ```
 
-Afterwards, you will see the results of your new theme under `test/results/YOUR-THEME` in html format.
+If successful, you should be able to see the results of your new theme under `test/results/<your-theme>` in HTML format.
 
-### Fill `README.md` file
+### Update the `README.md` file
 
-Once you are happy with the colors and the rules in the style file, please fill out the readme for your new theme!
+Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
 
 The **most** important part for us, is to add a table with the contrast ratios of the colors you've chosen and their compliance to WCAG. Please use any of the current themes as a base, and use any color contrast checker to fill it out.
 
-Any acknowledgements to other repositories that you may used as base please add them as well to the main readme in the repo under the `acknowledgements` section.
+Any acknowledgements to other repositories that you may use as base please add them as well to the main [README](./README.md) in the repo under the `acknowledgements` section.
 
-Also, don't forget to add the name of your theme to our list of supported themes in the main readme.
+Also, don't forget to add the name of your theme to our list of supported themes in the main README.
 
 ### Generate source `style.css` file
 
-We have an automatic way to generate this file by,
+You can generate the CSS file automatically through:
 
-```
+```bash
 python a11y_pygments/test/run_css.py
 ```
 
@@ -115,18 +129,21 @@ The file should appear in the folder of your new theme.
 
 #### Add your theme to our static page
 
-We have a demo page where you will be able to change the style of different languages at the same time. To add your new theme please go to the file `test/index.html`. Under themes, we have a link to all of the generated css files, where you will manually add the route at the end to your new theme css,
+We have a demo page where you will be able to change the style of different languages at the same time.
+To add your new theme please go to the file `test/index.html`. Under themes, we have a link to all the generated CSS files.
 
-```
+You will have to manually add a new link to your new theme:
+
+```HTML
 ...
 <!-- themes -->
 <link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
-<link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/YOUR-THEME-HERE/style.css">
+<link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/<your-theme>/style.css">
 ...
 
 ```
 
-With this change you will be able to open `test/index.html` in your favorite browser and visualize your new theme in our demo!
+With this change you will be able to open `test/index.html` in your favorite browser and find your new theme in our demo!
 
 ### Create a Pull Request
 
