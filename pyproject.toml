@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "accessible-pygments"
+version = "0.0.4"
+description = "A collection of accessible pygments styles"
+readme = "README.md"
+license = "BSD-3-Clause"
+requires-python = ">=3.9"
+authors = [
+    { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
+]
+keywords = ["a11", "accessibility", "pygments", "WCAG", "Sphinx"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["pygments >= 1.5"]
+
+[project.entry-points."pygments.styles"]
+a11y-dark = "a11y_pygments.a11y_dark.style:Theme"
+a11y-high-contrast-dark = "a11y_pygments.a11y_high_contrast_dark.style:Theme"
+a11y-high-contrast-light = "a11y_pygments.a11y_high_contrast_light.style:Theme"
+a11y-light = "a11y_pygments.a11y_light.style:Theme"
+blinds-dark = "a11y_pygments.blinds_dark.style:Theme"
+blinds-light = "a11y_pygments.blinds_light.style:Theme"
+github-dark = "a11y_pygments.github_dark.style:Theme"
+github-dark-colorblind = "a11y_pygments.github_dark_colorblind.style:Theme"
+github-dark-high-contrast = "a11y_pygments.github_dark_high_contrast.style:Theme"
+github-light = "a11y_pygments.github_light.style:Theme"
+github-light-colorblind = "a11y_pygments.github_light_colorblind.style:Theme"
+github-light-high-contrast = "a11y_pygments.github_light_high_contrast.style:Theme"
+gotthard-dark = "a11y_pygments.gotthard_dark.style:Theme"
+gotthard-light = "a11y_pygments.gotthard_light.style:Theme"
+greative = "a11y_pygments.greative.style:Theme"
+pitaya-smoothie = "a11y_pygments.pitaya_smoothie.style:Theme"
+
+[project.urls]
+Homepage = "https://github.com/Quansight-Labs/accessible-pygments"
+
+[tool.hatch.version]
+path = "a11y_pygments/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["/a11y_pygments"]
+
+[tool.hatch.envs.dev.scripts]
+render_html = "python test/run_tests.py"
+css = "python test/run_css.py"
+
+# testing environment and tasks
+[tool.hatch.envs.test]
+dependencies = ["hypothesis", "pytest"]
+
+[tool.hatch.envs.test.scripts]
+tests = "python -m pytest test/test_*.py"
