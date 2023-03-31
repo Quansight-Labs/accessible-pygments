@@ -1,5 +1,5 @@
 import os
-import os.path as osp
+from pathlib import Path
 from typing import List
 
 from pygments.formatters import HtmlFormatter
@@ -35,18 +35,17 @@ def generate_css(themes: List[str], save_dir=""):
         formatter = HtmlFormatter(style=style, full=True, hl_lines=[2, 3, 4])
         css = formatter.get_style_defs()
         color = style.style_for_token(Text)["color"]
-        css += "\n .highlight { background: %s; color: #%s; }" % (
-            style.background_color,
-            color,
+        css += (
+            f"\n.highlight {{ background: {style.background_color}; color: #{color}; }}"
         )
         package = theme.replace("-", "_")
-        out = osp.join(basedir, package, "style.css")
+        out = Path(basedir) / package / "style.css"
         with open(out, "w") as f:
             f.write(css)
 
         if save_dir:
-            if not osp.exists(osp.join(save_dir, "css")):
-                os.mkdir(osp.join(save_dir, "css"))
-            out = osp.join(save_dir, "css", package + "-style.css")
+            if not Path(save_dir).joinpath("css").exists():
+                os.mkdir(Path(save_dir).joinpath("css"))
+            out = Path(save_dir).joinpath("css", f"{package}-style.css")
             with open(out, "w") as f:
                 f.write(css)
