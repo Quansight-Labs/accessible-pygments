@@ -1,5 +1,9 @@
+"""
+    isort:skip_file
+"""
+
 import package
-from package import (Class1, Class2, func_1, func_2)
+from package import Class1, Class2, func_1, func_2
 from package3 import *
 
 
