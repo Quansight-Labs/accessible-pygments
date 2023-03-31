@@ -21,24 +21,31 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 
 Please share your thoughts for fixes and features in the issue tracker.
 When doing so, please a clear description and provide useful environment information.
+Please share your thoughts for fixes and features in the issue tracker. Add a clear description, and please provide useful environment information.
 
-## Creating your development environment 👩🏻‍💻 👨🏼‍💻
+## Contributing to this package
 
 For creating your development environment locally you will need to have the following tools installed:
+
+### Prerequisites 📦
 
 - 🐍 An environment manager like `conda` or `pyenv`
 - 📝 `git`
 - Python >= 3.9
+  You will need to have the following installed locally:
 
-### Fork this repository ⏬
+- `git`
+- Python >= 3.9
+- [hatch](https://hatch.pypa.io/)
 
-Fork this repository to your profile and clone it to your local machine:
+### Creating your development environment 👩🏻‍💻 👨🏼‍💻
 
-```bash
-git clone <LINK-TO-YOUR-FORK>
-```
+1. Fork this repository to your GitHub account, and clone it to your local machine:
 
 Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
+`bash git clone <LINK-TO-YOUR-FORK> `
+
+Remember that this fork is a copy of the repository and any change done in it doesn't damage the original one.
 
 ### Install dependencies 💽
 

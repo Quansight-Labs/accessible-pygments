@@ -1,6 +1,6 @@
 # Release
 
-Please follow the instructions to make a new release of the accessibility pygments package.
+Please follow the instructions to make a new release of the `accessible pygments` package.
 
 - `git fetch && git pull`
 - `git clean -xdfi`
