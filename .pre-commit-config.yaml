@@ -27,12 +27,13 @@ repos:
     rev: 23.1.0
     hooks:
       - id: black
+        exclude: ^test/scripts/
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.0.254
     hooks:
       - id: ruff
-        args: ["--fix"]
+        args: ["--fix", "--exclude", "test/scripts/*.py"]
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
