@@ -4,9 +4,9 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 
 - [Contributing to accessible pygments themes](#contributing-to-accessible-pygments-themes)
   - [Submit an issue 📬](#submit-an-issue-)
-  - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
-    - [Fork this repository ⏬](#fork-this-repository-)
-    - [Install dependencies 💽](#install-dependencies-)
+  - [Contributing to this package](#contributing-to-this-package)
+    - [Prerequisites 📦](#prerequisites-)
+    - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
     - [Run the tests 🏃🏻‍♀️ 🏃‍♂️](#run-the-tests-️-️)
   - [Adding a new theme 🎨](#adding-a-new-theme-)
     - [Where to add a new theme 👩🏼‍🎨](#where-to-add-a-new-theme-)
@@ -29,10 +29,7 @@ For creating your development environment locally you will need to have the foll
 
 ### Prerequisites 📦
 
-- 🐍 An environment manager like `conda` or `pyenv`
-- 📝 `git`
-- Python >= 3.9
-  You will need to have the following installed locally:
+You will need to have the following installed locally:
 
 - `git`
 - Python >= 3.9
@@ -40,25 +37,36 @@ For creating your development environment locally you will need to have the foll
 
 ### Creating your development environment 👩🏻‍💻 👨🏼‍💻
 
-1. Fork this repository to your GitHub account, and clone it to your local machine:
+1. Fork this repository to your GitHub account, then clone it to your local machine:
 
-Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
-`bash git clone <LINK-TO-YOUR-FORK> `
+   ```bash
+    git clone <LINK-TO-YOUR-FORK>
+   ```
 
-Remember that this fork is a copy of the repository and any change done in it doesn't damage the original one.
+   Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
 
-### Install dependencies 💽
+2. From here you can create your local environments with hatch:
 
-Once you have the local clone in your machine, you need to install the dependencies.
-You can create a new environment for this project and install the dependencies there:
+   ```bash
+       hatch env create
+   ```
 
-```bash
-conda create -n a11y-pygments-dev python=3.9
-conda activate a11y-pygments-dev
-pip install -e .
-```
+3. You can verify that the environment was created successfully by running:
 
-After running these instructions you will have an environment named `a11y-pygments-dev`, with the requirements installed and this package installed in development version.
+   ```console
+    $ hatch env show
+   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts     ┃
+   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+   │ default │ virtual │              │             │
+   ├─────────┼─────────┼──────────────┼─────────────┤
+   │ dev     │ virtual │              │ css         │
+   │         │         │              │ render_html │
+   ├─────────┼─────────┼──────────────┼─────────────┤
+   │ test    │ virtual │ hypothesis   │ tests       │
+   │         │         │ pytest       │             │
+   └─────────┴─────────┴──────────────┴─────────────┘
+   ```
 
 ### Run the tests 🏃🏻‍♀️ 🏃‍♂️
 
@@ -96,7 +104,8 @@ To add a new theme, please create a folder with your new theme name, like `white
 You can use as a base one of our existing themes, this file needs to define a new class named `Theme` with the new colors and rules you want.
 
 > **NOTE** 📝
-> Please try to encapsulate all the raw colors in the `Colors` `enum` and call them in the rules section. This will help us with maintenance 🙏.
+> Please try to encapsulate all the raw colors in the `Colors` `enum` and call them in the rules section.
+> This will help us with maintenance 🙏.
 
 ### Visualize and debug your theme
 
