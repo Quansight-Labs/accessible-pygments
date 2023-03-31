@@ -3,6 +3,7 @@
 - Merge pull request #24 from mgorny/setup-exclude. [Tania Allard]
 
   Exclude "test" package from being installed
+
 - Exclude "test" package from being installed. [Michał Górny]
 
   Add `test` to excludes for `find_packages()`, to prevent the package
@@ -16,11 +17,13 @@
   Jimenez Gacha]
 
   Document accessibility features in main readme
+
 - Document accessibility features in main readme. [Stephannie Jimenez]
 - Merge pull request #20 from Quansight-Labs/fix-highlight. [Stephannie
   Jimenez Gacha]
 
   Check the highlight color and add highlighted examples to the demo page
+
 - Update themes readme with new colors. [Stephannie Jimenez]
 - Check the highlight color and add highlighted examples to the demo
   page. [Stephannie Jimenez]
@@ -34,18 +37,21 @@
   Jimenez Gacha]
 
   Improve readme
+
 - Add direct links to demo page and replace the gif with static image of
   all the current themes. [Stephannie Jimenez]
 - Merge pull request #17 from Quansight-Labs/add-creative. [Stephannie
   Jimenez Gacha]
 
   Add greative theme
+
 - Add greative to main readme. [Stephannie Jimenez]
 - Add greative theme. [Stephannie Jimenez]
 - Merge pull request #16 from Quansight-Labs/add-blinds. [Stephannie
   Jimenez Gacha]
 
   Add blinds themes
+
 - Add color theme names in main readme. [Stephannie Jimenez]
 - Add blinds dark theme. [Stephannie Jimenez]
 - Add blinds light theme. [Stephannie Jimenez]
@@ -60,6 +66,7 @@
   [Stephannie Jimenez Gacha]
 
   Add github light and dark high contrast
+
 - Add github light high contrast theme. [Stephannie Jimenez]
 - Add github dark high contrast theme. [Stephannie Jimenez]
 - Update theme list. [Stephannie Jimenez Gacha]
@@ -68,17 +75,20 @@
   [Stephannie Jimenez Gacha]
 
   Add github light colorblind theme
+
 - Add github light colorblind theme. [Stephannie Jimenez]
 - Update current themes. [Stephannie Jimenez Gacha]
 - Merge pull request #8 from Quansight-Labs/add-github-dark-colorblind.
   [Stephannie Jimenez Gacha]
 
   Add github dark colorblind theme
+
 - Add github dark colorblind theme. [Stephannie Jimenez]
 - Merge pull request #7 from Quansight-Labs/fix-github-light.
   [Stephannie Jimenez Gacha]
 
   Fix github light theme
+
 - Update screenshot. [Stephannie Jimenez]
 - Update readme. [Stephannie Jimenez]
 - Fix github light colors. [Stephannie Jimenez]
@@ -86,6 +96,7 @@
   [Stephannie Jimenez Gacha]
 
   Add `github-dark` theme
+
 - Fix typo. [Stephannie Jimenez]
 - Add readme.md. [Stephannie Jimenez]
 - Add github-dark theme. [Stephannie Jimenez]
@@ -93,11 +104,13 @@
   [Stephannie Jimenez Gacha]
 
   Add `github light` theme
+
 - Add github light theme. [Stephannie Jimenez]
 - Merge pull request #4 from Quansight-Labs/move-images. [Stephannie
   Jimenez Gacha]
 
   Move theme images to corresponding folder
+
 - Move theme images to corresponding folder. [Stephannie Jimenez]
 - Add badges. [Stephannie Jimenez]
 - Fix css loading in demo. [Stephannie Jimenez]
