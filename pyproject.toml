@@ -62,6 +62,11 @@ content-type = "text/markdown"
 [[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
 path = "README.md"
 
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+# Literal TOML strings (single quotes) need no escaping of backslashes.
+pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
+replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/main/\g<2>)'
+
 [tool.hatch.version]
 path = "a11y_pygments/__init__.py"
 

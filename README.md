@@ -111,18 +111,18 @@ HtmlFormatter(style='a11y-light').style
 
 ## Development and contribution
 
-You can find our contribution guides on [CONTRIBUTING.md](./CONTRIBUTING.md).
+You can find our contribution guides on [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Acknowledgments 🤝
 
 We want to thank the following sources for being the source of inspiration for one or more themes that are available in this repository,
 
 - [a11y dark and light syntax highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting).
-- [pitaya smoothie vscode theme](https://github.com/trallard/pitaya_smoothie).
-- [github vscode themes](https://github.com/primer/github-vscode-theme).
-- [gotthard vscode themes](https://github.com/janbiasi/vscode-gotthard-theme/).
-- [blinds vscode themes](https://github.com/orbulant/blinds-theme).
-- [greative vscode theme](https://github.com/SumanKhdka/Greative-VSCode-Theme).
+- [pitaya smoothie VSCode theme](https://github.com/trallard/pitaya_smoothie).
+- [github VSCode themes](https://github.com/primer/github-vscode-theme).
+- [gotthard VSCode themes](https://github.com/janbiasi/vscode-gotthard-theme/).
+- [blinds VSCode themes](https://github.com/orbulant/blinds-theme).
+- [greative VSCode theme](https://github.com/SumanKhdka/Greative-vscode-Theme).
 
 ## License 📑
 

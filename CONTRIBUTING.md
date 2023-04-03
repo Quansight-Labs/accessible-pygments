@@ -161,6 +161,12 @@ You will have to manually add a new link to your new theme:
 
 With this change you will be able to open `test/index.html` in your favorite browser and find your new theme in our demo!
 
+To check the Readme output:
+
+```bash
+pipx run hatch-fancy-pypi-readme | pipx run rich-cli --markdown --hyperlinks -
+```
+
 ### Create a Pull Request
 
 Once you have the folder with the described files, please open a Pull Request 👏🏻
