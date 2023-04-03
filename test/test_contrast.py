@@ -1,6 +1,6 @@
+import pytest
 from hypothesis import given
 from hypothesis.strategies import floats, tuples
-import pytest
 
 from a11y_pygments.utils import wcag_contrast as wcag
 
