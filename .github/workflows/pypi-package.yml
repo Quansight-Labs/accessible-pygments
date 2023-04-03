@@ -12,6 +12,7 @@ on:
     release:
         types:
         - published
+    workflow_dispatch:
 
 env:
     FORCE_COLOR: "1" # Make tools pretty.
@@ -32,6 +33,8 @@ jobs:
                 fetch-depth: 0
 
             - uses: hynek/build-and-inspect-python-package@v1
+              with:
+                path: a11y_pygments
 
     # Upload to Test PyPI on every commit on main.
     release-test-pypi:
