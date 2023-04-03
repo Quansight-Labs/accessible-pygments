@@ -66,11 +66,11 @@ replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/m
 source = "vcs"
 
 [tool.hatch.build.targets.sdist]
-include = ["/a11y_pygments"]
+include = ["a11y_pygments"]
 
 [tool.hatch.build.targets.wheel]
-only-include = ["a11y_pygments"]
-sources = ["a11y_pygments"]
+packages = ["a11y_pygments"]
+exclude = ["/.github", "/test", "/docs"]
 
 [tool.hatch.envs.dev.scripts]
 render_html = "python test/run_tests.py"
