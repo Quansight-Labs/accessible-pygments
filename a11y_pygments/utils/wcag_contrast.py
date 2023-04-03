@@ -1,8 +1,8 @@
 # Methods to calculate WCAG contrast ratio and check if it passes AA or AAA
 # https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
 
-from typing import Tuple, Union
 import re
+from typing import Tuple, Union
 
 
 def hex_to_rgb(hex: int) -> Tuple[int, int, int]:
