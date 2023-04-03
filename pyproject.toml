@@ -1,12 +1,11 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
 build-backend = "hatchling.build"
 
 [project]
 name = "accessible-pygments"
 version = "0.0.4"
 description = "A collection of accessible pygments styles"
-readme = "README.md"
 license = "BSD-3-Clause"
 requires-python = ">=3.9"
 authors = [
@@ -25,9 +24,11 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Development Status :: 3 - Alpha",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pygments >= 1.5"]
+dynamic = ["readme"]
 
 [project.entry-points."pygments.styles"]
 a11y-dark = "a11y_pygments.a11y_dark.style:Theme"
@@ -49,6 +50,17 @@ pitaya-smoothie = "a11y_pygments.pitaya_smoothie.style:Theme"
 
 [project.urls]
 Homepage = "https://github.com/Quansight-Labs/accessible-pygments"
+"Bug Reports" = "https://github.com/Quansight-Labs/accessible-pygments/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["a11y_pygments"]
+exclude = ["/.github", "/test", "/docs"]
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
 
 [tool.hatch.version]
 path = "a11y_pygments/__init__.py"
@@ -66,3 +78,6 @@ dependencies = ["hypothesis", "pytest"]
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"
+
+[tool.isort]
+profile = "black"
