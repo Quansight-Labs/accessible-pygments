@@ -1,10 +1,9 @@
 [build-system]
-requires = ["hatchling", "hatch-fancy-pypi-readme"]
+requires = ["hatchling", "hatch-fancy-pypi-readme", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
 name = "accessible-pygments"
-version = "0.0.4"
 description = "A collection of accessible pygments styles"
 license = { text = "BSD-3-Clause" }
 requires-python = ">=3.9"
@@ -28,7 +27,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["pygments >= 1.5"]
-dynamic = ["readme"]
+dynamic = ["version", "readme"]
 
 [project.entry-points."pygments.styles"]
 a11y-dark = "a11y_pygments.a11y_dark.style:Theme"
@@ -64,7 +63,7 @@ pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
 replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/main/\g<2>)'
 
 [tool.hatch.version]
-path = "a11y_pygments/__init__.py"
+source = "vcs"
 
 [tool.hatch.build.targets.sdist]
 include = ["/a11y_pygments"]
@@ -77,9 +76,9 @@ sources = ["a11y_pygments"]
 render_html = "python test/run_tests.py"
 css = "python test/run_css.py"
 
-# testing environment and tasks
-[tool.hatch.envs.test]
-dependencies = ["hypothesis", "pytest"]
+[project.optional-dependencies]
+tests = ["hypothesis", "pytest"]
+dev = ["pre-commit"]
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"

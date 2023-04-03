@@ -13,6 +13,9 @@ on:
         types:
         - published
 
+env:
+    FORCE_COLOR: "1" # Make tools pretty.
+
 permissions:
     contents: read
 
