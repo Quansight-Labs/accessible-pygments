@@ -68,6 +68,16 @@ You will need to have the following installed locally:
    └─────────┴─────────┴──────────────┴─────────────┘
    ```
 
+Alternatively you can use conda to create your environment:
+
+```bash
+conda create -n a11y-pygments-dev python=3.9
+conda activate a11y-pygments-dev
+pip install -e .
+```
+
+After running these instructions you will have an environment named `a11y-pygments-dev`, with a development version of the package installed.
+
 ### Running the tests
 
 You can run the tests directly with hatch:
