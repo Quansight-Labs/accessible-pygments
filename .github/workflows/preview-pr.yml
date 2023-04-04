@@ -9,6 +9,8 @@ on:
             - main
 
 concurrency: preview-${{ github.ref }}
+env:
+    FORCE_COLOR: "1"
 
 jobs:
   deploy-preview:
@@ -17,12 +19,18 @@ jobs:
     - name: Checkout repository 🛎
       uses: actions/checkout@v3
 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
     - name: Install dependencies 📦
       run: |
-        pipx install hatch
+        pip install hatch
 
     - name: Build the demo pages 📚
       run: |
+        hatch version
         hatch run dev:create_css
 
     - name: Deploy PR Preview
