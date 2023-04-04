@@ -13,23 +13,23 @@
   - [Documentation 📖](#documentation-)
     - [Installation 💻](#installation-)
     - [Using the themes directly in your code or app](#using-the-themes-directly-in-your-code-or-app)
-    - [Using the themes with Sphinx documentation](#using-the-themes-with-sphinx-documentation)
+    - [Using the themes in your Sphinx documentation](#using-the-themes-in-your-sphinx-documentation)
   - [Development and contribution](#development-and-contribution)
   - [Acknowledgments 🤝](#acknowledgments-)
   - [License 📑](#license-)
 
 This package includes a collection of accessible themes for pygments based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
 
-![Screenshot of all light themes side by side](./docs/light_themes.png)
+![Display of all the light themes side by side](./docs/light_themes.png)
 
-![Screenshot of all dark themes side by side](./docs/dark_themes.png)
+![Display of all dark themes side by side](./docs/dark_themes.png)
 
 :sparkles: For a demo of all our themes please [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) :sparkles:
 
 ## Accessibility details ♿️
 
 > **Note**
-> What we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+> What do we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 > Some themes included are also color-blind friendly.
 
 ### WCAG 2.1 - AAA compliant
@@ -66,6 +66,9 @@ The following themes are AA compliant with [WCAG 2.1 criteria for color contrast
 
 ```bash
 conda install -c conda-forge accessible-pygments
+
+# if you prefer using mambga
+mamba install -c conda-forge accessible-pygments
 ```
 
 ```bash
@@ -92,7 +95,7 @@ HtmlFormatter(style='a11y-light').style
 <class 'accessible-pygments.A11yLight'>
 ```
 
-### Using the themes with Sphinx documentation
+### Using the themes in your Sphinx documentation
 
 1. You will need to add `accessible-pygments` as a dependency to your documentation:
 

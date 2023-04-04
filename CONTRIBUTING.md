@@ -5,9 +5,10 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 - [Contributing to accessible pygments themes](#contributing-to-accessible-pygments-themes)
   - [Submit an issue 📬](#submit-an-issue-)
   - [Contributing to this package](#contributing-to-this-package)
-    - [Prerequisites 📦](#prerequisites-)
+    - [Pre-requisites 📦](#pre-requisites-)
     - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
-    - [Run the tests 🏃🏻‍♀️ 🏃‍♂️](#run-the-tests-️-️)
+    - [Running the tests](#running-the-tests)
+    - [Rendering the HTML examples](#rendering-the-html-examples)
   - [Adding a new theme 🎨](#adding-a-new-theme-)
     - [Where to add a new theme 👩🏼‍🎨](#where-to-add-a-new-theme-)
     - [Customize your `style.py` file](#customize-your-stylepy-file)
@@ -21,13 +22,12 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 
 Please share your thoughts for fixes and features in the issue tracker.
 When doing so, please a clear description and provide useful environment information.
-Please share your thoughts for fixes and features in the issue tracker. Add a clear description, and please provide useful environment information.
+Please share your thoughts for fixes and features [in the issue tracker](https://github.com/Quansight-Labs/accessible-pygments/issues).
+When doing so, add a clear description, and please provide as much information as possible about your environment.
 
 ## Contributing to this package
 
-For creating your development environment locally you will need to have the following tools installed:
-
-### Prerequisites 📦
+### Pre-requisites 📦
 
 You will need to have the following installed locally:
 
@@ -40,7 +40,7 @@ You will need to have the following installed locally:
 1. Fork this repository to your GitHub account, then clone it to your local machine:
 
    ```bash
-    git clone <LINK-TO-YOUR-FORK>
+    git clone https://github.com/<your-username>/accessible-pygments.git
    ```
 
    Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
@@ -48,7 +48,7 @@ You will need to have the following installed locally:
 2. From here you can create your local environments with hatch:
 
    ```bash
-       hatch env create
+    hatch env create
    ```
 
 3. You can verify that the environment was created successfully by running:
@@ -68,13 +68,15 @@ You will need to have the following installed locally:
    └─────────┴─────────┴──────────────┴─────────────┘
    ```
 
-### Run the tests 🏃🏻‍♀️ 🏃‍♂️
+### Running the tests
 
-Once the development environment is ready run the following command:
+You can run the tests directly with hatch:
 
 ```bash
-python test/run_tests.py
+hatch run test:tests
 ```
+
+### Rendering the HTML examples
 
 You will see the results under `test/results` in HTML format for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
