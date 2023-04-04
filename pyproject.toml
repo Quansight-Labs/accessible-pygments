@@ -11,7 +11,7 @@ authors = [
     { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
     { name = "Tania Allard", email = "trallard@bitsandchips.me" },
 ]
-keywords = ["a11", "accessibility", "pygments", "WCAG", "Sphinx"]
+keywords = ["a11y", "accessibility", "pygments", "WCAG", "Sphinx"]
 classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
