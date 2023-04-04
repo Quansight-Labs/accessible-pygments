@@ -51,8 +51,6 @@ def generate_css(themes: List[str], save_dir=""):
         )
         package = theme.replace("-", "_")
         out = Path(basedir) / package / "style.css"
-        # with open(out, "w") as f:
-        #     f.write(css)
 
         if save_dir:
             if not Path(save_dir).joinpath("css").exists():
