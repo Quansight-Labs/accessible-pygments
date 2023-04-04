@@ -1,4 +1,12 @@
-from a11y_pygments.utils.utils import find_all_themes, generate_css
+"""
+Script to generate the css files for the themes in accessible-pygments.
 
-themes = find_all_themes()
-generate_css(themes)
+Usage::
+
+    python test/run_css.py
+"""
+from a11y_pygments.utils.utils import generate_css, get_themes_names
+
+if __name__ == "__main__":
+    themes = get_themes_names()
+    generate_css(themes)
