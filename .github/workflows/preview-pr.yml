@@ -38,4 +38,5 @@ jobs:
     - name: Deploy PR Preview
       uses: rossjrw/pr-preview-action@v1.2.0
       with:
-        source-dir: ./docs
+        source-dir: docs
+        preview-branch: main
