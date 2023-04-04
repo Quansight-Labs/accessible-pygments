@@ -9,6 +9,7 @@ license = { text = "BSD-3-Clause" }
 requires-python = ">=3.9"
 authors = [
     { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
+    { name = "Tania Allard", email = "trallard@bitsandchips.me" },
 ]
 keywords = ["a11", "accessibility", "pygments", "WCAG", "Sphinx"]
 classifiers = [
@@ -76,7 +77,7 @@ wheel = { packages = ["a11y_pygments"] }
 [tool.hatch.envs.dev.scripts]
 render_html = "python test/render_html.py"
 create_css = "python test/run_css.py"
-create_docs = "python test/run_css.py --save-dir docs/css"
+create_docs = "python test/run_css.py --save-dir docs"
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"

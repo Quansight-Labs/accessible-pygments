@@ -14,7 +14,7 @@ from a11y_pygments.utils.utils import generate_css, get_themes_names
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--save_dir", type=str, default="", help="Directory to save the css files"
+        "--save-dir", type=str, default="", help="Directory to save the css files"
     )
     args = parser.parse_args()
 

@@ -1,5 +1,5 @@
 """
-Script to create the HTML samples for all the themes in accessible-pygments.
+Script to create individual HTML samples for each of the themes in accessible-pygments.
 
 Usage::
 

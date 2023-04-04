@@ -50,12 +50,14 @@ def generate_css(themes: List[str], save_dir=""):
             f"\n.highlight {{ background: {style.background_color}; color: #{color}; }}"
         )
         package = theme.replace("-", "_")
-        out = Path(basedir) / package / "style.css"
 
         if save_dir:
             if not Path(save_dir).joinpath("css").exists():
                 os.mkdir(Path(save_dir).joinpath("css"))
-            out = Path(save_dir) / package / "style.css"
+            if "docs" in save_dir:
+                out = Path(save_dir).joinpath("css", f"{package}-style.css")
+            else:
+                out = Path(save_dir) / package / "style.css"
         else:
             out = Path(basedir) / package / "style.css"
 
