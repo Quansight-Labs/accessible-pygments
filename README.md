@@ -62,7 +62,9 @@ The following themes are AA compliant with [WCAG 2.1 criteria for color contrast
 
 ### Installation 💻
 
-`accessible-pygments` is available through pip and Conda. You can install it using:
+`accessible-pygments` is available through pip and conda.
+
+You can install it through the following commands:
 
 ```bash
 conda install -c conda-forge accessible-pygments

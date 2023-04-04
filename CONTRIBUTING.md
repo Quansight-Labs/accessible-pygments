@@ -43,7 +43,7 @@ You will need to have the following installed locally:
     git clone https://github.com/<your-username>/accessible-pygments.git
    ```
 
-   Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
+   Remember that this fork is a copy of the repository and any changes in it doesn't affect the original one.
 
 2. From here you can create your local environments with hatch:
 
@@ -78,7 +78,13 @@ hatch run test:tests
 
 ### Rendering the HTML examples
 
-You will see the results under `test/results` in HTML format for each supported theme.
+You can generate individual HTML files for each of the themes included in `accessible_pygments` by running:
+
+```bash
+hatch run dev:render_html
+```
+
+This will add the HTML files under `test/results` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
@@ -111,19 +117,13 @@ You can use as a base one of our existing themes, this file needs to define a ne
 
 ### Visualize and debug your theme
 
-To see and debug your theme re-install the package via:
+While working on your theme, it might be helpful to generate the individual HTML files with the following command:
 
 ```bash
-pip install -e .
+hatch dev:render_html
 ```
 
-Then generate the HTML results:
-
-```bash
-python test/run_tests.py
-```
-
-If successful, you should be able to see the results of your new theme under `test/results/<your-theme>` in HTML format.
+If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
 
 ### Update the `README.md` file
 
@@ -140,17 +140,18 @@ Also, don't forget to add the name of your theme to our list of supported themes
 You can generate the CSS file automatically through:
 
 ```bash
-python a11y_pygments/test/run_css.py
+hatch dev:create_css
 ```
 
-The file should appear in the folder of your new theme.
+This will add the CSS file under `a11y_pygments/<your-theme>/style.css` and in the `docs` directory.
 
 #### Add your theme to our static page
 
 We have a demo page where you will be able to change the style of different languages at the same time.
-To add your new theme please go to the file `test/index.html`. Under themes, we have a link to all the generated CSS files.
+To add your new theme:
 
-You will have to manually add a new link to your new theme:
+1. Open the `[docs/index.html](docs/index.html)` file.
+2. Add a new link to your new theme in the `themes` section:
 
 ```HTML
 ...
@@ -161,14 +162,8 @@ You will have to manually add a new link to your new theme:
 
 ```
 
-With this change you will be able to open `test/index.html` in your favorite browser and find your new theme in our demo!
-
-To check the Readme output:
-
-```bash
-pipx run hatch-fancy-pypi-readme | pipx run rich-cli --markdown --hyperlinks -
-```
+With this change you will be able to open `docs/index.html` in your favorite browser and find your new theme in our demo!
 
 ### Create a Pull Request
 
-Once you have the folder with the described files, please open a Pull Request 👏🏻
+Once you have added and verified your theme you should be ready to open a Pull Request 👏🏻

@@ -5,7 +5,6 @@ Usage::
 
     python test/render_html.py
 """
-
 import os
 from pathlib import Path
 
