@@ -35,7 +35,6 @@ repos:
     rev: v0.0.254
     hooks:
       - id: ruff
-        args: ["--fix", "--exclude", "test/scripts/*.py"]
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
