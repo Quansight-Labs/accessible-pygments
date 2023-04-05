@@ -1,3 +1,6 @@
+# Copyright (c) Quansight Labs.
+# Distributed under the terms of the Modified BSD License.
+
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -28,7 +31,7 @@ class Colors:
 
 class Theme(Style):
     """
-    This style mimics the a11 light theme from eric bailey's accessible themes.
+    This style mimics the a11y high contrast light theme from eric bailey's accessible themes.
     """
 
     default_style = ""
