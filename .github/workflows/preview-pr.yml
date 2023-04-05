@@ -47,6 +47,17 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
+      pages: write
+      id-token: write
+
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
     - name: Checkout repository 🛎
       uses: actions/checkout@v3
@@ -65,8 +76,13 @@ jobs:
       run: |
         python test/run_css.py --save-dir docs
 
-    - name: Deploy to GitHub Pages 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
+    - name: Setup Pages 🛠
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact 📥
+      uses: actions/upload-pages-artifact@v1
       with:
-        branch: gh-pages
-        folder: docs
+        path: "docs"
+    - name: Deploy to GitHub Pages 🚀
+      id: deployment
+      uses: actions/deploy-pages@v2
