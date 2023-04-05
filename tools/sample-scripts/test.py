@@ -1,3 +1,6 @@
+# Copyright (c) Quansight Labs.
+# Distributed under the terms of the Modified BSD License.
+
 """
     isort:skip_file
 """

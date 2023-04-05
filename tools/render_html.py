@@ -1,9 +1,12 @@
+# Copyright (c) Quansight Labs.
+# Distributed under the terms of the Modified BSD License.
+
 """
 Script to create individual HTML samples for each of the themes in accessible-pygments.
 
 Usage::
 
-    python test/render_html.py
+    python tools/render_html.py
 """
 import os
 from pathlib import Path

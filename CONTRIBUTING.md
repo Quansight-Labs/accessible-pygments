@@ -105,7 +105,7 @@ You can generate individual HTML files for each of the themes included in `acces
 hatch run dev:render_html
 ```
 
-This will add the HTML files under `test/results` for each supported theme.
+This will add the HTML files under `tools/results` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
@@ -150,7 +150,7 @@ To do so you can use the following command:
 hatch dev:render_html
 ```
 
-If successful, you should be able to see the results of your new theme under `test/html-files/<your-theme>`.
+If successful, you should be able to see the results of your new theme under `tools/html-files/<your-theme>`.
 
 ### 4. Update the `README.md` file for your theme
 

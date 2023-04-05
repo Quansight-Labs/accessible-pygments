@@ -1,9 +1,14 @@
+# Copyright (c) Quansight Labs.
+# Distributed under the terms of the Modified BSD License.
+
 """
 Script to generate the css files for the themes in accessible-pygments.
 
 Usage::
 
-    python test/run_css.py
+    python tools/run_css.py
+    python tools/run_css.py --save-file <output directory>
+
 """
 import argparse
 import logging

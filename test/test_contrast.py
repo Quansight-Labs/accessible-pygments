@@ -1,3 +1,6 @@
+# Copyright (c) Quansight Labs.
+# Distributed under the terms of the Modified BSD License.
+
 import pytest
 from hypothesis import given
 from hypothesis.strategies import floats, tuples
