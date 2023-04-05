@@ -25,9 +25,12 @@ languages = {
     "markdown": "md",
 }
 
-# Setting directories
+# Top-level package directory
 pkg_dir = Path(__file__).parent.parent
+# Output directory for the HTML files
 outdir = pkg_dir / "test" / "results"
+# Language sample scripts
+samples_dir = pkg_dir / "tools" / "sample-scripts"
 
 
 def render_html(themes: list, languages=languages, outdir=outdir):
@@ -46,9 +49,9 @@ def render_html(themes: list, languages=languages, outdir=outdir):
 
     for language in languages:
         ext = languages[language]
-        name = pkg_dir / "test" / "scripts" / f"test.{ext}"
+        file_name = samples_dir / f"test.{ext}"
 
-        with open(name, "r") as f:
+        with open(file_name, "r") as f:
             lines = f.read()
 
         lexer = get_lexer_by_name(language, stripall=True)
@@ -63,8 +66,8 @@ def render_html(themes: list, languages=languages, outdir=outdir):
             if not theme_outdir.exists():
                 os.mkdir(theme_outdir)
 
-            out = theme_outdir / f"{ext}.html"
-            with open(out, "w") as f:
+            out_file = theme_outdir / f"{ext}.html"
+            with open(out_file, "w") as f:
                 f.write(result)
 
 

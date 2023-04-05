@@ -87,7 +87,7 @@ skip_gitignore = true
 
 [tool.ruff]
 fix = true
-exclude = ["test/scripts/*.py"]
+exclude = ["tools/sample-scripts/*.py"]
 ignore = [
     "E501"
     # line too long | Black takes care of this
