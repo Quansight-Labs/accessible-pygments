@@ -26,8 +26,8 @@ languages = {
 }
 
 # Setting directories
-HERE = Path(__file__).parent
-outdir = HERE / "results"
+pkg_dir = Path(__file__).parent.parent
+outdir = pkg_dir / "test" / "results"
 
 
 def render_html(themes: list, languages=languages, outdir=outdir):
@@ -46,7 +46,7 @@ def render_html(themes: list, languages=languages, outdir=outdir):
 
     for language in languages:
         ext = languages[language]
-        name = HERE / "scripts" / f"test.{ext}"
+        name = pkg_dir / "test" / "scripts" / f"test.{ext}"
 
         with open(name, "r") as f:
             lines = f.read()
