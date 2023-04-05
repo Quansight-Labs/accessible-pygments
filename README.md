@@ -1,10 +1,10 @@
 # Accessible pygments themes
 
-[![conda version](https://img.shields.io/conda/vn/conda-forge/accessible-pygments?color=e27e8c&style=for-the-badge)](https://anaconda.org/conda-forge/accessible-pygments)
-[![pip version](https://img.shields.io/pypi/v/accessible-pygments?color=63a6c8&style=for-the-badge)](https://pypi.org/project/accessible-pygments/)
-[![conda-forge downloads](https://img.shields.io/conda/dn/conda-forge/accessible-pygments?label=conda-forge%20downloads&style=for-the-badge)](https://anaconda.org/conda-forge/accessible-pygments)
-[![pip downloads](https://img.shields.io/pypi/dm/accessible-pygments?color=%23acc00d&label=PyPI%20downloads&style=for-the-badge)](https://pypi.org/project/accessible-pygments/)
-[![demo](https://img.shields.io/badge/Demo-Click%20me!-blueviolet?style=for-the-badge)](https://quansight-labs.github.io/accessible-pygments/)
+| Information | Links                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Package     | [![conda version badge](https://img.shields.io/conda/vn/conda-forge/accessible-pygments?colorA=0D0D0D&colorB=2F3273&style=flat.svg)](https://anaconda.org/conda-forge/accessible-pygments) [![pip version badge](https://img.shields.io/pypi/v/accessible-pygments?colorA=0D0D0D&colorB=2F3273&style=flat.svg)](https://pypi.org/project/accessible-pygments/)                                                        |
+| Use         | [![conda-forge downloads badge](https://img.shields.io/conda/dn/conda-forge/accessible-pygments?label=conda-forge%20downloads&-gray.svg?colorA=0D0D0D&colorB=2F3273)](https://anaconda.org/conda-forge/accessible-pygments) [![pip downloads badge](https://img.shields.io/pypi/dm/accessible-pygments?&label=PyPI%20downloads&-gray.svg?colorA=0D0D0D&colorB=2F3273)](https://pypi.org/project/accessible-pygments/) |
+| Community   | ![License badge - BSD-3 clause](https://img.shields.io/badge/License-BSD%203--Clause-gray.svg?colorA=0D0D0D&colorB=2F3273&style=flat.svg) [![Themes demo badge](https://img.shields.io/badge/Live%20demo-Click%20this%20badge%20✨-gray.svg?colorA=0D0D0D&colorB=2F3273&style=flat.svg)](https://quansight-labs.github.io/accessible-pygments/)                                                                       |
 
 - [Accessible pygments themes](#accessible-pygments-themes)
   - [Accessibility details ♿️](#accessibility-details-️)
@@ -18,13 +18,13 @@
   - [Acknowledgments 🤝](#acknowledgments-)
   - [License 📑](#license-)
 
-This package includes a collection of accessible themes for pygments based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
+✨ For a demo of all our themes please [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) ✨
 
-![Display of all the light themes side by side](./docs/light_themes.png)
+This package includes a collection of accessible themes for [pygments](https://pygments.org/docs/) based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
 
-![Display of all dark themes side by side](./docs/dark_themes.png)
+![Display of all the light themes side by side](docs/light_themes.png)
 
-:sparkles: For a demo of all our themes please [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) :sparkles:
+![Display of all dark themes side by side](docs/dark_themes.png)
 
 ## Accessibility details ♿️
 
@@ -64,20 +64,22 @@ The following themes are AA compliant with [WCAG 2.1 criteria for color contrast
 
 `accessible-pygments` is available through pip and conda.
 
-You can install it through the following commands:
+To install from conda:
 
 ```bash
 conda install -c conda-forge accessible-pygments
 
-# if you prefer using mambga
+# if you prefer using mamba
 mamba install -c conda-forge accessible-pygments
 ```
+
+To install with pip:
 
 ```bash
 pip install accessible-pygments
 ```
 
-If you prefer to install the themes directly from the source:
+If you prefer to install the themes directly from source:
 
 ```bash
 # clone the repository
