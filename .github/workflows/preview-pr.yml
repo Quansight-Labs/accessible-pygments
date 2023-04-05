@@ -39,4 +39,4 @@ jobs:
       uses: rossjrw/pr-preview-action@v1.2.0
       with:
         source-dir: docs
-        preview-branch: main
+        preview-branch: gh-pages
