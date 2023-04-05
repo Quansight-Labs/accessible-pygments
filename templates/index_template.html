@@ -5,39 +5,9 @@
 	<title>Accessible Pygments Themes</title>
 
 	<!-- Themes stylesheets -->
-
-    <link rel="stylesheet" type="text/css" title="a11y light" href="./css/a11y_light-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github dark" href="./css/github_dark-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github dark high contrast" href="./css/github_dark_high_contrast-style.css">
-
-    <link rel="stylesheet" type="text/css" title="a11y dark" href="./css/a11y_dark-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github light high contrast" href="./css/github_light_high_contrast-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github light" href="./css/github_light-style.css">
-
-    <link rel="stylesheet" type="text/css" title="blinds light" href="./css/blinds_light-style.css">
-
-    <link rel="stylesheet" type="text/css" title="gotthard dark" href="./css/gotthard_dark-style.css">
-
-    <link rel="stylesheet" type="text/css" title="blinds dark" href="./css/blinds_dark-style.css">
-
-    <link rel="stylesheet" type="text/css" title="a11y high contrast dark" href="./css/a11y_high_contrast_dark-style.css">
-
-    <link rel="stylesheet" type="text/css" title="gotthard light" href="./css/gotthard_light-style.css">
-
-    <link rel="stylesheet" type="text/css" title="greative" href="./css/greative-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github dark colorblind" href="./css/github_dark_colorblind-style.css">
-
-    <link rel="stylesheet" type="text/css" title="a11y high contrast light" href="./css/a11y_high_contrast_light-style.css">
-
-    <link rel="stylesheet" type="text/css" title="github light colorblind" href="./css/github_light_colorblind-style.css">
-
-    <link rel="stylesheet" type="text/css" title="pitaya smoothie" href="./css/pitaya_smoothie-style.css">
-
+    {% for theme in themes %}
+    <link rel="stylesheet" type="text/css" title="{{ theme.title}}" href="./css/{{ theme.style }}">
+    {% endfor %}
 
     <style>
         body {

@@ -68,15 +68,21 @@ source = "vcs"
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit", "jinja2"]
+dev = ["pre-commit"]
+
+[tool.hatch.envs.dev]
+extra-dependencies = ["jinja2"]
 
 [tool.hatch.build.targets]
 sdist = { exclude = ["/.github", "/docs", "/test"] }
 wheel = { packages = ["a11y_pygments"] }
 
 [tool.hatch.envs.dev.scripts]
-render_html = "python tools/render_html.py"
-create_css = "python tools/run_css.py && python tools/run_css.py --save-dir docs"
+artifacts = ["python tools/run_css.py", "python tools/render_html.py"]
+update_demo = [
+    "python tools/run_css.py --save-dir docs",
+    "python tools/update_index.py"
+]
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"
