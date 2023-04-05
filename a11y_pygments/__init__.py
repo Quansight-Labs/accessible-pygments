@@ -1,2 +1,8 @@
-VERSION_INFO = (0, 0, 5, "dev")
-__version__ = ".".join(map(str, VERSION_INFO))
+import logging
+
+logger = logging.getLogger()
+
+logging.basicConfig(
+    format="# %(asctime)s %(levelname)s %(name)s %(filename)s:%(lineno)s -- %(message)s\n",
+    level=logging.INFO,
+)

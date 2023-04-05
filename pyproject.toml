@@ -1,0 +1,94 @@
+[build-system]
+requires = ["hatchling", "hatch-fancy-pypi-readme", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "accessible-pygments"
+description = "A collection of accessible pygments styles"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
+    { name = "Tania Allard", email = "trallard@bitsandchips.me" },
+]
+keywords = ["a11y", "accessibility", "pygments", "WCAG", "Sphinx"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Development Status :: 3 - Alpha",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["pygments >= 1.5"]
+dynamic = ["version", "readme"]
+
+[project.entry-points."pygments.styles"]
+a11y-dark = "a11y_pygments.a11y_dark.style:Theme"
+a11y-high-contrast-dark = "a11y_pygments.a11y_high_contrast_dark.style:Theme"
+a11y-high-contrast-light = "a11y_pygments.a11y_high_contrast_light.style:Theme"
+a11y-light = "a11y_pygments.a11y_light.style:Theme"
+blinds-dark = "a11y_pygments.blinds_dark.style:Theme"
+blinds-light = "a11y_pygments.blinds_light.style:Theme"
+github-dark = "a11y_pygments.github_dark.style:Theme"
+github-dark-colorblind = "a11y_pygments.github_dark_colorblind.style:Theme"
+github-dark-high-contrast = "a11y_pygments.github_dark_high_contrast.style:Theme"
+github-light = "a11y_pygments.github_light.style:Theme"
+github-light-colorblind = "a11y_pygments.github_light_colorblind.style:Theme"
+github-light-high-contrast = "a11y_pygments.github_light_high_contrast.style:Theme"
+gotthard-dark = "a11y_pygments.gotthard_dark.style:Theme"
+gotthard-light = "a11y_pygments.gotthard_light.style:Theme"
+greative = "a11y_pygments.greative.style:Theme"
+pitaya-smoothie = "a11y_pygments.pitaya_smoothie.style:Theme"
+
+[project.urls]
+Homepage = "https://github.com/Quansight-Labs/accessible-pygments"
+"Bug Reports" = "https://github.com/Quansight-Labs/accessible-pygments/issues"
+
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+# Literal TOML strings (single quotes) need no escaping of backslashes.
+pattern = '\[(.+?)\]\(((?!https?://)\S+?)\)'
+replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/main/\g<2>)'
+
+[tool.hatch.version]
+source = "vcs"
+
+[project.optional-dependencies]
+tests = ["hypothesis", "pytest"]
+dev = ["pre-commit"]
+
+[tool.hatch.build.targets]
+sdist = { exclude = ["/.github", "/docs", "/test"] }
+wheel = { packages = ["a11y_pygments"] }
+
+[tool.hatch.envs.dev.scripts]
+render_html = "python test/render_html.py"
+create_css = "python test/run_css.py && python test/run_css.py --save-dir docs"
+
+[tool.hatch.envs.test.scripts]
+tests = "python -m pytest test/test_*.py"
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.ruff]
+fix = true
+exclude = ["test/scripts/*.py"]
+ignore = [
+    "E501"
+    # line too long | Black takes care of this
+]

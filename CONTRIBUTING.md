@@ -4,10 +4,11 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 
 - [Contributing to accessible pygments themes](#contributing-to-accessible-pygments-themes)
   - [Submit an issue 📬](#submit-an-issue-)
-  - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
-    - [Fork this repository ⏬](#fork-this-repository-)
-    - [Install dependencies 💽](#install-dependencies-)
-    - [Run the tests 🏃🏻‍♀️ 🏃‍♂️](#run-the-tests-️-️)
+  - [Contributing to this package](#contributing-to-this-package)
+    - [Pre-requisites 📦](#pre-requisites-)
+    - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
+    - [Running the tests](#running-the-tests)
+    - [Rendering the HTML examples](#rendering-the-html-examples)
   - [Adding a new theme 🎨](#adding-a-new-theme-)
     - [Where to add a new theme 👩🏼‍🎨](#where-to-add-a-new-theme-)
     - [Customize your `style.py` file](#customize-your-stylepy-file)
@@ -21,29 +22,53 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
 
 Please share your thoughts for fixes and features in the issue tracker.
 When doing so, please a clear description and provide useful environment information.
+Please share your thoughts for fixes and features [in the issue tracker](https://github.com/Quansight-Labs/accessible-pygments/issues).
+When doing so, add a clear description, and please provide as much information as possible about your environment.
 
-## Creating your development environment 👩🏻‍💻 👨🏼‍💻
+## Contributing to this package
 
-For creating your development environment locally you will need to have the following tools installed:
+### Pre-requisites 📦
 
-- 🐍 An environment manager like `conda` or `pyenv`
-- 📝 `git`
+You will need to have the following installed locally:
+
+- `git`
 - Python >= 3.9
+- [hatch](https://hatch.pypa.io/)
 
-### Fork this repository ⏬
+### Creating your development environment 👩🏻‍💻 👨🏼‍💻
 
-Fork this repository to your profile and clone it to your local machine:
+1. Fork this repository to your GitHub account, then clone it to your local machine:
 
-```bash
-git clone <LINK-TO-YOUR-FORK>
-```
+   ```bash
+    git clone https://github.com/<your-username>/accessible-pygments.git
+   ```
 
-Remember that this fork is a copy of the repository and any change done in it doesn't affect the original one.
+   Remember that this fork is a copy of the repository and any changes in it doesn't affect the original one.
 
-### Install dependencies 💽
+2. From here you can create your local environments with hatch:
 
-Once you have the local clone in your machine, you need to install the dependencies.
-You can create a new environment for this project and install the dependencies there:
+   ```bash
+    hatch env create
+   ```
+
+3. You can verify that the environment was created successfully by running:
+
+   ```console
+    $ hatch env show
+   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts     ┃
+   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+   │ default │ virtual │              │             │
+   ├─────────┼─────────┼──────────────┼─────────────┤
+   │ dev     │ virtual │              │ css         │
+   │         │         │              │ render_html │
+   ├─────────┼─────────┼──────────────┼─────────────┤
+   │ test    │ virtual │ hypothesis   │ tests       │
+   │         │         │ pytest       │             │
+   └─────────┴─────────┴──────────────┴─────────────┘
+   ```
+
+Alternatively you can use conda to create your environment:
 
 ```bash
 conda create -n a11y-pygments-dev python=3.9
@@ -51,17 +76,25 @@ conda activate a11y-pygments-dev
 pip install -e .
 ```
 
-After running these instructions you will have an environment named `a11y-pygments-dev`, with the requirements installed and this package installed in development version.
+After running these instructions you will have an environment named `a11y-pygments-dev`, with a development version of the package installed.
 
-### Run the tests 🏃🏻‍♀️ 🏃‍♂️
+### Running the tests
 
-Once the development environment is ready run the following command:
+You can run the tests directly with hatch:
 
 ```bash
-python test/run_tests.py
+hatch run test:tests
 ```
 
-You will see the results under `test/results` in HTML format for each supported theme.
+### Rendering the HTML examples
+
+You can generate individual HTML files for each of the themes included in `accessible_pygments` by running:
+
+```bash
+hatch run dev:render_html
+```
+
+This will add the HTML files under `test/results` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
@@ -89,23 +122,18 @@ To add a new theme, please create a folder with your new theme name, like `white
 You can use as a base one of our existing themes, this file needs to define a new class named `Theme` with the new colors and rules you want.
 
 > **NOTE** 📝
-> Please try to encapsulate all the raw colors in the `Colors` `enum` and call them in the rules section. This will help us with maintenance 🙏.
+> Please try to encapsulate all the raw colors in the `Colors` `enum` and call them in the rules section.
+> This will help us with maintenance 🙏.
 
 ### Visualize and debug your theme
 
-To see and debug your theme re-install the package via:
+While working on your theme, it might be helpful to generate the individual HTML files with the following command:
 
 ```bash
-pip install -e .
+hatch dev:render_html
 ```
 
-Then generate the HTML results:
-
-```bash
-python test/run_tests.py
-```
-
-If successful, you should be able to see the results of your new theme under `test/results/<your-theme>` in HTML format.
+If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
 
 ### Update the `README.md` file
 
@@ -122,17 +150,18 @@ Also, don't forget to add the name of your theme to our list of supported themes
 You can generate the CSS file automatically through:
 
 ```bash
-python a11y_pygments/test/run_css.py
+hatch dev:create_css
 ```
 
-The file should appear in the folder of your new theme.
+This will add the CSS file under `a11y_pygments/<your-theme>/style.css` and in the `docs` directory.
 
 #### Add your theme to our static page
 
 We have a demo page where you will be able to change the style of different languages at the same time.
-To add your new theme please go to the file `test/index.html`. Under themes, we have a link to all the generated CSS files.
+To add your new theme:
 
-You will have to manually add a new link to your new theme:
+1. Open the `[docs/index.html](docs/index.html)` file.
+2. Add a new link to your new theme in the `themes` section:
 
 ```HTML
 ...
@@ -143,8 +172,8 @@ You will have to manually add a new link to your new theme:
 
 ```
 
-With this change you will be able to open `test/index.html` in your favorite browser and find your new theme in our demo!
+With this change you will be able to open `docs/index.html` in your favorite browser and find your new theme in our demo!
 
 ### Create a Pull Request
 
-Once you have the folder with the described files, please open a Pull Request 👏🏻
+Once you have added and verified your theme you should be ready to open a Pull Request 👏🏻

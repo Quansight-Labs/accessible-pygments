@@ -13,23 +13,23 @@
   - [Documentation 📖](#documentation-)
     - [Installation 💻](#installation-)
     - [Using the themes directly in your code or app](#using-the-themes-directly-in-your-code-or-app)
-    - [Using the themes with Sphinx documentation](#using-the-themes-with-sphinx-documentation)
+    - [Using the themes in your Sphinx documentation](#using-the-themes-in-your-sphinx-documentation)
   - [Development and contribution](#development-and-contribution)
   - [Acknowledgments 🤝](#acknowledgments-)
   - [License 📑](#license-)
 
 This package includes a collection of accessible themes for pygments based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
 
-![Screenshot of all light themes side by side](./docs/light_themes.png)
+![Display of all the light themes side by side](./docs/light_themes.png)
 
-![Screenshot of all dark themes side by side](./docs/dark_themes.png)
+![Display of all dark themes side by side](./docs/dark_themes.png)
 
 :sparkles: For a demo of all our themes please [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) :sparkles:
 
 ## Accessibility details ♿️
 
 > **Note**
-> What we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+> What do we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 > Some themes included are also color-blind friendly.
 
 ### WCAG 2.1 - AAA compliant
@@ -62,10 +62,15 @@ The following themes are AA compliant with [WCAG 2.1 criteria for color contrast
 
 ### Installation 💻
 
-`accessible-pygments` is available through pip and Conda. You can install it using:
+`accessible-pygments` is available through pip and conda.
+
+You can install it through the following commands:
 
 ```bash
 conda install -c conda-forge accessible-pygments
+
+# if you prefer using mambga
+mamba install -c conda-forge accessible-pygments
 ```
 
 ```bash
@@ -92,7 +97,7 @@ HtmlFormatter(style='a11y-light').style
 <class 'accessible-pygments.A11yLight'>
 ```
 
-### Using the themes with Sphinx documentation
+### Using the themes in your Sphinx documentation
 
 1. You will need to add `accessible-pygments` as a dependency to your documentation:
 
@@ -111,18 +116,18 @@ HtmlFormatter(style='a11y-light').style
 
 ## Development and contribution
 
-You can find our contribution guides on [CONTRIBUTING.md](./CONTRIBUTING.md).
+You can find our contribution guides on [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Acknowledgments 🤝
 
 We want to thank the following sources for being the source of inspiration for one or more themes that are available in this repository,
 
 - [a11y dark and light syntax highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting).
-- [pitaya smoothie vscode theme](https://github.com/trallard/pitaya_smoothie).
-- [github vscode themes](https://github.com/primer/github-vscode-theme).
-- [gotthard vscode themes](https://github.com/janbiasi/vscode-gotthard-theme/).
-- [blinds vscode themes](https://github.com/orbulant/blinds-theme).
-- [greative vscode theme](https://github.com/SumanKhdka/Greative-VSCode-Theme).
+- [pitaya smoothie VSCode theme](https://github.com/trallard/pitaya_smoothie).
+- [github VSCode themes](https://github.com/primer/github-vscode-theme).
+- [gotthard VSCode themes](https://github.com/janbiasi/vscode-gotthard-theme/).
+- [blinds VSCode themes](https://github.com/orbulant/blinds-theme).
+- [greative VSCode theme](https://github.com/SumanKhdka/Greative-vscode-Theme).
 
 ## License 📑
 

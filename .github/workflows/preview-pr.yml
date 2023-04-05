@@ -1,0 +1,88 @@
+name: Deploy PR previews on GH pages
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+concurrency: preview-${{ github.ref }}
+env:
+    FORCE_COLOR: "1"
+    PYTHONIOENCODING: utf-8
+    SETUPTOOLS_SCM_PRETEND_VERSION: "1.0" # avoid warnings about shallow checkout
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository 🛎
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies 📦
+      run: |
+        pip install pygments>=1.5
+        pip install -e .[dev]
+
+    - name: Build the demo pages 📚
+      run: |
+        python test/run_css.py --save-dir docs
+
+    - name: Deploy PR Preview
+      uses: rossjrw/pr-preview-action@v1.2.0
+      with:
+        source-dir: docs
+        preview-branch: gh-pages
+
+  publish-pages:
+    runs-on: ubuntu-latest
+    needs: deploy-preview
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Checkout repository 🛎
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies 📦
+      run: |
+        pip install pygments>=1.5
+        pip install -e .[dev]
+
+    - name: Build the demo pages 📚
+      run: |
+        python test/run_css.py --save-dir docs
+
+    - name: Setup Pages 🛠
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact 📥
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: "docs"
+    - name: Deploy to GitHub Pages 🚀
+      id: deployment
+      uses: actions/deploy-pages@v2
