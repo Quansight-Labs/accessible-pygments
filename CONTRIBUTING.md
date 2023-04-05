@@ -15,7 +15,7 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
     - [3. Visualize and debug your theme](#3-visualize-and-debug-your-theme)
     - [4. Update the `README.md` file for your theme](#4-update-the-readmemd-file-for-your-theme)
     - [5. Generate the source `style.css` file](#5-generate-the-source-stylecss-file)
-    - [6. Add your theme to our static page](#6--add-your-theme-to-our-static-page)
+    - [6. Add your theme to our static page](#6-add-your-theme-to-our-static-page)
     - [7. Create a Pull Request](#7-create-a-pull-request)
 
 ## Submit an issue 📬
@@ -150,7 +150,7 @@ To do so you can use the following command:
 hatch dev:render_html
 ```
 
-If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
+If successful, you should be able to see the results of your new theme under `test/html-files/<your-theme>`.
 
 ### 4. Update the `README.md` file for your theme
 
@@ -183,17 +183,17 @@ We have a demo page where we showcase all the themes and the highlighting for a 
 
 To add your new theme to the demo page:
 
-1. Open the `[docs/index.html](docs/index.html)` file.
+1. Open the [docs/index.html](docs/index.html) file in the repo.
 2. Add a new link to your new theme in the `themes` section:
 
-```HTML
-...
-<!-- themes -->
-<link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
-<link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/<your-theme>/style.css">
-...
+   ```HTML
+   ...
+   <!-- themes -->
+   <link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
+   <link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/<your-theme>/style.css">
+   ...
 
-```
+   ```
 
 With this change you should be able to open the `docs/index.html` file in your favorite browser and find your new theme in our demo!
 
