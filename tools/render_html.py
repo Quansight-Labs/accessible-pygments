@@ -28,7 +28,7 @@ languages = {
 # Top-level package directory
 pkg_dir = Path(__file__).parent.parent
 # Output directory for the HTML files
-outdir = pkg_dir / "test" / "results"
+outdir = pkg_dir / "test" / "html-files"
 # Language sample scripts
 samples_dir = pkg_dir / "tools" / "sample-scripts"
 
