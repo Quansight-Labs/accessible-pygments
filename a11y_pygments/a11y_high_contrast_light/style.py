@@ -16,12 +16,12 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#6E6725"
-    red = "#C51B16"
-    orange = "#B83A00"
+    comment = "#6e6725"
+    red = "#c51b16"
+    orange = "#b83A00"
     yellow = "#706500"
     green = "#007500"
-    blue = "#006B8F"
+    blue = "#006b8f"
     purple = "#7928a1"
     black = "#545454"
 
@@ -33,7 +33,7 @@ class Theme(Style):
 
     default_style = ""
 
-    background_color = "#f3f4f5"
+    background_color = "#fefefe"
     highlight_color = "#e4e6d9"
 
     styles = {
