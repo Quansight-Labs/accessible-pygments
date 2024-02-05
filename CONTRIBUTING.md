@@ -130,7 +130,7 @@ You can use as a base one of our existing themes, this file needs to define a ne
 While working on your theme, it might be helpful to generate the individual HTML files with the following command:
 
 ```bash
-hatch dev:render_html
+hatch run dev:render_html
 ```
 
 If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
@@ -150,7 +150,7 @@ Also, don't forget to add the name of your theme to our list of supported themes
 You can generate the CSS file automatically through:
 
 ```bash
-hatch dev:create_css
+hatch run dev:create_css
 ```
 
 This will add the CSS file under `a11y_pygments/<your-theme>/style.css` and in the `docs` directory.
