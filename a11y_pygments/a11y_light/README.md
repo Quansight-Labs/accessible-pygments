@@ -22,3 +22,7 @@ color ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
 These colors were also calibrated to have at least a 4.5:1 contrast ratio
 against the line highlight color
 ![#ffff00](https://via.placeholder.com/20/ffff00/ffff00.png) `#ffff00`
+
+## Screenshot
+
+![Screenshot of the light accessibility theme in a bash script](./images/a11y-light.png)
