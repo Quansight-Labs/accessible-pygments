@@ -16,13 +16,13 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#6e6725"
-    red = "#c51b16"
-    orange = "#b83A00"
-    yellow = "#706500"
-    green = "#007500"
-    blue = "#006b8f"
-    purple = "#7928a1"
+    comment = "#48566b"
+    red = "#a12236"
+    orange = "#7f4707"
+    magenta = "#912583"
+    green = "#00622f"
+    blue = "#0c4bc1"
+    purple = "#6730c5"
     black = "#545454"
 
 
@@ -34,7 +34,7 @@ class Theme(Style):
     default_style = ""
 
     background_color = "#fefefe"
-    highlight_color = "#e4e6d9"
+    highlight_color = "#fae4c2"
 
     styles = {
         Text: Colors.black,  # class:  ''
@@ -52,7 +52,7 @@ class Theme(Style):
         Operator.Word: Colors.purple,  # class: 'ow'
         Punctuation: Colors.black,  # class: 'p'
         Name: Colors.black,  # class: 'n'
-        Name.Attribute: Colors.yellow,  # class: 'na'
+        Name.Attribute: Colors.magenta,  # class: 'na'
         Name.Builtin: Colors.orange,  # class: 'nb'
         Name.Builtin.Pseudo: Colors.orange,  # class: 'bp'
         Name.Class: Colors.blue,  # class: 'nc'
