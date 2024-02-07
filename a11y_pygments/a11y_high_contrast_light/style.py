@@ -21,7 +21,7 @@ class Colors:
     orange = "#7f4707"
     magenta = "#912583"
     green = "#00622f"
-    blue = "#0c4bc1"
+    blue = "#005b82"
     purple = "#6730c5"
     black = "#545454"
 
