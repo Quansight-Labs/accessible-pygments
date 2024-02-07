@@ -19,9 +19,12 @@ color ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
 | ![#7928a1](https://via.placeholder.com/20/7928a1/7928a1.png) | `#7928a1` | 7.9 : 1 | AAA         | AAA        |
 | ![#545454](https://via.placeholder.com/20/545454/545454.png) | `#545454` | 7.5 : 1 | AAA         | AAA        |
 
-These colors were also calibrated to have at least a 4.5:1 contrast ratio
-against the line highlight color
-![#ffff00](https://via.placeholder.com/20/ffff00/ffff00.png) `#ffff00`
+These foreground/text colors were also checked to have at least a 4.5:1 contrast ratio against:
+
+- the line highlight color
+  ![#fdf2e2](https://via.placeholder.com/20/fdf2e2/fdf2e2.png) `#fdf2e2`
+- a darker background color
+  ![#f2f2f2](https://via.placeholder.com/20/f2f2f2/f2f2f2.png) `#f2f2f2`
 
 ## Screenshot
 
