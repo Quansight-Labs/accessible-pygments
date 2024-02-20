@@ -135,6 +135,14 @@ hatch dev:render_html
 
 If successful, you should be able to see the results of your new theme under `docs/<your-theme>`.
 
+If you wish to generate CSS files, use the following command:
+
+```bash
+hatch dev:create_css
+```
+
+This will add the CSS file under `docs/css/<your-theme>.css`.
+
 ### Update the `README.md` file
 
 Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
@@ -144,16 +152,6 @@ The **most** important part for us, is to add a table with the contrast ratios o
 Any acknowledgements to other repositories that you may use as base please add them as well to the main [README](./README.md) in the repo under the `acknowledgements` section.
 
 Also, don't forget to add the name of your theme to our list of supported themes in the main README.
-
-### Generate source `style.css` file
-
-You can generate the CSS file automatically through:
-
-```bash
-hatch dev:create_css
-```
-
-This will add the CSS file under `a11y_pygments/<your-theme>/style.css` and in the `docs` directory.
 
 #### Add your theme to our static page
 
