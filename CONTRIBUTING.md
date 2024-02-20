@@ -127,13 +127,15 @@ You can use as a base one of our existing themes, this file needs to define a ne
 
 ### Visualize and debug your theme
 
-While working on your theme, it might be helpful to generate the individual HTML files with the following command:
+While working on your theme, it might be helpful to generate example HTML files with the following command:
 
 ```bash
 hatch dev:render_html
 ```
 
-If successful, you should be able to see the results of your new theme under `docs/_build/<your-theme>`.
+The HTML files are generated from sample source code files located under `tests/scripts`.
+
+If successful, you should be able to see the results of your new theme applied to those code files under `docs/_build/<your-theme>`.
 
 If you prefer to inspect the CSS separately from the HTML, use the following command:
 
