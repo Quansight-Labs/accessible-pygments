@@ -45,24 +45,24 @@ def render_html(themes: list, languages=languages, outdir=outdir):
     if not outdir.exists():
         os.mkdir(outdir)
 
-    for language in languages:
-        ext = languages[language]
-        name = HERE / "scripts" / f"test.{ext}"
+    for theme in themes:
 
-        with open(name, "r") as f:
-            lines = f.read()
+        theme_outdir = outdir / theme
+        if not theme_outdir.exists():
+            os.mkdir(theme_outdir)
 
-        lexer = get_lexer_by_name(language, stripall=True)
+        style = get_style_by_name(theme)
+        formatter = HtmlFormatter(style=style, full=True, hl_lines=[2, 3, 4])
 
-        for theme in themes:
-            style = get_style_by_name(theme)
-            formatter = HtmlFormatter(style=style, full=True, hl_lines=[2, 3, 4])
+        for language in languages:
+            ext = languages[language]
+            name = HERE / "scripts" / f"test.{ext}"
+
+            with open(name, "r") as f:
+                lines = f.read()
+
+            lexer = get_lexer_by_name(language, stripall=True)
             result = pygments_highlight(lines, lexer, formatter)
-
-            theme_outdir = outdir / theme
-
-            if not theme_outdir.exists():
-                os.mkdir(theme_outdir)
 
             out = theme_outdir / f"{ext}.html"
             with open(out, "w") as f:
