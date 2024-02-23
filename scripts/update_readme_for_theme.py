@@ -51,8 +51,8 @@ def update_readme(theme):
             foreground_colors[value] = {
                 "hex": hexstr_without_hash(value),
                 "contrast_ratio": round(contrast, 1),
-                "rating_normal_text": get_wcag_level_normal_text(contrast),
-                "rating_large_text": get_wcag_level_large_text(contrast),
+                "wcag_level_normal_text": get_wcag_level_normal_text(contrast),
+                "wcag_level_large_text": get_wcag_level_large_text(contrast),
             }
 
     # Render the README template with the contrast info
