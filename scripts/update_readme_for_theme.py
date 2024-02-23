@@ -37,21 +37,21 @@ def update_readme(theme):
     style = get_style_by_name(theme_kebab_case)
 
     # Calculate contrast ratios and WCAG ratings for all foreground colors
-    foreground_colors = []
+    foreground_colors = {}
     for key in vars(color_cls):
         value = getattr(color_cls, key)
         if not callable(value) and not key.startswith("__"):
+            if value in foreground_colors:
+                continue
             contrast = contrast_ratio(
                 hex_to_rgb(value), hex_to_rgb(style.background_color)
             )
-            foreground_colors.append(
-                {
-                    "hex": hexstr_without_hash(value),
-                    "contrast_ratio": round(contrast, 1),
-                    "rating_normal_text": get_wcag_level_normal_text(contrast),
-                    "rating_large_text": get_wcag_level_large_text(contrast),
-                }
-            )
+            foreground_colors[value] = {
+                "hex": hexstr_without_hash(value),
+                "contrast_ratio": round(contrast, 1),
+                "rating_normal_text": get_wcag_level_normal_text(contrast),
+                "rating_large_text": get_wcag_level_large_text(contrast),
+            }
 
     # Render the README template with the contrast info
     template = env.get_template("readme.md")
@@ -61,7 +61,7 @@ def update_readme(theme):
         theme_docstring=getdoc(theme_cls),
         background_hex=hexstr_without_hash(style.background_color),
         highlight_hex=hexstr_without_hash(style.highlight_color),
-        colors_hex=foreground_colors,
+        colors_hex=foreground_colors.values(),
     )
 
     # Save the new README file

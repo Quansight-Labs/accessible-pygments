@@ -18,10 +18,6 @@ Highlight color: ![#7971292e](https://via.placeholder.com/20/7971292e/7971292e.p
 
 | ![#d91e18](https://via.placeholder.com/20/d91e18/d91e18.png) | `#d91e18` | 5.0 : 1 | AA | AAA |
 
-| ![#797129](https://via.placeholder.com/20/797129/797129.png) | `#797129` | 4.9 : 1 | AA | AAA |
-
-| ![#797129](https://via.placeholder.com/20/797129/797129.png) | `#797129` | 4.9 : 1 | AA | AAA |
-
 | ![#008000](https://via.placeholder.com/20/008000/008000.png) | `#008000` | 5.1 : 1 | AA | AAA |
 
 | ![#007faa](https://via.placeholder.com/20/007faa/007faa.png) | `#007faa` | 4.5 : 1 | AA | AAA |

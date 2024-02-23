@@ -27,5 +27,3 @@ Highlight color: ![#E1E1E1](https://via.placeholder.com/20/E1E1E1/E1E1E1.png) `#
 | ![#3D73A9](https://via.placeholder.com/20/3D73A9/3D73A9.png) | `#3D73A9` | 4.6 : 1 | AA | AAA |
 
 | ![#974EB7](https://via.placeholder.com/20/974EB7/974EB7.png) | `#974EB7` | 4.7 : 1 | AA | AAA |
-
-| ![#141414](https://via.placeholder.com/20/141414/141414.png) | `#141414` | 16.9 : 1 | AAA | AAA |
