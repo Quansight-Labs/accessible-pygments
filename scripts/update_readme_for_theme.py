@@ -31,10 +31,12 @@ def update_readme(theme):
 
     # Get the theme colors
     theme_style_module = import_module(f"a11y_pygments.{theme}.style")
-    color_cls = theme_style_module.Colors
-    theme_cls = theme_style_module.Theme
+    color_cls = theme_style_module.Colors  # access to foreground colors
+    theme_cls = theme_style_module.Theme  # access to docstring
     theme_kebab_case = theme.replace("_", "-")
-    style = get_style_by_name(theme_kebab_case)
+    style = get_style_by_name(
+        theme_kebab_case
+    )  # access to background and highlight colors
 
     # Calculate contrast ratios and WCAG ratings for all foreground colors
     foreground_colors = {}
@@ -54,7 +56,7 @@ def update_readme(theme):
             }
 
     # Render the README template with the contrast info
-    template = env.get_template("readme.md")
+    template = env.get_template("README.md")
     result = template.render(
         theme=theme_kebab_case,
         theme_title=theme.replace("_", " ").title(),
