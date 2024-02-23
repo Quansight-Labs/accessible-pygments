@@ -1,6 +1,6 @@
 # {{ theme_title }}
 
-{{ theme_description }}
+{{ theme_docstring }}
 
 ![Screenshot of the {{ theme }} theme in a bash script](./images/{{ theme }}.png)
 

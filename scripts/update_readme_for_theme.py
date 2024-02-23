@@ -58,7 +58,7 @@ def update_readme(theme):
     result = template.render(
         theme=theme_kebab_case,
         theme_title=theme.replace("_", " ").title(),
-        theme_description=getdoc(theme_cls),
+        theme_docstring=getdoc(theme_cls),
         background_hex=hexstr_without_hash(style.background_color),
         highlight_hex=hexstr_without_hash(style.highlight_color),
         colors_hex=foreground_colors,
