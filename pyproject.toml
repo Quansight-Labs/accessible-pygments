@@ -71,7 +71,7 @@ tests = ["hypothesis", "pytest"]
 dev = ["pre-commit"]
 
 [tool.hatch.build.targets]
-sdist = { exclude = ["/.github", "/docs", "/test"] }
+sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
 wheel = { packages = ["a11y_pygments"] }
 
 [tool.hatch.envs.dev.scripts]
