@@ -55,17 +55,18 @@ You will need to have the following installed locally:
 
    ```console
     $ hatch env show
-   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
-   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts     ┃
-   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
-   │ default │ virtual │              │             │
-   ├─────────┼─────────┼──────────────┼─────────────┤
-   │ dev     │ virtual │              │ css         │
-   │         │         │              │ render_html │
-   ├─────────┼─────────┼──────────────┼─────────────┤
-   │ test    │ virtual │ hypothesis   │ tests       │
-   │         │         │ pytest       │             │
-   └─────────┴─────────┴──────────────┴─────────────┘
+   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
+   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts        ┃
+   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
+   │ default │ virtual │              │                │
+   ├─────────┼─────────┼──────────────┼────────────────┤
+   │ dev     │ virtual │              │ css            │
+   │         │         │              │ render_html    │
+   |         |         |              | update_readmes |
+   ├─────────┼─────────┼──────────────┼────────────────┤
+   │ test    │ virtual │ hypothesis   │ tests          │
+   │         │         │ pytest       │                │
+   └─────────┴─────────┴──────────────┴────────────────┘
    ```
 
 Alternatively you can use conda to create your environment:
@@ -137,11 +138,13 @@ If successful, you should be able to see the results of your new theme under `te
 
 ### Update the `README.md` file
 
-Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
+Once you are happy with the colors and the rules in the style file, please update the README for your new theme! You can generate a README with the following command:
 
-The **most** important part for us, is to add a table with the contrast ratios of the colors you've chosen and their compliance to WCAG. Please use any of the current themes as a base, and use any color contrast checker to fill it out.
+```py
+hatch dev:update_readmes --theme your-theme-name
+```
 
-Any acknowledgements to other repositories that you may use as base please add them as well to the main [README](./README.md) in the repo under the `acknowledgements` section.
+This script will generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG. It will also pull the docstring from the `Theme` class and put it in the README as the description for your theme. If you are porting a theme or color palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class.
 
 Also, don't forget to add the name of your theme to our list of supported themes in the main README.
 

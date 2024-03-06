@@ -69,7 +69,7 @@ You can install it through the following commands:
 ```bash
 conda install -c conda-forge accessible-pygments
 
-# if you prefer using mambga
+# if you prefer using mamba
 mamba install -c conda-forge accessible-pygments
 ```
 

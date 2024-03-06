@@ -68,7 +68,7 @@ source = "vcs"
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit"]
+dev = ["pre-commit", "Jinja2"]
 
 [tool.hatch.build.targets]
 sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
@@ -77,6 +77,7 @@ wheel = { packages = ["a11y_pygments"] }
 [tool.hatch.envs.dev.scripts]
 render_html = "python test/render_html.py"
 create_css = "python test/run_css.py && python test/run_css.py --save-dir docs"
+update_readmes = "python scripts/update_readme_for_theme.py"
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"
