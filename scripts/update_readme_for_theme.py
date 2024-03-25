@@ -87,7 +87,9 @@ def update_readme(theme):
         theme_docstring=getdoc(theme_cls),
         background_hex=hexstr_without_hash(style.background_color),
         highlight_hex=hexstr_without_hash(style.highlight_color),
-        colors_hex=contrast_by_foreground_color(color_cls, style.background_color),
+        colors_hex=contrast_by_foreground_color(
+            color_cls, style.background_color
+        ).values(),
     )
 
     # Save the new README file
