@@ -31,7 +31,7 @@ HERE = Path(__file__).parent
 outdir = HERE / "results"
 
 
-def render_html(themes: list, languages=languages, outdir=outdir):
+def render_html(themes: list = [], languages=languages, outdir=outdir):
     """Generate rendered HTML sample of the themes for the specified languages.
 
     Args:
@@ -41,6 +41,9 @@ def render_html(themes: list, languages=languages, outdir=outdir):
         outdir (pathlib.Path, optional): Directory to save the rendered HTML files to.
             Defaults to outdir.
     """
+
+    if not themes:
+        themes = get_themes_names()
 
     if not outdir.exists():
         os.mkdir(outdir)
@@ -70,6 +73,4 @@ def render_html(themes: list, languages=languages, outdir=outdir):
 
 
 if __name__ == "__main__":
-    # get names of all themes
-    themes = get_themes_names()
-    render_html(themes)
+    render_html()

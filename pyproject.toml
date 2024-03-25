@@ -68,11 +68,20 @@ source = "vcs"
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit", "Jinja2"]
+dev = ["pre-commit", "Jinja2", "setuptools", "playwright"]
 
 [tool.hatch.build.targets]
 sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
 wheel = { packages = ["a11y_pygments"] }
+
+[tool.hatch.envs.dev]
+features = ["dev"]
+post-install-commands = [
+  "playwright install",
+]
+
+[tool.hatch.envs.test]
+features = ["tests"]
 
 [tool.hatch.envs.dev.scripts]
 render_html = "python tests/render_html.py"
