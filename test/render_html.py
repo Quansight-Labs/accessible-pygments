@@ -28,7 +28,7 @@ languages = {
 
 # Setting directories
 HERE = Path(__file__).parent
-outdir = HERE / "results"
+outdir = HERE.parent / "docs" / "_build"
 
 
 def render_html(themes: list = [], languages=languages, outdir=outdir):

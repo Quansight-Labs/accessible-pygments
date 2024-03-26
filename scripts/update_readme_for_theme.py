@@ -1,5 +1,8 @@
+# This script generates READMEs for themes from their style.py definitions
+
 import logging
 import subprocess
+import sys
 from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
@@ -17,13 +20,12 @@ from a11y_pygments.utils.wcag_contrast import (
     hex_to_rgb,
     hexstr_without_hash,
 )
-from tests.render_html import outdir as html_outdir
-from tests.render_html import render_html
-
-# This script generates READMEs for themes from their style.py definitions
 
 HERE = Path(__file__).parent
 REPO = HERE.parent
+sys.path.append(str(REPO / "test"))
+from render_html import outdir as html_outdir  # noqa: E402
+from render_html import render_html  # noqa: E402
 
 env = Environment(
     loader=FileSystemLoader(HERE / "templates"), autoescape=select_autoescape()
