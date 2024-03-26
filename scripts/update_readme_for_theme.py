@@ -1,4 +1,5 @@
 import logging
+import subprocess
 from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
@@ -97,6 +98,9 @@ def update_readme(theme):
     with open(out, "w") as f:
         logging.info(f"Updating {out}")
         f.write(result)
+
+    # Format the README file with prettier
+    subprocess.run(f"pre-commit run prettier --files {out}", shell=True)
 
 
 # You can either update one theme README at a time or all of them at once
