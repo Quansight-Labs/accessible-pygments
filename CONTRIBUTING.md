@@ -95,7 +95,7 @@ You can generate individual HTML files for each of the themes included in `acces
 hatch run dev:render_html
 ```
 
-This will add the HTML files under `tests/results` for each supported theme.
+This will add the HTML files under `test/results` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
@@ -134,7 +134,7 @@ While working on your theme, it might be helpful to generate the individual HTML
 hatch dev:render_html
 ```
 
-If successful, you should be able to see the results of your new theme under `tests/results/<your-theme>`.
+If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
 
 ### Update the `README.md` file
 

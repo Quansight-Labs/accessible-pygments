@@ -84,12 +84,12 @@ post-install-commands = [
 features = ["tests"]
 
 [tool.hatch.envs.dev.scripts]
-render_html = "python tests/render_html.py"
-create_css = "python tests/run_css.py && python tests/run_css.py --save-dir docs"
+render_html = "python test/render_html.py"
+create_css = "python test/run_css.py && python test/run_css.py --save-dir docs"
 update_readmes = "python scripts/update_readme_for_theme.py"
 
 [tool.hatch.envs.test.scripts]
-tests = "python -m pytest tests/test_*.py"
+tests = "python -m pytest test/test_*.py"
 
 [tool.isort]
 profile = "black"
@@ -97,7 +97,7 @@ skip_gitignore = true
 
 [tool.ruff]
 fix = true
-exclude = ["tests/scripts/*.py"]
+exclude = ["test/scripts/*.py"]
 ignore = [
     "E501"
     # line too long | Black takes care of this
