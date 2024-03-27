@@ -1,7 +1,7 @@
 import logging
 import os
 from pathlib import Path
-from typing import List, Union
+from typing import Union
 
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
@@ -9,7 +9,7 @@ from pygments.token import Text
 from setuptools import find_packages
 
 
-def find_all_themes_packages() -> List[str]:
+def find_all_themes_packages() -> list[str]:
     """Finds the currently supported themes in the a11y_pygments package.
 
     Returns:
@@ -23,7 +23,7 @@ def find_all_themes_packages() -> List[str]:
     return themes
 
 
-def get_themes_names() -> List[str]:
+def get_themes_names() -> list[str]:
     """Get themes names from the a11y_pygments package.
 
     Returns:
@@ -35,7 +35,7 @@ def get_themes_names() -> List[str]:
     return themes
 
 
-def generate_css(themes: List[str], save_dir: Union[str, Path]):
+def generate_css(themes: list[str], save_dir: Union[str, Path]):
     """Generate css for the available themes.
     Args:
         themes (list): list of themes names
