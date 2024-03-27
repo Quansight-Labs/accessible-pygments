@@ -141,7 +141,7 @@ If successful, you should be able to see the results of your new theme under `te
 Once you are happy with the colors and the rules in the style file, please update the README for your new theme! You can generate a README with the following command:
 
 ```py
-hatch dev:update_readmes --theme your-theme-name
+hatch run dev:update_readmes --theme your-theme-name
 ```
 
 This script will generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG. It will also pull the docstring from the `Theme` class and put it in the README as the description for your theme. If you are porting a theme or color palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class.
