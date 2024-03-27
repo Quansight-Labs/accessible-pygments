@@ -132,6 +132,6 @@ def hexstr_without_hash(hex_color: str) -> str:
     Usage example:
 
     >>> hexstr_without_hash("#fff")
-    #fff
+    'fff'
     """
     return "".join(hex_color.split("#"))
