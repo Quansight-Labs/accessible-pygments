@@ -26,13 +26,13 @@ repos:
 
   # python
   - repo: https://github.com/psf/black
-    rev: 24.1.1
+    rev: 24.3.0
     hooks:
       - id: black
         exclude: ^test/scripts/
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.2.0
+    rev: v0.3.4
     hooks:
       - id: ruff
 
