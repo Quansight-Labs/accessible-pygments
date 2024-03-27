@@ -69,7 +69,7 @@ def update_readme(theme):
     # Save the new README file
     out = REPO / "a11y_pygments" / theme / "README.md"
     with open(out, "w") as f:
-        logging.info(f"Updating {out}")
+        logging.info("Updating %s", out)
         f.write(result)
 
 
