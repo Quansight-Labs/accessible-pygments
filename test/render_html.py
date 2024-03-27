@@ -52,6 +52,7 @@ def render_html(themes: list, languages=languages, outdir=outdir):
             os.mkdir(theme_outdir)
 
         style = get_style_by_name(theme)
+        #ref: https://pygments.org/docs/formatters/#HtmlFormatter
         formatter = HtmlFormatter(style=style, full=True, hl_lines=[2, 3, 4])
 
         for language in languages:
