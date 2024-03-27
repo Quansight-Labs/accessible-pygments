@@ -29,7 +29,7 @@ This package includes a collection of accessible themes for pygments based on mu
 ## Accessibility details ♿️
 
 > **Note**
-> What do we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+> What do we mean by accessible? In this context we are specifically referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 > Some themes included are also color-blind friendly.
 
 ### WCAG 2.1 - AAA compliant
