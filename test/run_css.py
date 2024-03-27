@@ -8,9 +8,11 @@ Usage::
 
 import argparse
 import logging
+
 from pathlib import Path
 
 from a11y_pygments.utils.utils import generate_css, get_themes_names
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
