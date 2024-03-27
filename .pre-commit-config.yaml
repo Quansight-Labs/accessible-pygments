@@ -48,4 +48,11 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        types_or: [css, markdown]
+        types_or: [css, markdown, html]
+
+
+  - repo: https://github.com/Riverside-Healthcare/djLint
+    rev: v1.34.1
+    hooks:
+      - id: djlint-jinja
+        types_or: ["jinja"]

@@ -114,3 +114,9 @@ ignore = [
     "E501",
     # line too long | Black takes care of this
 ]
+
+[tool.djlint]
+# useful for jinja templates
+preserve_leading_space=true
+profile="jinja"
+close_void_tags=true
