@@ -17,4 +17,4 @@ Highlight color: ![#{{ highlight_hex }}](https://via.placeholder.com/20/{{ highl
 
 {%- for c in colors_hex %}
 | ![#{{ c.hex }}](https://via.placeholder.com/20/{{ c.hex }}/{{ c.hex }}.png) | `#{{ c.hex }}` | {{ c.contrast_ratio }} : 1 | {{ c.wcag_level_normal_text }} | {{ c.wcag_level_large_text }} |
-{% endfor %}
+{%- endfor %}
