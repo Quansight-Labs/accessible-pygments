@@ -14,16 +14,13 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
     - [Customize your `style.py` file](#customize-your-stylepy-file)
     - [Visualize and debug your theme](#visualize-and-debug-your-theme)
     - [Update the `README.md` file](#update-the-readmemd-file)
-    - [Generate source `style.css` file](#generate-source-stylecss-file)
       - [Add your theme to our static page](#add-your-theme-to-our-static-page)
     - [Create a Pull Request](#create-a-pull-request)
 
 ## Submit an issue 📬
 
-Please share your thoughts for fixes and features in the issue tracker.
-When doing so, please a clear description and provide useful environment information.
-Please share your thoughts for fixes and features [in the issue tracker](https://github.com/Quansight-Labs/accessible-pygments/issues).
-When doing so, add a clear description, and please provide as much information as possible about your environment.
+Please share your thoughts on fixes and features [in the issue tracker](https://github.com/Quansight-Labs/accessible-pygments/issues).
+When doing so, add a clear description, and provide as much information as possible about your environment.
 
 ## Contributing to this package
 
@@ -43,7 +40,7 @@ You will need to have the following installed locally:
     git clone https://github.com/<your-username>/accessible-pygments.git
    ```
 
-   Remember that this fork is a copy of the repository and any changes in it doesn't affect the original one.
+   Remember that this fork is a copy of the repository and any changes in it don't affect the original one.
 
 2. From here you can create your local environments with hatch:
 
@@ -84,7 +81,7 @@ You can generate individual HTML files for each of the themes included in `acces
 hatch run dev:render_html
 ```
 
-This will add the HTML files under `test/results` for each supported theme.
+This will add the HTML files under `docs/` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
 
 ## Adding a new theme 🎨
@@ -105,7 +102,8 @@ Our package is divided by themes, where each folder has the style of each theme,
 │   │   ├── README.md
 ```
 
-To add a new theme, please create a folder with your new theme name, like `white-cats` and add the three files described before (so that it matches the rest of the themes).
+To add a new theme, please create a folder with your new theme name, like `white-cats` and add the three files
+described before (so that it matches the rest of the themes).
 
 ### Customize your `style.py` file
 
@@ -117,33 +115,36 @@ You can use as a base one of our existing themes, this file needs to define a ne
 
 ### Visualize and debug your theme
 
-While working on your theme, it might be helpful to generate the individual HTML files with the following command:
+While working on your theme, it might be helpful to generate example HTML files with the following command:
 
 ```bash
 hatch dev:render_html
 ```
 
-If successful, you should be able to see the results of your new theme under `test/results/<your-theme>`.
+The HTML files are generated from sample source code files located under `tests/scripts`.
 
-### Update the `README.md` file
+If successful, you should be able to see the results of your new theme applied to those code files under `docs/_build/<your-theme>`.
 
-Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
-
-The **most** important part for us, is to add a table with the contrast ratios of the colors you've chosen and their compliance to WCAG. Please use any of the current themes as a base, and use any color contrast checker to fill it out.
-
-Any acknowledgements to other repositories that you may use as base please add them as well to the main [README](./README.md) in the repo under the `acknowledgements` section.
-
-Also, don't forget to add the name of your theme to our list of supported themes in the main README.
-
-### Generate source `style.css` file
-
-You can generate the CSS file automatically through:
+If you prefer to inspect the CSS separately from the HTML, use the following command:
 
 ```bash
 hatch dev:create_css
 ```
 
-This will add the CSS file under `a11y_pygments/<your-theme>/style.css` and in the `docs` directory.
+This will add the CSS file under `docs/_build/css/<your-theme>.css`.
+
+### Update the `README.md` file
+
+Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
+
+The **most** important part for us is to add a table with the contrast ratios of the colors you've chosen and their
+conformance to WCAG (AA or AAA accordingly).
+Please use any of the current themes as a base, and use any color contrast checker to fill it out.
+
+Any acknowledgments to other repositories that you may use as base please add them as well to the main
+[README](./README.md) in the repo under the `acknowledgments` section.
+
+Also, don't forget to add the name of your theme to our list of supported themes in the main README.
 
 #### Add your theme to our static page
 
@@ -153,16 +154,7 @@ To add your new theme:
 1. Open the `[docs/index.html](docs/index.html)` file.
 2. Add a new link to your new theme in the `themes` section:
 
-```HTML
-...
-<!-- themes -->
-<link rel="stylesheet" type="text/css" title="a11y dark" href="./../a11y_pygments/a11y_dark/style.css">
-<link rel="stylesheet" type="text/css" title="YOUR THEME HERE" href="./../a11y_pygments/<your-theme>/style.css">
-...
-
-```
-
-With this change you will be able to open `docs/index.html` in your favorite browser and find your new theme in our demo!
+With this change, you will be able to open `docs/index.html` in your favorite browser and find your new theme in our demo!
 
 ### Create a Pull Request
 
