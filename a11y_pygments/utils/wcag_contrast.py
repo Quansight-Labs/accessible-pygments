@@ -134,4 +134,4 @@ def hexstr_without_hash(hex_color: str) -> str:
     >>> hexstr_without_hash("#fff")
     'fff'
     """
-    return "".join(hex_color.split("#"))
+    return hex_color.replace("#", "")
