@@ -1,10 +1,10 @@
 import logging
+import string
 from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pygments.styles import get_style_by_name
 
 from a11y_pygments.utils.utils import find_all_themes_packages
@@ -21,9 +21,54 @@ from a11y_pygments.utils.wcag_contrast import (
 HERE = Path(__file__).parent
 REPO = HERE.parent
 
-env = Environment(
-    loader=FileSystemLoader(HERE / "templates"), autoescape=select_autoescape()
-)
+
+def contrast_markdown_table(color_contrasts):
+    header_row = ["Color", "Hex", "Ratio", "Normal text", "Large text"]
+
+    # Initialize column widths with character counts from the header row
+    column_widths = [len(header) for header in header_row]
+
+    # Create rows and update column width based on longest cell within a column
+    rows = []
+    for cc in color_contrasts:
+        row = [
+            f"![#{cc['hex']}](https://via.placeholder.com/20/{cc['hex']}/{cc['hex']}.png)",
+            f"`#{cc['hex']}`",
+            f"{cc['contrast_ratio']} : 1",
+            f"{cc['wcag_level_normal_text']}",
+            f"{cc['wcag_level_large_text']}",
+        ]
+        rows.append(row)
+
+        # Column widths must be equal to the widest cell in the column, so
+        # iterate through cells in row and update column widths if necessary
+        for i, cell in enumerate(row):
+            if len(cell) > column_widths[i]:
+                column_widths[i] = len(cell)
+
+    lines = []
+
+    # Table header line
+    lines.append(
+        "| "
+        + " | ".join(
+            header.ljust(width) for header, width in zip(header_row, column_widths)
+        )
+        + " |"
+    )
+
+    # Separator line
+    lines.append("| " + " | ".join("-" * width for width in column_widths) + " |")
+
+    for row in rows:
+        # Single row in table
+        lines.append(
+            "| "
+            + " | ".join(cell.ljust(width) for cell, width in zip(row, column_widths))
+            + " |"
+        )
+
+    return "\n".join(lines)
 
 
 def update_readme(theme):
@@ -56,14 +101,16 @@ def update_readme(theme):
             }
 
     # Render the README template with the contrast info
-    template = env.get_template("README.md")
-    result = template.render(
+    with open(HERE / "templates" / "README.md", "r") as file:
+        template_str = file.read()
+    template = string.Template(template_str)
+    result = template.substitute(
         theme=theme_kebab_case,
         theme_title=theme.replace("_", " ").title(),
         theme_docstring=getdoc(theme_cls),
         background_hex=hexstr_without_hash(style.background_color),
         highlight_hex=hexstr_without_hash(style.highlight_color),
-        colors_hex=foreground_colors.values(),
+        contrast_table=contrast_markdown_table(foreground_colors.values()),
     )
 
     # Save the new README file

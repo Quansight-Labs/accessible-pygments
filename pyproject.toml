@@ -68,7 +68,7 @@ source = "vcs"
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit", "Jinja2"]
+dev = ["pre-commit"]
 
 [tool.hatch.build.targets]
 sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
