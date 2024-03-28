@@ -1,6 +1,6 @@
 # Making a release
 
-Please follow the instructions to make a new release of the `accessible pygments` package.
+Follow these instructions to make a new release of the `accessible-pygments` package.
 
 1. Create a new branch for the release
 
@@ -10,10 +10,10 @@ Please follow the instructions to make a new release of the `accessible pygments
 
 2. Document the changes since the last release
 
-   - Update `CHANGELOG.md` with `gitchangelog`
+   - Update the `CHANGELOG.md` with `gitchangelog` or any other tool of your choice
    - Commit the changes `git add && git commit -m "Update changelog"`
 
-3. Check package locally
+3. Check the package locally
 
    ```bash
    # since we use vcs to dynamically set the tag you can check with hatch
@@ -29,6 +29,9 @@ Please follow the instructions to make a new release of the `accessible pygments
 
    [wheel]
    dist/accessible_pygments-0.0.5.dev19+g076246a.d20230403-py3-none-any.whl
+
+   # check the contents
+   twine check dist/*
 
    # clean the build artifacts
    hatch clean

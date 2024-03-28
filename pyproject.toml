@@ -11,6 +11,10 @@ authors = [
     { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
     { name = "Tania Allard", email = "trallard@bitsandchips.me" },
 ]
+maintainers = [
+    # TODO @gabalafou to add his email
+    { name = "Gabriel Fouasnon", email = "" },
+]
 keywords = ["a11y", "accessibility", "pygments", "WCAG", "Sphinx"]
 classifiers = [
     "Intended Audience :: Developers",
@@ -24,6 +28,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Development Status :: 3 - Alpha",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -65,10 +70,17 @@ replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/m
 
 [tool.hatch.version]
 source = "vcs"
+raw-options = { local_scheme = "no-local-version" }
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit", "setuptools", "playwright"]
+dev = [
+    "pre-commit",
+    "setuptools",
+    "playwright",
+    "twine>=5.0",
+    "pkginfo>=1.10", # needed to support metadata 2.3
+]
 
 [tool.hatch.build.targets]
 sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
@@ -76,9 +88,7 @@ wheel = { packages = ["a11y_pygments"] }
 
 [tool.hatch.envs.dev]
 features = ["dev"]
-post-install-commands = [
-  "playwright install",
-]
+post-install-commands = ["playwright install"]
 
 [tool.hatch.envs.test]
 features = ["tests"]
@@ -99,6 +109,6 @@ skip_gitignore = true
 fix = true
 exclude = ["test/scripts/*.py"]
 ignore = [
-    "E501"
+    "E501",
     # line too long | Black takes care of this
 ]

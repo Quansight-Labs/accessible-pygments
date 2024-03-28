@@ -65,7 +65,7 @@ def markdown_table(rows: list[list[str]]) -> str:
 
 
 def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list[str]]:
-    """Create Markdown table of contrast ratios and WCAG ratings for all foreground colors against the default background color
+    """Create Markdown table of contrast ratios and WCAG ratings for foreground colors against background color
 
     Args:
         color_cls (class object): A mapping of color names to six-value hex CSS color
@@ -167,9 +167,7 @@ if __name__ == "__main__":
         description="Updates theme README.md files in the accessible-pygments repo",
     )
     parser.add_argument(
-        "themes",
-        nargs="*",
-        help="One or more theme names to update (example: a11y_dark)",
+        "themes", nargs="*", help="Name(s) of theme(s) to update (example: a11y_dark)"
     )
     args = parser.parse_args()
 
@@ -178,12 +176,13 @@ if __name__ == "__main__":
     all_themes = find_all_themes_packages()
     for i, theme in enumerate(args.themes):
         if "-" in theme:
-            logging.info("Converting to snake_case: {theme}")
+            logging.info("Converting to snake_case: %s", theme)
             args.themes[i] = theme = theme.replace("-", "_")
         assert theme in all_themes, f"Theme {theme} not found"
 
     # Update themes provided or, if none provided, update all themes in the repo
     themes = args.themes or all_themes
     render_html(theme.replace("_", "-") for theme in themes)
+
     for theme in themes:
         update_readme(theme)
