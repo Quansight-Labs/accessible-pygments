@@ -36,16 +36,24 @@ def markdown_table(rows: list[list[str]]) -> str:
 
     # Calculate the maximum width of each column
     column_widths = [max(len(cell) for cell in column) for column in zip(*rows)]
+
+    # Create lines of the Markdown table from each data row
     lines = []
     for row in rows:
         lines.append(
             "| "
+            # Pad each cell to the column width
             + " | ".join(cell.ljust(width) for cell, width in zip(row, column_widths))
             + " |"
         )
+
+    # Create the separator row line, matching each cell to the column width
     separator = "| " + " | ".join("-" * width for width in column_widths) + " |"
-    # Insert the separator row between the header row and the body rows
+
+    # Insert the separator row between the header and body rows
     lines.insert(1, separator)
+
+    # Join together the lines as a single string with newline characters between them
     return "\n".join(lines)
 
 
@@ -89,6 +97,7 @@ def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list
                 ]
             )
 
+    # Format table as Markdown
     return markdown_table(rows)
 
 
