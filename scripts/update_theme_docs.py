@@ -179,7 +179,7 @@ if __name__ == "__main__":
     for i, theme in enumerate(args.themes):
         if "-" in theme:
             logging.info("Converting to snake_case: {theme}")
-            args.themes[i] = theme = theme.replace("_", "_")
+            args.themes[i] = theme = theme.replace("-", "_")
         assert theme in all_themes, f"Theme {theme} not found"
 
     # Update themes provided or, if none provided, update all themes in the repo
