@@ -142,7 +142,12 @@ Once you are happy with the colors and the rules in the style file, please updat
 hatch run dev:update_theme_docs your_theme_module_name
 ```
 
-This script will generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG. It will also pull the docstring from the `Theme` class and put it in the README as the description for your theme. If you are porting a theme or color palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class.
+This script will:
+
+- generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG,
+- pull the docstring from the `Theme` class and put it in the README as the description for your theme (if you are porting a theme or color
+  palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class),
+- take a screenshot of your theme applied to a code sample, save it at `a11y_pygments/<your_theme>/images/<your_theme>.png`, and embed it in the theme README.
 
 Also, don't forget to add the name of your theme to our list of supported themes in the [main README](README.md).
 

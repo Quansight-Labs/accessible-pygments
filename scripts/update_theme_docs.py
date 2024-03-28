@@ -1,11 +1,15 @@
+# This script generates READMEs for themes from their style.py definitions
+
 import logging
 import string
+import sys
 from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
 from pathlib import Path
 from typing import Type
 
+from playwright.sync_api import sync_playwright
 from pygments.styles import get_style_by_name
 
 from a11y_pygments.utils.utils import find_all_themes_packages
@@ -17,10 +21,13 @@ from a11y_pygments.utils.wcag_contrast import (
     hexstr_without_hash,
 )
 
-# This script generates READMEs for themes from their style.py definitions
-
 HERE = Path(__file__).parent
 REPO = HERE.parent
+
+# TODO fix this hack later when restructuring the repo
+sys.path.append(str(REPO / "test"))
+from render_html import outdir as html_outdir  # noqa: E402
+from render_html import render_html  # noqa: E402
 
 
 def markdown_table(rows: list[list[str]]) -> str:
@@ -58,7 +65,16 @@ def markdown_table(rows: list[list[str]]) -> str:
 
 
 def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list[str]]:
-    """Calculate contrast ratios and WCAG ratings for all foreground colors"""
+    """Create Markdown table of contrast ratios and WCAG ratings for foreground colors against background color
+
+    Args:
+        color_cls (class object): A mapping of color names to six-value hex CSS color
+            strings. The mapping comes from a class named Colors defined in
+            <theme-name>/style.py.
+        background_color (str): Theme default background color for code blocks
+            in six-value #RRGGBB hex format. For example, white would be "#ffffff"
+            (case insensitive).
+    """
 
     # Start table
     rows = [["Color", "Hex", "Ratio", "Normal text", "Large text"]]
@@ -104,11 +120,22 @@ def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list
 def update_readme(theme: str):
     """Given a theme module name, update that theme's README file on disk"""
 
+    theme_kebab_case = theme.replace("_", "-")
+    outdir = REPO / "a11y_pygments" / theme
+
+    # Take a screenshot of the theme applied to a sample bash script
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 620, "height": 720})
+        bash_sample_rendered_html = html_outdir / theme_kebab_case / "bash.html"
+        page.goto(bash_sample_rendered_html.absolute().as_uri())
+        page.screenshot(path=outdir / "images" / f"{theme_kebab_case}.png")
+        browser.close()
+
     # Get the theme colors
     theme_style_module = import_module(f"a11y_pygments.{theme}.style")
     color_cls = theme_style_module.Colors  # access to foreground colors
     theme_cls = theme_style_module.Theme  # access to docstring
-    theme_kebab_case = theme.replace("_", "-")
     style = get_style_by_name(
         theme_kebab_case
     )  # access to background and highlight colors
@@ -137,22 +164,25 @@ def update_readme(theme: str):
 if __name__ == "__main__":
     parser = ArgumentParser(
         prog="Update theme readme",
-        description="Updates the README.md file for themes in the accessible-pygments repo",
+        description="Updates theme README.md files in the accessible-pygments repo",
     )
     parser.add_argument(
-        "themes", nargs="*", help="Name(s) of theme(s) to update (example: a11y_dark)"
+        "themes", nargs="*", help="Themes to update (example: a11y_dark)"
     )
     args = parser.parse_args()
 
     # Check that each theme provided on the command line is a known theme. If
     # not, error and exit immediately
     all_themes = find_all_themes_packages()
-    for theme in args.themes:
-        assert (
-            theme in all_themes
-        ), "Invalid theme (did you forget to use an underscore _ instead of a hyphen -?)"
+    for i, theme in enumerate(args.themes):
+        if "-" in theme:
+            logging.info("Converting to snake_case: %s", theme)
+            args.themes[i] = theme = theme.replace("-", "_")
+        assert theme in all_themes, f"Theme {theme} not found"
 
     # Update themes provided or, if none provided, update all themes in the repo
     themes = args.themes or all_themes
+    render_html(theme.replace("_", "-") for theme in themes)
+
     for theme in themes:
         update_readme(theme)

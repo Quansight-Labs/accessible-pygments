@@ -16,14 +16,14 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#696969"
-    red = "#d91e18"
-    orange = "#a65b00"
-    yellow = "#a65b00"
-    green = "#008000"
+    comment = "#515151"
+    red = "#d71835"
+    orange = "#7f4707"
+    yellow = "#7f4707"
+    green = "#116633"
     blue = "#00749c"
-    purple = "#7928a1"
-    black = "#545454"
+    purple = "#8045e5"
+    black = "#1e1e1e"
 
 
 class Theme(Style):
