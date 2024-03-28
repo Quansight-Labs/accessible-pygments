@@ -28,6 +28,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Development Status :: 3 - Alpha",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -69,6 +70,7 @@ replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/m
 
 [tool.hatch.version]
 source = "vcs"
+raw-options = { local_scheme = "no-local-version" }
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
