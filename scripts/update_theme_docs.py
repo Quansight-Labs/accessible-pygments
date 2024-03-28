@@ -4,6 +4,7 @@ from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
 from pathlib import Path
+from typing import Type
 
 from pygments.styles import get_style_by_name
 
@@ -22,7 +23,17 @@ HERE = Path(__file__).parent
 REPO = HERE.parent
 
 
-def markdown_table(rows):
+def markdown_table(rows: list[list[str]]) -> str:
+    """Pretty format a table as Markdown
+
+    Formatting features: header, separator, body and equal-spaced columns.
+
+    >>> print(mtable([["a","b"],["foo","bar"]]))
+    | a   | b   |
+    | --- | --- |
+    | foo | bar |
+    """
+
     # Calculate the maximum width of each column
     column_widths = [max(len(cell) for cell in column) for column in zip(*rows)]
     lines = []
@@ -38,11 +49,16 @@ def markdown_table(rows):
     return "\n".join(lines)
 
 
-def contrast_markdown_table(color_cls, background_color):
+def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list[str]]:
+    """Calculate contrast ratios and WCAG ratings for all foreground colors"""
+
+    # Start table
     rows = [["Color", "Hex", "Ratio", "Normal text", "Large text"]]
 
-    # Calculate contrast ratios and WCAG ratings for all foreground colors
+    # Keep track of colors already seen so we do not duplicate rows in the table
     unique_colors = set()
+
+    # Iterate through Color class properties
     for key in vars(color_cls):
         value = getattr(color_cls, key)
         if (
@@ -50,9 +66,14 @@ def contrast_markdown_table(color_cls, background_color):
             and not key.startswith("__")
             and value not in unique_colors
         ):
+            # Keep track of color values we have already seen
             unique_colors.add(value)
+
+            # Calculate contrast
             contrast = contrast_ratio(hex_to_rgb(value), hex_to_rgb(background_color))
             rrggbb = hexstr_without_hash(value)
+
+            # Add row to table
             rows.append(
                 [
                     # Color
@@ -71,7 +92,7 @@ def contrast_markdown_table(color_cls, background_color):
     return markdown_table(rows)
 
 
-def update_readme(theme):
+def update_readme(theme: str):
     """Given a theme module name, update that theme's README file on disk"""
 
     # Get the theme colors
