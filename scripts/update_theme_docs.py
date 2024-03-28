@@ -128,7 +128,7 @@ def update_readme(theme: str):
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 620, "height": 720})
         bash_sample_rendered_html = html_outdir / theme_kebab_case / "bash.html"
-        page.goto("file://" + bash_sample_rendered_html.absolute().as_posix())
+        page.goto(bash_sample_rendered_html.absolute().as_uri())
         page.screenshot(path=outdir / "images" / f"{theme_kebab_case}.png")
         browser.close()
 
