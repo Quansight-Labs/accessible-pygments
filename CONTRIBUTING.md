@@ -52,18 +52,18 @@ You will need to have the following installed locally:
 
    ```console
     $ hatch env show
-   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┓
-   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts        ┃
-   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━┩
-   │ default │ virtual │              │                │
-   ├─────────┼─────────┼──────────────┼────────────────┤
-   │ dev     │ virtual │              │ css            │
-   │         │         │              │ render_html    │
-   |         |         |              | update_readmes |
-   ├─────────┼─────────┼──────────────┼────────────────┤
-   │ test    │ virtual │ hypothesis   │ tests          │
-   │         │         │ pytest       │                │
-   └─────────┴─────────┴──────────────┴────────────────┘
+   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts           ┃
+   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+   │ default │ virtual │              │                   │
+   ├─────────┼─────────┼──────────────┼───────────────────┤
+   │ dev     │ virtual │              │ css               │
+   │         │         │              │ render_html       │
+   |         |         |              | update_theme_docs |
+   ├─────────┼─────────┼──────────────┼───────────────────┤
+   │ test    │ virtual │ hypothesis   │ tests             │
+   │         │         │ pytest       │                   │
+   └─────────┴─────────┴──────────────┴───────────────────┘
    ```
 
 ### Running the tests
@@ -138,13 +138,13 @@ This will add the CSS file under `docs/_build/css/<your-theme>.css`.
 
 Once you are happy with the colors and the rules in the style file, please update the README for your new theme! You can generate a README with the following command:
 
-```py
-hatch run dev:update_readmes --theme your-theme-name
+```bash
+hatch run dev:update_theme_docs your_theme_module_name
 ```
 
 This script will generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG. It will also pull the docstring from the `Theme` class and put it in the README as the description for your theme. If you are porting a theme or color palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class.
 
-Also, don't forget to add the name of your theme to our list of supported themes in the main README.
+Also, don't forget to add the name of your theme to our list of supported themes in the [main README](README.md).
 
 #### Add your theme to our static page
 
