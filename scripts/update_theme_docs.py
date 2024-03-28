@@ -167,7 +167,7 @@ if __name__ == "__main__":
         description="Updates theme README.md files in the accessible-pygments repo",
     )
     parser.add_argument(
-        "themes", nargs="*", help="Name(s) of theme(s) to update (example: a11y_dark)"
+        "themes", nargs="*", help="Themes to update (example: a11y_dark)"
     )
     args = parser.parse_args()
 
