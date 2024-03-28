@@ -16,25 +16,25 @@ from pygments.token import (
 
 
 class Colors:
-    comment = "#797129"
-    red = "#d91e18"
-    orange = "#797129"
-    yellow = "#797129"
-    green = "#008000"
-    blue = "#007faa"
-    purple = "#7928a1"
-    black = "#545454"
+    comment = "#515151"
+    red = "#a12236"
+    orange = "#7f4707"
+    magenta = "#912583"
+    green = "#00622f"
+    blue = "#005b82"
+    purple = "#6730c5"
+    black = "#080808"
 
 
 class Theme(Style):
     """
-    This style mimics the a11 light theme from eric bailey's accessible themes.
+    This style mimics the a11y-light theme (but with more contrast) from eric bailey's accessible themes.
     """
 
     default_style = ""
 
     background_color = "#fefefe"
-    highlight_color = "#7971292e"
+    highlight_color = "#fae4c2"
 
     styles = {
         Text: Colors.black,  # class:  ''
@@ -52,7 +52,7 @@ class Theme(Style):
         Operator.Word: Colors.purple,  # class: 'ow'
         Punctuation: Colors.black,  # class: 'p'
         Name: Colors.black,  # class: 'n'
-        Name.Attribute: Colors.yellow,  # class: 'na'
+        Name.Attribute: Colors.magenta,  # class: 'na'
         Name.Builtin: Colors.orange,  # class: 'nb'
         Name.Builtin.Pseudo: Colors.orange,  # class: 'bp'
         Name.Class: Colors.blue,  # class: 'nc'
