@@ -52,17 +52,18 @@ You will need to have the following installed locally:
 
    ```console
     $ hatch env show
-   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
-   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts     ┃
-   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
-   │ default │ virtual │              │             │
-   ├─────────┼─────────┼──────────────┼─────────────┤
-   │ dev     │ virtual │              │ css         │
-   │         │         │              │ render_html │
-   ├─────────┼─────────┼──────────────┼─────────────┤
-   │ test    │ virtual │ hypothesis   │ tests       │
-   │         │         │ pytest       │             │
-   └─────────┴─────────┴──────────────┴─────────────┘
+   ┏━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+   ┃ Name    ┃ Type    ┃ Dependencies ┃ Scripts           ┃
+   ┡━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+   │ default │ virtual │              │                   │
+   ├─────────┼─────────┼──────────────┼───────────────────┤
+   │ dev     │ virtual │              │ css               │
+   │         │         │              │ render_html       │
+   |         |         |              | update_theme_docs |
+   ├─────────┼─────────┼──────────────┼───────────────────┤
+   │ test    │ virtual │ hypothesis   │ tests             │
+   │         │         │ pytest       │                   │
+   └─────────┴─────────┴──────────────┴───────────────────┘
    ```
 
 ### Running the tests
@@ -118,7 +119,7 @@ You can use as a base one of our existing themes, this file needs to define a ne
 While working on your theme, it might be helpful to generate example HTML files with the following command:
 
 ```bash
-hatch dev:render_html
+hatch run dev:render_html
 ```
 
 The HTML files are generated from sample source code files located under `tests/scripts`.
@@ -128,23 +129,22 @@ If successful, you should be able to see the results of your new theme applied t
 If you prefer to inspect the CSS separately from the HTML, use the following command:
 
 ```bash
-hatch dev:create_css
+hatch run dev:create_css
 ```
 
 This will add the CSS file under `docs/_build/css/<your-theme>.css`.
 
 ### Update the `README.md` file
 
-Once you are happy with the colors and the rules in the style file, please update the README for your new theme!
+Once you are happy with the colors and the rules in the style file, please update the README for your new theme! You can generate a README with the following command:
 
-The **most** important part for us is to add a table with the contrast ratios of the colors you've chosen and their
-conformance to WCAG (AA or AAA accordingly).
-Please use any of the current themes as a base, and use any color contrast checker to fill it out.
+```bash
+hatch run dev:update_theme_docs your_theme_module_name
+```
 
-Any acknowledgments to other repositories that you may use as base please add them as well to the main
-[README](./README.md) in the repo under the `acknowledgments` section.
+This script will generate a table of contrast ratios of the colors you've chosen and their compliance with WCAG. It will also pull the docstring from the `Theme` class and put it in the README as the description for your theme. If you are porting a theme or color palette developed elsewhere please acknowledge your source(s) in the docstring of the `Theme` class.
 
-Also, don't forget to add the name of your theme to our list of supported themes in the main README.
+Also, don't forget to add the name of your theme to our list of supported themes in the [main README](README.md).
 
 #### Add your theme to our static page
 
@@ -152,7 +152,7 @@ We have a demo page where you will be able to change the style of different lang
 To add your new theme:
 
 1. Open the `[docs/index.html](docs/index.html)` file.
-2. Add a new link to your new theme in the `themes` section:
+2. Add your new theme name to the `themes` section:
 
 With this change, you will be able to open `docs/index.html` in your favorite browser and find your new theme in our demo!
 

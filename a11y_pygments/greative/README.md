@@ -1,8 +1,8 @@
 # Greative
 
-This is the pygments implementation of [`greative`](https://github.com/SumanKhdka/Greative-VSCode-Theme).
+This style mimics greative theme from vscode themes.
 
-![Screenshot of the theme in a bash script](./images/greative.png)
+![Screenshot of the greative theme in a bash script](./images/greative.png)
 
 ## Colors
 
@@ -19,6 +19,5 @@ Highlight color: ![#473d18](https://via.placeholder.com/20/473d18/473d18.png) `#
 | ![#9e8741](https://via.placeholder.com/20/9e8741/9e8741.png) | `#9e8741` | 5.7 : 1  | AA          | AAA        |
 | ![#c5e478](https://via.placeholder.com/20/c5e478/c5e478.png) | `#c5e478` | 13.9 : 1 | AAA         | AAA        |
 | ![#a2bffc](https://via.placeholder.com/20/a2bffc/a2bffc.png) | `#a2bffc` | 10.8 : 1 | AAA         | AAA        |
-| ![#5ca7e4](https://via.placeholder.com/20/5ca7e4/5ca7e4.png) | `#5ca7e4` | 7.6 : 1  | AA          | AAA        |
+| ![#5ca7e4](https://via.placeholder.com/20/5ca7e4/5ca7e4.png) | `#5ca7e4` | 7.6 : 1  | AAA         | AAA        |
 | ![#9e86c8](https://via.placeholder.com/20/9e86c8/9e86c8.png) | `#9e86c8` | 6.3 : 1  | AA          | AAA        |
-| ![#a2bffc](https://via.placeholder.com/20/a2bffc/a2bffc.png) | `#a2bffc` | 10.8 : 1 | AAA         | AAA        |

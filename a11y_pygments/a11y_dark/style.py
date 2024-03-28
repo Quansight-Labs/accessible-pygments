@@ -28,7 +28,9 @@ class Colors:
 
 class Theme(Style):
     """
-    This style mimics the a11 light theme from eric bailey's accessible themes.
+    This is the Pygments implementation of a11y-dark from [Eric Bailey's
+    accessible themes for syntax
+    highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting)
     """
 
     default_style = ""

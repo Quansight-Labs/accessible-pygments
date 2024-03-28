@@ -104,3 +104,34 @@ def passes_contrast(
             return round(ratio, 2)
         else:
             return False
+
+
+def get_wcag_level_normal_text(contrast: float) -> str:
+    """Does the given contrast meet level AA or level AAA for normal size text"""
+    if contrast >= 7:
+        return "AAA"
+    elif contrast >= 4.5:
+        return "AA"
+    else:
+        return ""
+
+
+def get_wcag_level_large_text(contrast: float) -> str:
+    """Does the given contrast meet level AA or level AAA for large text"""
+    if contrast >= 4.5:
+        return "AAA"
+    elif contrast >= 3:
+        return "AA"
+    else:
+        return ""
+
+
+def hexstr_without_hash(hex_color: str) -> str:
+    """Remove '#' from hex color strings.
+
+    Usage example:
+
+    >>> hexstr_without_hash("#fff")
+    'fff'
+    """
+    return hex_color.replace("#", "")

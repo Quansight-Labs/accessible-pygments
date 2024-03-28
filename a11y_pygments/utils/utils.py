@@ -15,7 +15,7 @@ def find_all_themes_packages() -> list[str]:
     Returns:
         themes: list of themes under the a11y_pygments package
     """
-    exclude = {"test", "a11y_pygments", "a11y_pygments.utils"}
+    exclude = {"test", "scripts", "a11y_pygments", "a11y_pygments.utils"}
     packages = set(find_packages())
     themes = list(packages - exclude)
     # drop the a11y_pygments part of the pkg name
