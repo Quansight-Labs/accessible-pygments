@@ -77,7 +77,7 @@ wheel = { packages = ["a11y_pygments"] }
 [tool.hatch.envs.dev.scripts]
 render_html = "python test/render_html.py"
 create_css = "python test/run_css.py --save-dir docs/_build"
-update_readmes = "python scripts/update_readme_for_theme.py"
+update_theme_docs = "python scripts/update_theme_docs.py"
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"
