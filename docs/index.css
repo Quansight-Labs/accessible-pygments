@@ -1,0 +1,42 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.selection {
+  display: flex;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card-title {
+  align-self: center;
+}
+
+.card-body {
+  width: 400px;
+  height: 400px;
+  padding: 0 0 20px 20px;
+  vertical-align: top;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}

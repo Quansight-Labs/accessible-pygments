@@ -74,7 +74,7 @@ jobs:
 
     - name: Build the demo pages 📚
       run: |
-        python test/run_css.py --save-dir docs
+        python test/render_html.py
 
     - name: Setup Pages 🛠
       uses: actions/configure-pages@v3

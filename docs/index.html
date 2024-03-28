@@ -1,129 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
 	<title>Accessible Pygments Themes</title>
 
-	<!-- themes -->
-    <link rel="stylesheet" type="text/css" title="a11y dark" href="./css/a11y_dark-style.css">
-    <link rel="stylesheet" type="text/css" title="a11y light" href="./css/a11y_light-style.css">
-    <link rel="stylesheet" type="text/css" title="a11y dark (high contrast)" href="./css/a11y_high_contrast_dark-style.css">
-    <link rel="stylesheet" type="text/css" title="a11y light (high contrast)" href="./css/a11y_high_contrast_light-style.css">
-    <link rel="stylesheet" type="text/css" title="pitaya smoothie" href="./css/pitaya_smoothie-style.css">
-    <link rel="stylesheet" type="text/css" title="github light" href="./css/github_light-style.css">
-    <link rel="stylesheet" type="text/css" title="github dark" href="./css/github_dark-style.css">
-    <link rel="stylesheet" type="text/css" title="github light colorblind" href="./css/github_light_colorblind-style.css">
-    <link rel="stylesheet" type="text/css" title="github dark colorblind" href="./css/github_dark_colorblind-style.css">
-    <link rel="stylesheet" type="text/css" title="github light high contrast" href="./css/github_light_high_contrast-style.css">
-    <link rel="stylesheet" type="text/css" title="github dark high contrast" href="./css/github_dark_high_contrast-style.css">
-    <link rel="stylesheet" type="text/css" title="gotthard light" href="./css/gotthard_light-style.css">
-    <link rel="stylesheet" type="text/css" title="gotthard dark" href="./css/gotthard_dark-style.css">
-    <link rel="stylesheet" type="text/css" title="blinds light" href="./css/blinds_light-style.css">
-    <link rel="stylesheet" type="text/css" title="blinds dark" href="./css/blinds_dark-style.css">
-    <link rel="stylesheet" type="text/css" title="greative" href="./css/greative-style.css">
-    <!-- <link rel="stylesheet" type="text/css" title="theme name" href="./css/THEME-NAME-style.css"> -->
-
-    <style>
-        body {
-		    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .title {
-            display: flex;
-            justify-content: center;
-        }
-
-        .selection {
-            display: flex;
-            justify-content: center;
-        }
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
-
-        .card {
-            margin: 10px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .card-title{
-            align-self: center;
-        }
-
-        .card-body {
-            width: 400px;
-            height: 400px;
-            padding: 0 0 20px 20px;
-            vertical-align: top;
-        }
-
-        .highlight {
-            border: #555 1px solid;
-            text-align: left;
-            height: 400px;
-            overflow-y: auto;
-            font-size: 12px;
-        }
-
-        .highlight table{
-            width: 100%;
-        }
-
-        pre { padding: 0 5px; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
-    </style>
-
-    <!-- jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-	<script>
-	$(function(){
-		var t,
-			$links = $('link[title]'),
-			$select = $('select'),
-			theme = "a11y dark",
-			ls = false,
-			selectTheme = function(theme){
-				$links.prop('disabled', true);
-				$links.filter('[title="' + theme + '"]').prop('disabled', false);
-			};
-		if ("localStorage" in window) {
-			try {
-				window.localStorage.setItem('_tmptest', 'temp');
-				ls = true;
-				window.localStorage.removeItem('_tmptest');
-			} catch(e) {}
-		}
-		if (ls) {
-			theme = localStorage['a11y dark'] || theme;
-		}
-
-		t = '';
-		$links.each(function(){
-			t += '<option>' + this.title + '</option>';
-		});
-		$select
-			.append(t)
-			.on('change', function(){
-				selectTheme(this.value);
-				if (ls) {
-					localStorage['a11y dark'] = this.value;
-				}
-			})
-			.val(theme);
-
-		$(window).on('load', function() {
-			$select.val(theme);
-			selectTheme(theme);
-		});
-
-	});
-	</script>
-
+    <link rel="stylesheet" type="text/css" title="a11y dark" href="./index.css">
 </head>
 <body>
     <div class="title">
@@ -131,888 +12,96 @@
     </div>
     <div class="selection">
         <label>Choose a theme:</label>
+        <!-- themes -->
         <select name="themes" id="themes">
+            <option>a11y-dark</option>
+            <option>a11y-light</option>
+            <option>a11y-high-contrast-dark</option>
+            <option>a11y-hight-contrast-light</option>
+            <option>pitaya-smoothie</option>
+            <option>github-light</option>
+            <option>github-dark</option>
+            <option>github-light-colorblind</option>
+            <option>github-dark-colorblind</option>
+            <option>github-light-high-contrast</option>
+            <option>github-dark-high-contrast</option>
+            <option>gotthard-light</option>
+            <option>gotthard-dark</option>
+            <option>blinds-light</option>
+            <option>blinds-dark</option>
+            <option>greative</option>
         </select>
     </div>
+
     <div class="cards">
-<!-------------------------------- BASH -------------------------->
+
+<!-------------------------------- BASH -------------------------------->
+
         <div class="card">
             <div class="card-title">
-                <h3>Bash</h3>
+                <h2>Bash</h2>
             </div>
             <div class="card-body">
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="hll"><span class="c1"># Counting the number of lines in a list of files</span>
-</span><span class="hll"><span class="c1"># function version</span>
-</span><span class="hll">
-</span><span class="c1"># function storing list of all files in variable files</span>
-get_files <span class="o">()</span> <span class="o">{</span>
-    <span class="nv">files</span><span class="o">=</span><span class="s2">&quot;`ls *.[ch]`&quot;</span>
-<span class="o">}</span>
+                <iframe src="./_build/a11y-dark/bash.html" title="Bash syntax highlighting example"></iframe>
+            </div>
+        </div>
 
-<span class="c1"># function counting the number of lines in a file</span>
-count_lines <span class="o">()</span> <span class="o">{</span>
-    <span class="nv">f</span><span class="o">=</span><span class="nv">$1</span>  <span class="c1"># 1st argument is filename</span>
-    <span class="nv">l</span><span class="o">=</span><span class="sb">`</span>wc -l <span class="nv">$f</span> <span class="p">|</span> sed <span class="s1">&#39;s/^\([0-9]*\).*$/\1/&#39;</span><span class="sb">`</span> <span class="c1"># number of lines</span>
-<span class="o">}</span>
-
-<span class="c1"># the script should be called without arguments</span>
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -ge <span class="m">1</span> <span class="o">]</span>
-<span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> &quot;</span>
-    <span class="nb">exit</span> <span class="m">1</span>
-<span class="k">fi</span>
-
-<span class="c1"># split by newline</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\012&#39;</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2"> counts the lines of code&quot;</span>
-<span class="c1"># don&#39;t forget to initialise!</span>
-<span class="nv">l</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">n</span><span class="o">=</span><span class="m">0</span>
-<span class="nv">s</span><span class="o">=</span><span class="m">0</span>
-<span class="c1"># call a function to get a list of files</span>
-get_files
-<span class="c1"># iterate over this list</span>
-<span class="k">for</span> f <span class="k">in</span> <span class="nv">$files</span>
-<span class="k">do</span>
-    <span class="c1"># call a function to count the lines</span>
-    count_lines <span class="nv">$f</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">: </span><span class="nv">$l</span><span class="s2">&quot;</span>loc
-    <span class="c1"># store filename in an array</span>
-    file<span class="o">[</span><span class="nv">$n</span><span class="o">]=</span><span class="nv">$f</span>
-    <span class="c1"># store number of lines in an array</span>
-    lines<span class="o">[</span><span class="nv">$n</span><span class="o">]=</span><span class="nv">$l</span>
-    <span class="c1"># increase counter</span>
-    <span class="nv">n</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$n</span> + <span class="m">1</span> <span class="o">]</span>
-    <span class="c1"># increase sum of all lines</span>
-    <span class="nv">s</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$s</span> + <span class="nv">$l</span> <span class="o">]</span>
-<span class="k">done</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$n</span><span class="s2"> files in total, with </span><span class="nv">$s</span><span class="s2"> lines in total&quot;</span>
-<span class="nv">i</span><span class="o">=</span><span class="m">5</span>
-<span class="nb">echo</span> <span class="s2">&quot;The </span><span class="nv">$i</span><span class="s2">-th file was </span><span class="si">${</span><span class="nv">file</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> with </span><span class="si">${</span><span class="nv">lines</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> lines&quot;</span>
-
-<span class="c1">###### CONFIG</span>
-<span class="nv">ACCEPTED_HOSTS</span><span class="o">=</span><span class="s2">&quot;/root/.hag_accepted.conf&quot;</span>
-<span class="nv">BE_VERBOSE</span><span class="o">=</span><span class="nb">false</span>
-
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$UID</span><span class="s2">&quot;</span> -ne <span class="m">0</span> <span class="o">]</span>
-<span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Superuser rights required&quot;</span>
-    <span class="nb">exit</span> <span class="m">2</span>
-<span class="k">fi</span>
-
-genApacheConf<span class="o">(){</span>
-    <span class="nb">echo</span> -e <span class="s2">&quot;# Host </span><span class="si">${</span><span class="nv">HOME_DIR</span><span class="si">}</span><span class="nv">$1</span><span class="s2">/</span><span class="nv">$2</span><span class="s2"> :&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</div>
-        <div class="card">
-            <div class="card-title">
 <!-------------------------------- JAVASCRIPT -------------------------->
-                <h3>Javascript</h3>
-            </div>
-            <div class="card-body">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">main</span><span class="p">(){</span>
-<span class="hll">    <span class="kd">var</span> <span class="nx">lastScrollTop</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-</span><span class="hll">    <span class="kd">var</span> <span class="nx">animationEnd</span> <span class="o">=</span> <span class="s1">&#39;animationend oAnimationEnd mozAnimationEnd webkitAnimationEnd&#39;</span><span class="p">;</span>
-</span><span class="hll">    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span> <span class="nx">_</span><span class="p">.</span><span class="nx">throttle</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span></span>
-        <span class="kd">var</span> <span class="nx">st</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="nx">st</span> <span class="o">&gt;</span> <span class="nx">lastScrollTop</span> <span class="p">)</span>
-        <span class="p">{</span>
-            <span class="nx">runAnimation</span><span class="p">(</span><span class="s2">&quot;#home-header&quot;</span><span class="p">,</span> <span class="s2">&quot;slideOutUp faster&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">else</span>
-        <span class="p">{</span>
-            <span class="nx">runAnimation</span><span class="p">(</span><span class="s2">&quot;#home-header&quot;</span><span class="p">,</span> <span class="s2">&quot;slideInDown faster&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="nx">lastScrollTop</span> <span class="o">=</span> <span class="nx">st</span><span class="p">;</span>
-    <span class="p">},</span> <span class="mf">500</span>
-<span class="p">));</span>
 
-<span class="kd">function</span> <span class="nx">runAnimation</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">animationName</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;animated slideInDown slideOutUp&quot;</span><span class="p">);</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;animated &quot;</span> <span class="o">+</span><span class="nx">animationName</span><span class="p">).</span><span class="nx">one</span><span class="p">(</span><span class="nx">animationEnd</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">animationRunning</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">});</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="nx">main</span><span class="p">);</span>
-    </pre></div>
-            </div>
-        </div>
         <div class="card">
             <div class="card-title">
-<!-------------------------------- CSS -------------------------->
-                <h3>CSS</h3>
+                <h2>Javascript</h2>
             </div>
             <div class="card-body">
-<div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">top-title</span><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Leckerli One&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="p">}</span><span class="w"></span>
-</span>
-<span class="w">  </span><span class="nt">header</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">bg-blue</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">135</span><span class="p">,</span><span class="w"> </span><span class="mi">212</span><span class="p">,</span><span class="w"> </span><span class="mi">230</span><span class="p">,</span><span class="w"> </span><span class="mf">0.70</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#87d4e6</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">bg-bottom-dark</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#454545</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#454545</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">bottom-firm</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e2eb98</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Leckerli One&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">sky-blue-header</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#87d4e6</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">min-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">clear</span><span class="p">:</span><span class="w"> </span><span class="kc">both</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">balloons-main</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">min-width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">clear</span><span class="p">:</span><span class="w"> </span><span class="kc">both</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">center-text</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translate</span><span class="p">(</span><span class="nv">-50</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="nv">-50</span><span class="err">%</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#F1FAEE</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Delius Swash Caps&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">h1</span><span class="w"> </span><span class="p">#</span><span class="nn">welcome-text</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">center-bottom-medium</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translate</span><span class="p">(</span><span class="nv">-50</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="nv">-50</span><span class="err">%</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#F1FAEE</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Delius Swash Caps&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">center-bottom</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">58</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">translate</span><span class="p">(</span><span class="nv">-50</span><span class="err">%</span><span class="p">,</span><span class="w"> </span><span class="nv">-50</span><span class="err">%</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#F1FAEE</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Delius Swash Caps&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">about-me</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">available</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">hire-me</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">relative</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">paragraph-block</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Montserrat&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">paragraph-block-text</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Montserrat&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#818181</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">title-block</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Montserrat&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#0FA3B1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">sep</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-top</span><span class="p">:</span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">my-button</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#a385bd</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">border-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#a385bd</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Montserrat&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">highlight</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#0FA3B1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">highlight-link</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#0FA3B1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">caption-text-skills</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">even</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">flex-wrap</span><span class="p">:</span><span class="w"> </span><span class="kc">wrap</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">machinel-block</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#7A306C</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">machinel-block</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">letter-spacing</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">machinel-block</span><span class="w"> </span><span class="p">.</span><span class="nc">p-2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-
-<span class="w">  </span><span class="p">.</span><span class="nc">titleML</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">1.6</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Delius Swash Caps&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">cursive</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">mandible-block</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#7FC6A4</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">mandible-block</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">letter-spacing</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">mandible-block</span><span class="w"> </span><span class="p">.</span><span class="nc">p-2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">math-exp-block</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#F25F5C</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">math-exp-block</span><span class="w"> </span><span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">letter-spacing</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">.</span><span class="nc">math-exp-block</span><span class="w"> </span><span class="p">.</span><span class="nc">p-2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="kt">em</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">video</span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-</pre></div>
+                <iframe src="./_build/a11y-dark/js.html" title="JavaScript syntax highlighting example"></iframe>
             </div>
         </div>
+
+<!-------------------------------- CSS --------------------------------->
+
         <div class="card">
             <div class="card-title">
-<!-------------------------------- HTML -------------------------->
-                <h3>HTML</h3>
+                <h2>CSS</h2>
             </div>
             <div class="card-body">
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="hll"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">dir</span><span class="o">=</span><span class="s">&quot;ltr&quot;</span><span class="p">&gt;</span>
-</span><span class="hll">
-</span><span class="hll"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span>  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Leckerli+One|Short+Stack|Kosugi+Maru|Montserrat&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./css/main.css&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;image/png&quot;</span> <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;128x128&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./files/favicon.png&quot;</span><span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Tefa&#39;s Web Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;animated fadeIn&quot;</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- header of the web page --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar navbar-expand-lg navbar-light bg-blue d-flex fixed-top&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;home-header&quot;</span><span class="p">&gt;</span>
-        <span class="cm">&lt;!--fixed-top--&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container nav-bar-space&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-grow-1&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav mr-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item active&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/main_icon.png&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;130&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;130&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&quot;#navbarToggler&quot;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&quot;navbarToggler&quot;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Toggle navigation&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-toggler-icon&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-collapse collapse flex-grow-0&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;navbarToggler&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;justify-content-between mr-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav ml-auto&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item top-title&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#toptoppage&quot;</span><span class="p">&gt;</span>About!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link top-title&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#projects&quot;</span><span class="p">&gt;</span>Projects!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link top-title&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#skills&quot;</span><span class="p">&gt;</span>More!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Fake header --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container sky-blue-header&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toptoppage&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Section for the welcome homepage --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;home-welcome&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container balloons-main&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/main_background.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid main-background&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Photo section plus important info.--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;me&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container about-me&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row paragraph-block&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>From <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>cat<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> to <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>cat<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> and <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>cat<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> applications.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex flex-row justify-content-around paragraph-block-text even&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/web.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>Web Cat and CatApp Development<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Freelance cat work.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/ml.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>Cat Learning<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Use of cat signals for world control.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/robot.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;150&quot;</span> <span class="p">/&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span>Cat Vision Research<span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Active member of the Cat Vision Research group <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://biomedicalcomputervision.edu.co/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight-link&quot;</span><span class="p">&gt;</span>@Universidad de los Andes<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!--Separator between sections--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container sep&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/separator.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Project.--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;projects&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container projects-info&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/projects.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!--Projects section --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;justify-content-center mx-auto title-block&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span> Projects <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!--New parts for the Projects section!--&gt;</span>
-    <span class="cm">&lt;!--Projects of Machine Learning--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;machine-learning&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;machinel-block color-panel&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./videos/willy.mp4&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleML&quot;</span><span class="p">&gt;</span>Cats!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center font-weight-light&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textML&quot;</span><span class="p">&gt;</span>Development of a cat robot.<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textML&quot;</span><span class="p">&gt;</span>Franchesca can move forward and jump.<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/down-arrow-gif.gif&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;25&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Detection of mandibles --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;detection-mandibles&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mandible-block color-panel&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/mandibles.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleML&quot;</span><span class="p">&gt;</span>Give more treats!<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center font-weight-light&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textML&quot;</span><span class="p">&gt;</span>
-                An automatic cat segmentation algorithm
-            <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/down-arrow-gif.gif&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;25&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Handwritten math expressions --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;math-expressions&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;math-exp-block color-panel&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/neural-net.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;titleML&quot;</span><span class="p">&gt;</span>Cute Cats<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;d-flex justify-content-center&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-2 text-center font-weight-light&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;textML&quot;</span><span class="p">&gt;</span>
-                A cute cat sleeping while watching tv and screaming MIAU!
-            <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;self-align&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/down-arrow-gif.gif&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;25&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!--Separator between sections--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container sep&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/separator.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Content section can do--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container can-do&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/skills.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid mx-auto d-block&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!--Separator between sections--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container sep&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./files/separator.png&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;img-fluid&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;50&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Tefa is available --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;available&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container available&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row paragraph-block&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Looking forward to <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;highlight&quot;</span><span class="p">&gt;</span> develop <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> your cat? <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="cm">&lt;!-- Hire me!--&gt;</span>
-    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hire-me&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container hire-me&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row paragraph-block&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex-row justify-content-center mx-auto&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn my-button&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: inherit&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://www.linkedin.com/in/stephannie-jimenez-44b378164/&quot;</span><span class="p">&gt;</span> Hire me! <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.3.1.slim.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;./main.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</pre></div>
+                <iframe src="./_build/a11y-dark/css.html" title="CSS syntax highlighting example"></iframe>
             </div>
         </div>
+
+<!-------------------------------- HTML -------------------------------->
+
         <div class="card">
             <div class="card-title">
-<!-------------------------------- MARKDOWN -------------------------->
-                <h3>Markdown</h3>
+                <h2>HTML</h2>
             </div>
             <div class="card-body">
-<div class="highlight"><pre><span></span>---
-<span class="hll"><span class="gs">__Advertisement :)__</span>
-</span><span class="hll">
-</span><span class="hll"><span class="k">-</span> <span class="gs">__[pica](https://nodeca.github.io/pica/demo/)__</span> - high quality and fast image
-</span>  resize in browser.
-<span class="k">-</span> <span class="gs">__[babelfish](https://github.com/nodeca/babelfish/)__</span> - developer friendly
-    i18n with plurals support and easy syntax.
-
-You will like those projects!
-
----
-
-<span class="gh"># h1 Heading 8-)</span>
-<span class="gu">## h2 Heading</span>
-<span class="gu">### h3 Heading</span>
-<span class="gu">#### h4 Heading</span>
-<span class="gu">##### h5 Heading</span>
-<span class="gu">###### h6 Heading</span>
-
-
-<span class="gu">## Horizontal Rules</span>
-
-___
-
----
-
-***
-
-
-<span class="gu">## Typographic replacements</span>
-
-Enable typographer option to see result.
-
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
-
-test.. test... test..... test?..... test!....
-
-!!!!!! ???? ,,  -- ---
-
-&quot;Smartypants, double quotes&quot; and &#39;single quotes&#39;
-
-
-<span class="gu">## Emphasis</span>
-
-<span class="gs">**This is bold text**</span>
-
-<span class="gs">__This is bold text__</span>
-
-<span class="ge">*This is italic text*</span>
-
-<span class="ge">_This is italic text_</span>
-
-<span class="gd">~~Strikethrough~~</span>
-
-
-<span class="gu">## Blockquotes</span>
-
-
-<span class="k">&gt; </span><span class="ge">Blockquotes can also be nested...</span>
-&gt;&gt; ...by using additional greater-than signs right next to each other...
-<span class="k">&gt; </span><span class="ge">&gt; &gt; ...or with spaces between arrows.</span>
-
-
-<span class="gu">## Lists</span>
-
-Unordered
-
-+ Create a list by starting a line with <span class="sb">`+`</span>, <span class="sb">`-`</span>, or <span class="sb">`*`</span>
-+ Sub-lists are made by indenting 2 spaces:
-    <span class="k">-</span> Marker character change forces new list start:
-    <span class="k">*</span> Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    <span class="k">-</span> Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-<span class="k">1.</span> Lorem ipsum dolor sit amet
-<span class="k">2.</span> Consectetur adipiscing elit
-<span class="k">3.</span> Integer molestie lorem at massa
-
-
-<span class="k">1.</span> You can use sequential numbers...
-<span class="k">1.</span> ...or keep all the numbers as <span class="sb">`1.`</span>
-
-Start numbering with offset:
-
-<span class="k">57.</span> foo
-<span class="k">1.</span> bar
-
-
-<span class="gu">## Code</span>
-
-Inline <span class="sb">`code`</span>
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code &quot;fences&quot;
-
-<span class="sb">```</span>
-<span class="sb">Sample text here...</span>
-<span class="sb">```</span>
-
-Syntax highlighting
-
-``` js
-var foo = function (bar) {
-    return bar++;
-};
-
-console.log(foo(5));
-```
-
-<span class="gu">## Tables</span>
-
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-Right aligned columns
-
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
-
-
-<span class="gu">## Links</span>
-
-[<span class="nt">link text</span>](<span class="na">http://dev.nodeca.com</span>)
-
-[<span class="nt">link with title</span>](<span class="na">http://nodeca.github.io/pica/demo/ &quot;title text!&quot;</span>)
-
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-<span class="gu">## Images</span>
-
-![<span class="nt">Minion</span>](<span class="na">https://octodex.github.com/images/minion.png</span>)
-![<span class="nt">Stormtroopocat</span>](<span class="na">https://octodex.github.com/images/stormtroopocat.jpg &quot;The Stormtroopocat&quot;</span>)
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[<span class="nl">id</span>]: <span class="na">https://octodex.github.com/images/dojocat.jpg  &quot;The Dojocat&quot;</span>
-
-
-<span class="gu">## Plugins</span>
-
-The killer feature of <span class="sb">`markdown-it`</span> is very effective support of
-[<span class="nt">syntax plugins</span>](<span class="na">https://www.npmjs.org/browse/keyword/markdown-it-plugin</span>).
-
-
-<span class="gu">### [Emojies](https://github.com/markdown-it/markdown-it-emoji)</span>
-
-<span class="k">&gt; </span><span class="ge">Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:</span>
-<span class="k">&gt;</span>
-<span class="ge">&gt; Shortcuts (emoticons): :-) :-( 8-) ;)</span>
-
-see [<span class="nt">how to change output</span>](<span class="na">https://github.com/markdown-it/markdown-it-emoji#change-output</span>) with twemoji.
-
-
-<span class="gu">### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)</span>
-
-<span class="k">-</span> 19^th^
-<span class="k">-</span> H~2~O
-
-
-<span class="gu">### [\&lt;ins&gt;](https://github.com/markdown-it/markdown-it-ins)</span>
-
-++Inserted text++
-
-
-<span class="gu">### [\&lt;mark&gt;](https://github.com/markdown-it/markdown-it-mark)</span>
-
-==Marked text==
-
-
-<span class="gu">### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)</span>
-
-Footnote 1 link[^first].
-
-Footnote 2 link[^second].
-
-Inline footnote^[Text of inline footnote] definition.
-
-Duplicated footnote reference[^second].
-
-[<span class="nl">^first</span>]: <span class="na">Footnote **can have markup**</span>
-
-    and multiple paragraphs.
-
-[<span class="nl">^second</span>]: <span class="na">Footnote text.</span>
-
-
-<span class="gu">### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)</span>
-
-Term 1
-
-:   Definition 1
-with lazy continuation.
-
-Term 2 with <span class="ge">*inline markup*</span>
-
-:   Definition 2
-
-        { some code, part of Definition 2 }
-
-    Third paragraph of definition 2.
-
-<span class="ge">_Compact style:_</span>
-
-Term 1
-    ~ Definition 1
-
-Term 2
-    ~ Definition 2a
-    ~ Definition 2b
-
-
-<span class="gu">### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)</span>
-
-This is HTML abbreviation example.
-
-It converts &quot;HTML&quot;, but keep intact partial entries like &quot;xxxHTMLyyy&quot; and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-<span class="gu">### [Custom containers](https://github.com/markdown-it/markdown-it-container)</span>
-
-::: warning
-<span class="ge">*here be dragons*</span>
-:::
-</pre></div>
+                <iframe src="./_build/a11y-dark/html.html" title="HTML syntax highlighting example"></iframe>
             </div>
         </div>
+
+<!-------------------------------- MARKDOWN ---------------------------->
+
         <div class="card">
             <div class="card-title">
-<!-------------------------------- PYTHON -------------------------->
-                <h3>Python</h3>
+                <h2>Markdown</h2>
             </div>
             <div class="card-body">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">package</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">package</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Class1</span><span class="p">,</span> <span class="n">Class2</span><span class="p">,</span> <span class="n">func_1</span><span class="p">,</span> <span class="n">func_2</span><span class="p">)</span>
-</span><span class="hll"><span class="kn">from</span> <span class="nn">package3</span> <span class="kn">import</span> <span class="o">*</span>
-</span><span class="hll">
-</span>
-<span class="k">class</span> <span class="nc">TestClass</span><span class="p">(</span><span class="n">BaseClass1</span><span class="p">,</span> <span class="n">BaseClass2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Hola! &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># type: int</span>
-
-    <span class="k">def</span> <span class="nf">method1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-
-
-<span class="nd">@decorator</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">test2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
-    <span class="k">async</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">y</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="nd">@requires_authorization</span>
-<span class="k">def</span> <span class="nf">somefunc</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;A docstring&#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="n">param1</span> <span class="o">&gt;</span> <span class="n">param2</span><span class="p">:</span> <span class="c1"># interesting</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Gre</span><span class="se">\&#39;</span><span class="s1">ater&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">param2</span> <span class="o">-</span> <span class="n">param1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mb">0b10</span><span class="n">l</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
-
-<span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;interpreter</span>
-<span class="s1">... prompt&#39;&#39;&#39;</span>
-</pre></div>
+                <iframe src="./_build/a11y-dark/md.html" title="Markdown syntax highlighting example"></iframe>
             </div>
         </div>
-        <!-- <div class="card">
+
+<!-------------------------------- PYTHON ------------------------------>
+
+        <div class="card">
             <div class="card-title">
-                <h3>Python</h3>
+                <h2>Python</h2>
             </div>
             <div class="card-body">
-
+                <iframe src="./_build/a11y-dark/py.html" title="Python syntax highlighting example"></iframe>
             </div>
-        </div> -->
+        </div>
+
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

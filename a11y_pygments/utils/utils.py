@@ -1,7 +1,7 @@
 import logging
 import os
 from pathlib import Path
-from typing import List
+from typing import Union
 
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
@@ -9,7 +9,7 @@ from pygments.token import Text
 from setuptools import find_packages
 
 
-def find_all_themes_packages() -> List[str]:
+def find_all_themes_packages() -> list[str]:
     """Finds the currently supported themes in the a11y_pygments package.
 
     Returns:
@@ -23,7 +23,7 @@ def find_all_themes_packages() -> List[str]:
     return themes
 
 
-def get_themes_names() -> List[str]:
+def get_themes_names() -> list[str]:
     """Get themes names from the a11y_pygments package.
 
     Returns:
@@ -35,12 +35,13 @@ def get_themes_names() -> List[str]:
     return themes
 
 
-def generate_css(themes: List[str], save_dir=""):
+def generate_css(themes: list[str], save_dir: Union[str, Path]):
     """Generate css for the available themes.
     Args:
         themes (list): list of themes names
     """
-    basedir = "a11y_pygments"
+    assert save_dir, "Must provide directory"
+
     for theme in themes:
         style = get_style_by_name(theme)
         formatter = HtmlFormatter(style=style, full=True, hl_lines=[2, 3, 4])
@@ -51,15 +52,12 @@ def generate_css(themes: List[str], save_dir=""):
         )
         package = theme.replace("-", "_")
 
-        if save_dir:
-            if not Path(save_dir).joinpath("css").exists():
-                os.mkdir(Path(save_dir).joinpath("css"))
-            if "docs" in save_dir:
-                out = Path(save_dir).joinpath("css", f"{package}-style.css")
-            else:
-                out = Path(save_dir) / package / "style.css"
+        if not Path(save_dir).joinpath("css").exists():
+            os.mkdir(Path(save_dir).joinpath("css"))
+        if "docs" in save_dir:
+            out = Path(save_dir).joinpath("css", f"{package}-style.css")
         else:
-            out = Path(basedir) / package / "style.css"
+            out = Path(save_dir) / package / "style.css"
 
         logging.info(f"Saving css to {out}")
         with open(out, "w") as f:
