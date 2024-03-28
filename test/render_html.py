@@ -41,6 +41,7 @@ def render_html(themes: list, languages=languages, outdir=outdir):
         outdir (pathlib.Path, optional): Directory to save the rendered HTML files to.
             Defaults to outdir.
     """
+
     if not outdir.exists():
         os.mkdir(outdir)
 
@@ -70,5 +71,6 @@ def render_html(themes: list, languages=languages, outdir=outdir):
 
 
 if __name__ == "__main__":
+    # get names of all themes
     themes = get_themes_names()
     render_html(themes)
