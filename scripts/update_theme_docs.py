@@ -176,10 +176,11 @@ if __name__ == "__main__":
     # Check that each theme provided on the command line is a known theme. If
     # not, error and exit immediately
     all_themes = find_all_themes_packages()
-    for theme in args.themes:
-        assert (
-            theme in all_themes
-        ), 'Invalid theme (did you forget to use an underscore ("_") instead of a hyphen ("-")?)'
+    for i, theme in enumerate(args.themes):
+        if "-" in theme:
+            logging.info("Converting to snake_case: {theme}")
+            args.themes[i] = theme = theme.replace("_", "_")
+        assert theme in all_themes, f"Theme {theme} not found"
 
     # Update themes provided or, if none provided, update all themes in the repo
     themes = args.themes or all_themes
