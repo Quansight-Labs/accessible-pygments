@@ -28,7 +28,7 @@ def markdown_table(rows: list[list[str]]) -> str:
 
     Formatting features: header, separator, body and equal-spaced columns.
 
-    >>> print(mtable([["a","b"],["foo","bar"]]))
+    >>> print(markdown_table([["a","b"],["foo","bar"]]))
     | a   | b   |
     | --- | --- |
     | foo | bar |
