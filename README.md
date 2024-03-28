@@ -1,12 +1,16 @@
 # Accessible pygments themes
 
-[![conda version](https://img.shields.io/conda/vn/conda-forge/accessible-pygments?color=e27e8c&style=for-the-badge)](https://anaconda.org/conda-forge/accessible-pygments)
-[![pip version](https://img.shields.io/pypi/v/accessible-pygments?color=63a6c8&style=for-the-badge)](https://pypi.org/project/accessible-pygments/)
-[![conda-forge downloads](https://img.shields.io/conda/dn/conda-forge/accessible-pygments?label=conda-forge%20downloads&style=for-the-badge)](https://anaconda.org/conda-forge/accessible-pygments)
-[![pip downloads](https://img.shields.io/pypi/dm/accessible-pygments?color=%23acc00d&label=PyPI%20downloads&style=for-the-badge)](https://pypi.org/project/accessible-pygments/)
-[![demo](https://img.shields.io/badge/Demo-Click%20me!-blueviolet?style=for-the-badge)](https://quansight-labs.github.io/accessible-pygments/)
+[![conda version](https://img.shields.io/conda/vn/conda-forge/accessible-pygments?color=0553F2&style=flat.svg)](https://anaconda.org/conda-forge/accessible-pygments)
+[![pip version](https://img.shields.io/pypi/v/accessible-pygments?color=0553F2&flat.svg)](https://pypi.org/project/accessible-pygments/)
+[![conda-forge downloads](https://img.shields.io/conda/dn/conda-forge/accessible-pygments?color=0553F2&label=conda-forge%20downloads%20&flat.svg)](https://anaconda.org/conda-forge/accessible-pygments)
+[![pip downloads](https://img.shields.io/pypi/dm/accessible-pygments?color=0553F2&label=PyPI%20downloads&flat.svg)](https://pypi.org/project/accessible-pygments/)
+[![accessible-pygments demo page](https://img.shields.io/badge/Demo-Click%20this%20badge!%20✨-blueviolet?flat.svg)](https://quansight-labs.github.io/accessible-pygments/)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](./LICENSE)
+
+## Table of contents
 
 - [Accessible pygments themes](#accessible-pygments-themes)
+  - [Table of contents](#table-of-contents)
   - [Accessibility details ♿️](#accessibility-details-️)
     - [WCAG 2.1 - AAA compliant](#wcag-21---aaa-compliant)
     - [WCAG 2.1 - AA compliant](#wcag-21---aa-compliant)
@@ -14,22 +18,22 @@
     - [Installation 💻](#installation-)
     - [Using the themes directly in your code or app](#using-the-themes-directly-in-your-code-or-app)
     - [Using the themes in your Sphinx documentation](#using-the-themes-in-your-sphinx-documentation)
-  - [Development and contribution](#development-and-contribution)
+  - [Development and contribution 🌱](#development-and-contribution-)
   - [Acknowledgments 🤝](#acknowledgments-)
   - [License 📑](#license-)
 
-This package includes a collection of accessible themes for pygments based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
+This package includes a collection of accessible themes for [pygments](https://pygments.org/) based on multiple open-source syntax highlighting themes. The images below show all the themes side by side.
 
 ![Display of all the light themes side by side](./docs/light_themes.png)
 
 ![Display of all dark themes side by side](./docs/dark_themes.png)
 
-:sparkles: For a demo of all our themes please [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) :sparkles:
+:sparkles: To see examples of the themes in action [visit our online demo](https://quansight-labs.github.io/accessible-pygments/) :sparkles:
 
 ## Accessibility details ♿️
 
-> **Note**
-> What do we mean by accessible? In this context we are specially referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
+> [!Note]
+> What do we mean by accessible? In this context we are specifically referring to themes which meet the [WCAG 2.1 criteria for color contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 > Some themes included are also color-blind friendly.
 
 ### WCAG 2.1 - AAA compliant
@@ -69,7 +73,7 @@ You can install it through the following commands:
 ```bash
 conda install -c conda-forge accessible-pygments
 
-# if you prefer using mambga
+# if you prefer using mamba
 mamba install -c conda-forge accessible-pygments
 ```
 
@@ -114,9 +118,10 @@ HtmlFormatter(style='a11y-light').style
 
 3. Build your documentation as usual.
 
-## Development and contribution
+## Development and contribution 🌱
 
 You can find our contribution guides on [CONTRIBUTING.md](CONTRIBUTING.md).
+We aim to build a safe and inclusive community, so we have a [Code of Conduct](CODE_OF_CONDUCT.md) that we ask everyone to follow.
 
 ## Acknowledgments 🤝
 

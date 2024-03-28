@@ -11,6 +11,10 @@ authors = [
     { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
     { name = "Tania Allard", email = "trallard@bitsandchips.me" },
 ]
+maintainers= [
+    # TODO @gabalafou to add his email
+    {name = "Gabriel Fouasnon", email=""},
+]
 keywords = ["a11y", "accessibility", "pygments", "WCAG", "Sphinx"]
 classifiers = [
     "Intended Audience :: Developers",
@@ -24,6 +28,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Development Status :: 3 - Alpha",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
@@ -65,18 +70,23 @@ replacement = '[\1](https://github.com/Quansight-Labs/accessible-pygments/tree/m
 
 [tool.hatch.version]
 source = "vcs"
+raw-options = { local_scheme = "no-local-version" }
 
 [project.optional-dependencies]
 tests = ["hypothesis", "pytest"]
-dev = ["pre-commit"]
+dev = ["pre-commit",
+"twine>=5.0",
+"pkginfo>=1.10", # needed to support metadata 2.3
+]
 
 [tool.hatch.build.targets]
-sdist = { exclude = ["/.github", "/docs", "/test"] }
+sdist = { exclude = ["/.github", "/docs", "/test", "/scripts"] }
 wheel = { packages = ["a11y_pygments"] }
 
 [tool.hatch.envs.dev.scripts]
 render_html = "python test/render_html.py"
-create_css = "python test/run_css.py && python test/run_css.py --save-dir docs"
+create_css = "python test/run_css.py --save-dir docs/_build"
+update_theme_docs = "python scripts/update_theme_docs.py"
 
 [tool.hatch.envs.test.scripts]
 tests = "python -m pytest test/test_*.py"

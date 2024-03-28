@@ -1,8 +1,8 @@
-# Blinds light
+# Blinds Light
 
-This is the pygments implementation of [`blinds light`](https://github.com/orbulant/blinds-theme).
+This style mimics the blinds light theme from vscode themes.
 
-![Screenshot of the light accessibility theme in a bash script](./images/blinds-light.png)
+![Screenshot of the blinds-light theme in a bash script](./images/blinds-light.png)
 
 ## Colors
 

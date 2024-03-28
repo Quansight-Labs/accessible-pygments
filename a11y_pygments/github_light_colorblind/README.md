@@ -1,8 +1,8 @@
-# Github light colorblind
+# Github Light Colorblind
 
-This is the pygments implementation of [`github light colorblind`](https://github.com/primer/github-vscode-theme).
+This style mimics the github light colorblind theme from vscode themes.
 
-![Screenshot of the light colorblind accessibility theme in a bash script](./images/github-light-colorblind.png)
+![Screenshot of the github-light-colorblind theme in a bash script](./images/github-light-colorblind.png)
 
 ## Colors
 
@@ -18,5 +18,5 @@ Highlight color: ![#0969da4a](https://via.placeholder.com/20/0969da4a/0969da4a.p
 | ![#b35900](https://via.placeholder.com/20/b35900/b35900.png) | `#b35900` | 4.8 : 1  | AA          | AAA        |
 | ![#8a4600](https://via.placeholder.com/20/8a4600/8a4600.png) | `#8a4600` | 7.1 : 1  | AAA         | AAA        |
 | ![#0550ae](https://via.placeholder.com/20/0550ae/0550ae.png) | `#0550ae` | 7.6 : 1  | AAA         | AAA        |
-| ![#8250df](https://via.placeholder.com/20/8250df/8250df.png) | `#8250df` | 5.1 : 1  | AA          | AAA        |
+| ![#8250df](https://via.placeholder.com/20/8250df/8250df.png) | `#8250df` | 5.0 : 1  | AA          | AAA        |
 | ![#24292f](https://via.placeholder.com/20/24292f/24292f.png) | `#24292f` | 14.7 : 1 | AAA         | AAA        |

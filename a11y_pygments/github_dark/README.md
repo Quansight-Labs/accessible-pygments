@@ -1,14 +1,14 @@
-# Github dark
+# Github Dark
 
-This is the pygments implementation of [`github dark (Default)`](https://github.com/primer/github-vscode-theme).
+This style mimics the github dark default theme from vs code themes.
 
-![Screenshot of the dark accessibility theme in a bash script](./images/github-dark.png)
+![Screenshot of the github-dark theme in a bash script](./images/github-dark.png)
 
 ## Colors
 
 Background color: ![#0d1117](https://via.placeholder.com/20/0d1117/0d1117.png) `#0d1117`
 
-Highlight color: ![#6e768182](https://via.placeholder.com/20/6e768182/6e768182.png) `#6e768182`
+Highlight color: ![#6e7681](https://via.placeholder.com/20/6e7681/6e7681.png) `#6e7681`
 
 **WCAG compliance**
 

@@ -1,31 +1,19 @@
-# A11y light
+# A11Y Light
 
-This pygments theme was inspired by Eric Bailey's [`a11y-light`](https://github.com/ericwbailey/a11y-syntax-highlighting).
+This style mimics the a11 light theme from eric bailey's accessible themes.
+
+![Screenshot of the a11y-light theme in a bash script](./images/a11y-light.png)
 
 ## Colors
 
 **WCAG compliance**
 
-The contrast ratios in the following table are measured against the background
-color ![#fefefe](https://via.placeholder.com/20/fefefe/fefefe.png) `#fefefe`
-
 | Color                                                        | Hex       | Ratio   | Normal text | Large text |
 | ------------------------------------------------------------ | --------- | ------- | ----------- | ---------- |
 | ![#696969](https://via.placeholder.com/20/696969/696969.png) | `#696969` | 5.4 : 1 | AA          | AAA        |
 | ![#d91e18](https://via.placeholder.com/20/d91e18/d91e18.png) | `#d91e18` | 5.0 : 1 | AA          | AAA        |
-| ![#a65b00](https://via.placeholder.com/20/a65b00/a65b00.png) | `#a65b00` | 5.1 : 1 | AA          | AAA        |
+| ![#aa5d00](https://via.placeholder.com/20/aa5d00/aa5d00.png) | `#aa5d00` | 4.9 : 1 | AA          | AAA        |
 | ![#008000](https://via.placeholder.com/20/008000/008000.png) | `#008000` | 5.1 : 1 | AA          | AAA        |
-| ![#00749c](https://via.placeholder.com/20/00749c/00749c.png) | `#00749c` | 5.2 : 1 | AA          | AAA        |
+| ![#007faa](https://via.placeholder.com/20/007faa/007faa.png) | `#007faa` | 4.5 : 1 | AA          | AAA        |
 | ![#7928a1](https://via.placeholder.com/20/7928a1/7928a1.png) | `#7928a1` | 7.9 : 1 | AAA         | AAA        |
 | ![#545454](https://via.placeholder.com/20/545454/545454.png) | `#545454` | 7.5 : 1 | AAA         | AAA        |
-
-These foreground/text colors were also checked to have at least a 4.5:1 contrast ratio against:
-
-- the line highlight color
-  ![#fdf2e2](https://via.placeholder.com/20/fdf2e2/fdf2e2.png) `#fdf2e2`
-- a darker background color
-  ![#f2f2f2](https://via.placeholder.com/20/f2f2f2/f2f2f2.png) `#f2f2f2`
-
-## Screenshot
-
-![Screenshot of the light accessibility theme in a bash script](./images/a11y-light.png)

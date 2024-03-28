@@ -1,8 +1,8 @@
-# Github dark colorblind
+# Github Dark Colorblind
 
-This is the pygments implementation of [`github dark colorblind`](https://github.com/primer/github-vscode-theme).
+This style mimics the github dark colorblind theme from vscode.
 
-![Screenshot of the dark accessibility theme in a bash script](./images/github-dark-colorblind.png)
+![Screenshot of the github-dark-colorblind theme in a bash script](./images/github-dark-colorblind.png)
 
 ## Colors
 
