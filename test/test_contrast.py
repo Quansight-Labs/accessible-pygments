@@ -1,8 +1,10 @@
 import pytest
+
 from hypothesis import given
 from hypothesis.strategies import floats, tuples
 
 from a11y_pygments.utils import wcag_contrast as wcag
+
 
 color_channel = floats(0.0, 1.0)
 color = tuples(color_channel, color_channel, color_channel)

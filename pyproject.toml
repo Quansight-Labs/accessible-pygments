@@ -94,6 +94,7 @@ post-install-commands = ["playwright install"]
 features = ["tests"]
 
 [tool.hatch.envs.dev.scripts]
+lint = "pre-commit run --all-files"
 render_html = "python test/render_html.py"
 create_css = "python test/run_css.py --save-dir docs/_build"
 update_theme_docs = "python scripts/update_theme_docs.py"
@@ -104,6 +105,8 @@ tests = "python -m pytest test/test_*.py"
 [tool.isort]
 profile = "black"
 skip_gitignore = true
+lines_between_types = 1
+lines_after_imports = 2
 
 [tool.ruff]
 fix = true

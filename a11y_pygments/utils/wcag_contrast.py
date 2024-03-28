@@ -2,6 +2,7 @@
 # https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
 
 import re
+
 from typing import Tuple, Union
 
 
