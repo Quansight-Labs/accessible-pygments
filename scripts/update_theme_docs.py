@@ -3,6 +3,7 @@
 import logging
 import string
 import sys
+
 from argparse import ArgumentParser
 from importlib import import_module
 from inspect import getdoc
@@ -20,6 +21,7 @@ from a11y_pygments.utils.wcag_contrast import (
     hex_to_rgb,
     hexstr_without_hash,
 )
+
 
 HERE = Path(__file__).parent
 REPO = HERE.parent

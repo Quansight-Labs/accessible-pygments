@@ -7,6 +7,7 @@ Usage::
 """
 
 import os
+
 from pathlib import Path
 
 from pygments import highlight as pygments_highlight
@@ -15,6 +16,7 @@ from pygments.lexers import get_lexer_by_name
 from pygments.styles import get_style_by_name
 
 from a11y_pygments.utils.utils import get_themes_names
+
 
 # List of available language examples
 languages = {

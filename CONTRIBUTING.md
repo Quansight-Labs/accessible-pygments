@@ -9,6 +9,7 @@ Welcome! And thanks for taking your time to contribute to this project 🤩
     - [Creating your development environment 👩🏻‍💻 👨🏼‍💻](#creating-your-development-environment--)
     - [Running the tests](#running-the-tests)
     - [Rendering the HTML examples](#rendering-the-html-examples)
+    - [Linting and formatting](#linting-and-formatting)
   - [Adding a new theme 🎨](#adding-a-new-theme-)
     - [Where to add a new theme 👩🏼‍🎨](#where-to-add-a-new-theme-)
     - [Customize your `style.py` file](#customize-your-stylepy-file)
@@ -84,6 +85,15 @@ hatch run dev:render_html
 
 This will add the HTML files under `docs/` for each supported theme.
 We recommend using your favorite browser to see the rich HTML output.
+
+### Linting and formatting
+
+We use several linters and formatters to ensure the code is consistent and clean.
+You can run this with:
+
+```bash
+hatch run dev:lint
+```
 
 ## Adding a new theme 🎨
 
