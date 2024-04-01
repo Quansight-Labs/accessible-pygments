@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Accessible Pygments Themes</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      title="a11y dark"
+      href="./index.css"
+    />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Accessible Pygments Themes Demo 🎨</h1>
+    </div>
+    <div class="selection">
+      <label>Choose a theme:</label>
+      <!-- themes -->
+      <select name="themes" id="themes">
+        <option>a11y-dark</option>
+        <option>a11y-light</option>
+        <option>a11y-high-contrast-dark</option>
+        <option>a11y-hight-contrast-light</option>
+        <option>pitaya-smoothie</option>
+        <option>github-light</option>
+        <option>github-dark</option>
+        <option>github-light-colorblind</option>
+        <option>github-dark-colorblind</option>
+        <option>github-light-high-contrast</option>
+        <option>github-dark-high-contrast</option>
+        <option>gotthard-light</option>
+        <option>gotthard-dark</option>
+        <option>blinds-light</option>
+        <option>blinds-dark</option>
+        <option>greative</option>
+      </select>
+    </div>
+
+    <div class="cards">
+      <!-------------------------------- BASH -------------------------------->
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Bash</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/bash.html"
+            title="Bash syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-------------------------------- JAVASCRIPT -------------------------->
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Javascript</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/js.html"
+            title="JavaScript syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-------------------------------- CSS --------------------------------->
+
+      <div class="card">
+        <div class="card-title">
+          <h2>CSS</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/css.html"
+            title="CSS syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-------------------------------- HTML -------------------------------->
+
+      <div class="card">
+        <div class="card-title">
+          <h2>HTML</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/html.html"
+            title="HTML syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-------------------------------- MARKDOWN ---------------------------->
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Markdown</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/md.html"
+            title="Markdown syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-------------------------------- PYTHON ------------------------------>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Python</h2>
+        </div>
+        <div class="card-body">
+          <iframe
+            src="./_build/a11y-dark/py.html"
+            title="Python syntax highlighting example"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
