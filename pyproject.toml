@@ -78,6 +78,7 @@ dev = [
     "pre-commit",
     "setuptools",
     "playwright",
+    "pillow",
     "twine>=5.0",
     "pkginfo>=1.10", # needed to support metadata 2.3
 ]

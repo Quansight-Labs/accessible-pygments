@@ -12,12 +12,12 @@ Highlight color: ![#6e7681](https://via.placeholder.com/20/6e7681/6e7681.png) `#
 
 **WCAG compliance**
 
-| Color                                                        | Hex       | Ratio    | Normal text | Large text |
-| ------------------------------------------------------------ | --------- | -------- | ----------- | ---------- |
-| ![#8b949e](https://via.placeholder.com/20/8b949e/8b949e.png) | `#8b949e` | 6.2 : 1  | AA          | AAA        |
-| ![#ff7b72](https://via.placeholder.com/20/ff7b72/ff7b72.png) | `#ff7b72` | 7.5 : 1  | AAA         | AAA        |
-| ![#ffa657](https://via.placeholder.com/20/ffa657/ffa657.png) | `#ffa657` | 9.8 : 1  | AAA         | AAA        |
-| ![#7ee787](https://via.placeholder.com/20/7ee787/7ee787.png) | `#7ee787` | 12.3 : 1 | AAA         | AAA        |
-| ![#79c0ff](https://via.placeholder.com/20/79c0ff/79c0ff.png) | `#79c0ff` | 9.7 : 1  | AAA         | AAA        |
-| ![#d2a8ff](https://via.placeholder.com/20/d2a8ff/d2a8ff.png) | `#d2a8ff` | 9.7 : 1  | AAA         | AAA        |
-| ![#C9D1D9](https://via.placeholder.com/20/C9D1D9/C9D1D9.png) | `#C9D1D9` | 12.3 : 1 | AAA         | AAA        |
+| Color                                             | Hex       | Ratio    | Normal text | Large text |
+| ------------------------------------------------- | --------- | -------- | ----------- | ---------- |
+| ![#8b949e](../../a11y_pygments/assets/8b949e.png) | `#8b949e` | 6.2 : 1  | AA          | AAA        |
+| ![#ff7b72](../../a11y_pygments/assets/ff7b72.png) | `#ff7b72` | 7.5 : 1  | AAA         | AAA        |
+| ![#ffa657](../../a11y_pygments/assets/ffa657.png) | `#ffa657` | 9.8 : 1  | AAA         | AAA        |
+| ![#7ee787](../../a11y_pygments/assets/7ee787.png) | `#7ee787` | 12.3 : 1 | AAA         | AAA        |
+| ![#79c0ff](../../a11y_pygments/assets/79c0ff.png) | `#79c0ff` | 9.7 : 1  | AAA         | AAA        |
+| ![#d2a8ff](../../a11y_pygments/assets/d2a8ff.png) | `#d2a8ff` | 9.7 : 1  | AAA         | AAA        |
+| ![#c9d1d9](../../a11y_pygments/assets/c9d1d9.png) | `#c9d1d9` | 12.3 : 1 | AAA         | AAA        |

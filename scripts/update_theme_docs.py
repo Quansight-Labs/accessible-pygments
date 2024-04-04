@@ -5,10 +5,11 @@ import string
 import sys
 
 from argparse import ArgumentParser
+from functools import lru_cache
 from importlib import import_module
 from inspect import getdoc
 from pathlib import Path
-from typing import Type
+from typing import Set, Tuple, Type
 
 from playwright.sync_api import sync_playwright
 from pygments.styles import get_style_by_name
@@ -66,7 +67,38 @@ def markdown_table(rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
-def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list[str]]:
+def hexstr_to_rgb(hex_string: str) -> Tuple[int, int, int]:
+    hex_string = hex_string.lstrip("#")
+    r = int(hex_string[0:2], 16)
+    g = int(hex_string[2:4], 16)
+    b = int(hex_string[4:6], 16)
+    return (r, g, b)
+
+
+@lru_cache()  # just to not create the same png twice in the same run.
+def make_square_png(hex_color: str, path_tpl):
+    assert hex_color.startswith("#")
+    from PIL import Image
+
+    width, height = 20, 20
+
+    rgb_color = hexstr_to_rgb(hex_color)
+
+    image = Image.new("RGB", (width, height), rgb_color)
+    filename = path_tpl.format(rrggbb=hex_color[1:])
+    if Path(filename).exists():
+        print("Updating", filename)
+    else:
+        print("Creating", filename)
+
+    image.save(filename)
+
+
+def contrast_markdown_table(
+    color_cls: Type,
+    background_color: str,
+    img_tpl="../../a11y_pygments/assets/{rrggbb}.png",
+) -> Tuple[str, Set[str]]:
     """Create Markdown table of contrast ratios and WCAG ratings for foreground colors against background color
 
     Args:
@@ -97,13 +129,15 @@ def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list
 
             # Calculate contrast
             contrast = contrast_ratio(hex_to_rgb(value), hex_to_rgb(background_color))
-            rrggbb = hexstr_without_hash(value)
+            rrggbb = hexstr_without_hash(value).lower()
+
+            img_url = img_tpl.format(rrggbb=rrggbb)
 
             # Add row to table
             rows.append(
                 [
                     # Color
-                    f"![#{rrggbb}](https://via.placeholder.com/20/{rrggbb}/{rrggbb}.png)",
+                    f"![#{rrggbb}]({img_url})",
                     # Hex
                     f"`#{rrggbb}`",
                     # Ratio
@@ -116,7 +150,7 @@ def contrast_markdown_table(color_cls: Type, background_color: str) -> list[list
             )
 
     # Format table as Markdown
-    return markdown_table(rows)
+    return markdown_table(rows), unique_colors
 
 
 def update_readme(theme: str):
@@ -146,13 +180,21 @@ def update_readme(theme: str):
     with open(HERE / "templates" / "theme_readme.md", "r") as file:
         template_str = file.read()
     template = string.Template(template_str)
+    img_tpl = "a11y_pygments/assets/{rrggbb}.png"
+    table, colors = contrast_markdown_table(
+        color_cls, style.background_color, img_tpl="../../" + img_tpl
+    )
+    for c in colors:
+        rrggbb = hexstr_without_hash(c).lower()
+        make_square_png("#" + rrggbb, path_tpl=img_tpl)
+
     result = template.substitute(
         theme=theme_kebab_case,
         theme_title=theme.replace("_", " ").title(),
         theme_docstring=getdoc(theme_cls),
         background_hex=hexstr_without_hash(style.background_color),
         highlight_hex=hexstr_without_hash(style.highlight_color),
-        contrast_table=contrast_markdown_table(color_cls, style.background_color),
+        contrast_table=table,
     )
 
     # Save the new README file
