@@ -12,12 +12,12 @@ Highlight color: ![#4c4b4be8](https://via.placeholder.com/20/4c4b4be8/4c4b4be8.p
 
 **WCAG compliance**
 
-| Color                                                        | Hex       | Ratio    | Normal text | Large text |
-| ------------------------------------------------------------ | --------- | -------- | ----------- | ---------- |
-| ![#F5F5F5](https://via.placeholder.com/20/F5F5F5/F5F5F5.png) | `#F5F5F5` | 19.3 : 1 | AAA         | AAA        |
-| ![#AB6369](https://via.placeholder.com/20/AB6369/AB6369.png) | `#AB6369` | 4.7 : 1  | AA          | AAA        |
-| ![#B89784](https://via.placeholder.com/20/B89784/B89784.png) | `#B89784` | 7.8 : 1  | AAA         | AAA        |
-| ![#CAAB6D](https://via.placeholder.com/20/CAAB6D/CAAB6D.png) | `#CAAB6D` | 9.6 : 1  | AAA         | AAA        |
-| ![#81B19B](https://via.placeholder.com/20/81B19B/81B19B.png) | `#81B19B` | 8.7 : 1  | AAA         | AAA        |
-| ![#6F98B3](https://via.placeholder.com/20/6F98B3/6F98B3.png) | `#6F98B3` | 6.8 : 1  | AA          | AAA        |
-| ![#b19db4](https://via.placeholder.com/20/b19db4/b19db4.png) | `#b19db4` | 8.4 : 1  | AAA         | AAA        |
+| Color                                             | Hex       | Ratio    | Normal text | Large text |
+| ------------------------------------------------- | --------- | -------- | ----------- | ---------- |
+| ![#f5f5f5](../../a11y_pygments/assets/f5f5f5.png) | `#f5f5f5` | 19.3 : 1 | AAA         | AAA        |
+| ![#ab6369](../../a11y_pygments/assets/ab6369.png) | `#ab6369` | 4.7 : 1  | AA          | AAA        |
+| ![#b89784](../../a11y_pygments/assets/b89784.png) | `#b89784` | 7.8 : 1  | AAA         | AAA        |
+| ![#caab6d](../../a11y_pygments/assets/caab6d.png) | `#caab6d` | 9.6 : 1  | AAA         | AAA        |
+| ![#81b19b](../../a11y_pygments/assets/81b19b.png) | `#81b19b` | 8.7 : 1  | AAA         | AAA        |
+| ![#6f98b3](../../a11y_pygments/assets/6f98b3.png) | `#6f98b3` | 6.8 : 1  | AA          | AAA        |
+| ![#b19db4](../../a11y_pygments/assets/b19db4.png) | `#b19db4` | 8.4 : 1  | AAA         | AAA        |
