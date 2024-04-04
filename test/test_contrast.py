@@ -39,7 +39,7 @@ def test_luminance(rgb1, rgb2, expected):
     ],
 )
 def test_passes_contrast(c1, c2, expected):
-    got = wcag.passes_contrast(wcag.hex_to_rgb(c1), wcag.hex_to_rgb(c2), "AA")
+    got = wcag.passes_contrast(wcag.hex_to_rgb01(c1), wcag.hex_to_rgb01(c2), "AA")
     assert got == expected
 
 

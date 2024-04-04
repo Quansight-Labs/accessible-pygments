@@ -3,30 +3,41 @@
 
 import re
 
-from typing import Tuple, Union
+from typing import NewType, Tuple, TypeAlias, Union
 
 
-def hex_to_rgb(hex: int) -> Tuple[int, int, int]:
+float01 = NewType("float01", float)
+RGBColor: TypeAlias = Tuple[float01, float01, float01]
+
+
+def hex_to_rgb01(hex: str) -> RGBColor:
     """Convert a hex defined colour to RGB.
 
     Args:
         hex (string): color in hex format (#rrggbb/#rgb)
 
     Returns:
-        rgb: tuple of rgb values ``(r, g, b, a)``, where each channel (red, green, blue,
+        rgb: tuple of rgb values ``(r, g, b)``, where each channel (red, green, blue,
         alpha) can assume values between 0 and 1.
     """
     # hex color in #rrggbb format
     match = re.match(r"\A#[a-fA-F0-9]{6}\Z", hex)
     if match:
-        return tuple(int(n, 16) / 255 for n in [hex[1:3], hex[3:5], hex[5:7]])
+        res = tuple(float01(int(n, 16) / 255) for n in [hex[1:3], hex[3:5], hex[5:7]])
+        assert len(res) == 3, "please type checker with length of tuple"
+        return res
     # hex color in #rgb format, shorthand for #rrggbb.
     match = re.match(r"\A#[a-fA-F0-9]{3}\Z", hex)
     if match:
-        return tuple(int(n, 16) / 255 for n in [hex[1] * 2, hex[2] * 2, hex[3] * 2])
+        res = tuple(
+            float01(int(n, 16) / 255) for n in [hex[1] * 2, hex[2] * 2, hex[3] * 2]
+        )
+        assert len(res) == 3, "please type checker with length of tuple"
+        return res
+    assert False, "please type checker with unreachable end"
 
 
-def sRGB_channel(v: float) -> float:
+def sRGB_channel(v: float01) -> float:
     """Colors need to be normalised (from a sRGB space) before computing the relative
     luminance.
 
@@ -42,7 +53,7 @@ def sRGB_channel(v: float) -> float:
         return ((v + 0.055) / 1.055) ** 2.4
 
 
-def relative_luminance(color: Tuple[int, int, int]) -> float:
+def relative_luminance(color: RGBColor) -> float:
     """Compute the relative luminance of a color.
 
     Args:
@@ -52,14 +63,14 @@ def relative_luminance(color: Tuple[int, int, int]) -> float:
         float: relative luminance of a color
     """
     r, g, b = color
-    r = sRGB_channel(r)
-    g = sRGB_channel(g)
-    b = sRGB_channel(b)
+    r_ = sRGB_channel(r)
+    g_ = sRGB_channel(g)
+    b_ = sRGB_channel(b)
 
-    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+    return 0.2126 * r_ + 0.7152 * g_ + 0.0722 * b_
 
 
-def contrast_ratio(color1: Tuple[int, int, int], color2: Tuple[int, int, int]) -> float:
+def contrast_ratio(color1: RGBColor, color2: RGBColor) -> float:
     """Compute the contrast ratio between two colors.
 
     Args:
@@ -80,8 +91,8 @@ def contrast_ratio(color1: Tuple[int, int, int], color2: Tuple[int, int, int]) -
 
 
 def passes_contrast(
-    color1: Tuple[int, int, int], color2: Tuple[int, int, int], level="AA"
-) -> Union[bool, float]:
+    color1: RGBColor, color2: RGBColor, level="AA"
+) -> Union[bool, float, None]:
     """Method to verify the contrast ratio between two colours.
 
     Args:
@@ -105,6 +116,7 @@ def passes_contrast(
             return round(ratio, 2)
         else:
             return False
+    return None
 
 
 def get_wcag_level_normal_text(contrast: float) -> str:

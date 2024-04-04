@@ -19,7 +19,7 @@ from a11y_pygments.utils.wcag_contrast import (
     contrast_ratio,
     get_wcag_level_large_text,
     get_wcag_level_normal_text,
-    hex_to_rgb,
+    hex_to_rgb01,
     hexstr_without_hash,
 )
 
@@ -128,9 +128,10 @@ def contrast_markdown_table(
             unique_colors.add(value)
 
             # Calculate contrast
-            contrast = contrast_ratio(hex_to_rgb(value), hex_to_rgb(background_color))
+            contrast = contrast_ratio(
+                hex_to_rgb01(value), hex_to_rgb01(background_color)
+            )
             rrggbb = hexstr_without_hash(value).lower()
-
             img_url = img_tpl.format(rrggbb=rrggbb)
 
             # Add row to table
