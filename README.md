@@ -49,7 +49,7 @@ The following themes are AAA compliant with [WCAG 2.1 criteria for color contras
 - [`github-dark-colorblind`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/github_dark_colorblind) - Color-blind friendly.
 - [`github-light-high-contrast`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/github_light_high_contrast) - Color-blind friendly.
 - [`github-dark-high-contrast`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/github_dark_high_contrast) - Color-blind friendly.
-- [`gotthard-dark`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/gotthard-dark) - Color-blind friendly.
+- [`gotthard-dark`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/gotthard_dark) - Color-blind friendly.
 
 ### WCAG 2.1 - AA compliant
 
@@ -57,9 +57,9 @@ The following themes are AA compliant with [WCAG 2.1 criteria for color contrast
 
 - [`a11y-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/a11y_light)
 - [`a11y-high-contrast-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/a11y_high_contrast_light)
-- [`gotthard-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/gotthard-light) - Color-blind friendly.
-- [`blinds-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/blinds-light) - Color-blind friendly.
-- [`blinds-dark`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/blinds-dark) - Color-blind friendly.
+- [`gotthard-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/gotthard_light) - Color-blind friendly.
+- [`blinds-light`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/blinds_light) - Color-blind friendly.
+- [`blinds-dark`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/blinds_dark) - Color-blind friendly.
 - [`greative`](https://github.com/Quansight-Labs/accessible-pygments/tree/main/a11y_pygments/greative) - Accessible to most forms of colorblindness and low light settings.
 
 ## Documentation 📖
