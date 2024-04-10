@@ -6,8 +6,26 @@ import re
 from typing import NewType, Tuple, TypeAlias, Union
 
 
+# float01 is a float greater than or equal to 0 and less than or equal to 1
 float01 = NewType("float01", float)
 RGBColor: TypeAlias = Tuple[float01, float01, float01]
+
+
+def xx_01(xx: str) -> float01:
+    """Convert an 8-bit hex value to a float between 0 and 1.
+
+    >>> xx_01("00")
+    0.0
+    >>> xx_01("33")
+    0.2
+    >>> xx_01("55")
+    0.3333333333333333
+    >>> xx_01("cc")
+    0.8
+    >>> xx_01("ff")
+    1.0
+    """
+    return float01(int(xx, 16) / 255)
 
 
 def hex_to_rgb01(hex: str) -> RGBColor:
@@ -17,24 +35,27 @@ def hex_to_rgb01(hex: str) -> RGBColor:
         hex (string): color in hex format (#rrggbb/#rgb)
 
     Returns:
-        rgb: tuple of rgb values ``(r, g, b)``, where each channel (red, green, blue,
-        alpha) can assume values between 0 and 1.
+        rgb: tuple of rgb values ``(r, g, b)``, where each channel (red, green,
+        blue) can assume values between 0 and 1 (inclusive).
     """
-    # hex color in #rrggbb format
-    match = re.match(r"\A#[a-fA-F0-9]{6}\Z", hex)
-    if match:
-        res = tuple(float01(int(n, 16) / 255) for n in [hex[1:3], hex[3:5], hex[5:7]])
-        assert len(res) == 3, "please type checker with length of tuple"
-        return res
-    # hex color in #rgb format, shorthand for #rrggbb.
-    match = re.match(r"\A#[a-fA-F0-9]{3}\Z", hex)
-    if match:
-        res = tuple(
-            float01(int(n, 16) / 255) for n in [hex[1] * 2, hex[2] * 2, hex[3] * 2]
+
+    if re.match(r"\A#[a-fA-F0-9]{6}\Z", hex):
+        # Full hex color (#rrggbb) format
+        return (
+            xx_01(hex[1:3]),
+            xx_01(hex[3:5]),
+            xx_01(hex[5:7]),
         )
-        assert len(res) == 3, "please type checker with length of tuple"
-        return res
-    assert False, "please type checker with unreachable end"
+
+    if re.match(r"\A#[a-fA-F0-9]{3}\Z", hex):
+        # Short hex color (#rgb) format, shorthand for #rrggbb
+        return (
+            xx_01(hex[1] * 2),
+            xx_01(hex[2] * 2),
+            xx_01(hex[3] * 2),
+        )
+
+    raise ValueError("Invalid hex color format")
 
 
 def sRGB_channel(v: float01) -> float:
@@ -92,7 +113,7 @@ def contrast_ratio(color1: RGBColor, color2: RGBColor) -> float:
 
 def passes_contrast(
     color1: RGBColor, color2: RGBColor, level="AA"
-) -> Union[bool, float, None]:
+) -> Union[bool, float]:
     """Method to verify the contrast ratio between two colours.
 
     Args:
@@ -100,9 +121,6 @@ def passes_contrast(
         color2 (tuple): rgb color tuple ``(r, g, b)``
         level (str, optional): WCAG contrast level. Defaults to "AA".
     """
-
-    if level not in ["AA", "AAA"]:
-        raise ValueError("level must be either 'AA' or 'AAA'")
 
     ratio = contrast_ratio(color1, color2)
 
@@ -116,7 +134,8 @@ def passes_contrast(
             return round(ratio, 2)
         else:
             return False
-    return None
+
+    raise ValueError("level must be either 'AA' or 'AAA'")
 
 
 def get_wcag_level_normal_text(contrast: float) -> str:
