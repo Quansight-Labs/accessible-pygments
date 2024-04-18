@@ -11,18 +11,18 @@ float01 = NewType("float01", float)
 RGBColor: TypeAlias = Tuple[float01, float01, float01]
 
 
-def xx_01(xx: str) -> float01:
-    """Convert an 8-bit hex value to a float between 0 and 1.
+def hexdd_to_float01(xx: str) -> float01:
+    """Convert a two-digit, 8-bit hex value to a float between 0 and 1.
 
-    >>> xx_01("00")
+    >>> hexdd_to_float01("00")
     0.0
-    >>> xx_01("33")
+    >>> hexdd_to_float01("33")
     0.2
-    >>> xx_01("55")
+    >>> hexdd_to_float01("55")
     0.3333333333333333
-    >>> xx_01("cc")
+    >>> hexdd_to_float01("cc")
     0.8
-    >>> xx_01("ff")
+    >>> hexdd_to_float01("ff")
     1.0
     """
     return float01(int(xx, 16) / 255)
@@ -42,17 +42,17 @@ def hex_to_rgb01(hex: str) -> RGBColor:
     if re.match(r"\A#[a-fA-F0-9]{6}\Z", hex):
         # Full hex color (#rrggbb) format
         return (
-            xx_01(hex[1:3]),
-            xx_01(hex[3:5]),
-            xx_01(hex[5:7]),
+            hexdd_to_float01(hex[1:3]),
+            hexdd_to_float01(hex[3:5]),
+            hexdd_to_float01(hex[5:7]),
         )
 
     if re.match(r"\A#[a-fA-F0-9]{3}\Z", hex):
         # Short hex color (#rgb) format, shorthand for #rrggbb
         return (
-            xx_01(hex[1] * 2),
-            xx_01(hex[2] * 2),
-            xx_01(hex[3] * 2),
+            hexdd_to_float01(hex[1] * 2),
+            hexdd_to_float01(hex[2] * 2),
+            hexdd_to_float01(hex[3] * 2),
         )
 
     raise ValueError("Invalid hex color format")
