@@ -73,4 +73,4 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .vi { color: #a12236 } /* Name.Variable.Instance */
 .vm { color: #7f4707 } /* Name.Variable.Magic */
 .il { color: #7f4707 } /* Literal.Number.Integer.Long */
-.highlight { background: #f2f2f2; color: #080808; }
+.highlight { background: #fefefe; color: #080808; }
