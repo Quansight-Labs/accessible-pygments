@@ -33,7 +33,7 @@ class Theme(Style):
 
     default_style = ""
 
-    background_color = "#f2f2f2"
+    background_color = "#fefefe"
     highlight_color = "#fae4c2"
 
     styles = {
