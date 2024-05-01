@@ -19,7 +19,7 @@
 - Reflect that rgb colors are in 0-1 and floats. by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/52
 - Small refactor of color utils for readibility and type checkability by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/55
 - Rename hex to float function by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/57
-- Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56-
+- Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56
 
 # New Contributors
 
