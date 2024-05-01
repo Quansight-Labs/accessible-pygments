@@ -1,4 +1,4 @@
-# Version 0.0.5 (29-04-2024)
+## Version 0.0.5 (29-04-2024)
 
 - MAINT - Add pre-commits and update docs by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/26
 - ENH - Move to hatch for dev/build by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/27
@@ -21,7 +21,7 @@
 - Rename hex to float function by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/57
 - Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56-
 
-# New Contributors
+### New Contributors
 
 - @trallard made their first contribution in https://github.com/Quansight-Labs/accessible-pygments/pull/26
 - @pre-commit-ci made their first contribution in https://github.com/Quansight-Labs/accessible-pygments/pull/28
@@ -29,7 +29,7 @@
 - @meli-lewis made their first contribution in https://github.com/Quansight-Labs/accessible-pygments/pull/53
 - @Carreau made their first contribution in https://github.com/Quansight-Labs/accessible-pygments/pull/51
 
-# Version 0.0.4 (22-03-2023)
+## Version 0.0.4 (22-03-2023)
 
 - Merge pull request #24 from mgorny/setup-exclude. [Tania Allard]
 
@@ -42,7 +42,7 @@
 
       /usr/lib/python3.11/site-packages/test
 
-# Version 0.0.3 (09-02-2023)
+## Version 0.0.3 (09-02-2023)
 
 - Merge pull request #22 from Quansight-Labs/update-readme. [Stephannie
   Jimenez Gacha]
@@ -151,7 +151,7 @@
 - Release v0.0.1. [Stephannie Jimenez]
 - Create changelog and release instructions. [Stephannie Jimenez]
 
-# Version 0.0.1 ( 06-08-2022 )
+## Version 0.0.1 ( 06-08-2022 )
 
 - Update contributing guide. [Stephannie Jimenez]
 - Add working demo. [Stephannie Jimenez]
