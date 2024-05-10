@@ -2,24 +2,21 @@
 
 - MAINT - Add pre-commits and update docs by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/26
 - ENH - Move to hatch for dev/build by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/27
-- [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/Quansight-Labs/accessible-pygments/pull/28
-- [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/Quansight-Labs/accessible-pygments/pull/29
-- Delete docs/all_themes.pptx by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/40
+- MAINT - Delete docs/all_themes.pptx by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/40
 - [DOC] Remove conda instructions from contributing by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/39
-- Remove build artifacts from the repo by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/41
-- Automate theme READMEs by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/42
+- ENH - Remove build artifacts from the repo by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/41
+- ENH - Automate theme READMEs by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/42
 - MAINT - Miscellaneous updates by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/46
 - BUG - Ensure no local version by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/48
-- Automate theme README screenshots by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/43
+- ENH - Automate theme README screenshots by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/43
 - MAINT - Update pre-commit hooks by @trallard in https://github.com/Quansight-Labs/accessible-pygments/pull/45
-- [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/Quansight-Labs/accessible-pygments/pull/49
-- Fix contrast failures for high contrast light theme by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/33
-- Fix broken theme URLs in README, typo in demo html by @meli-lewis in https://github.com/Quansight-Labs/accessible-pygments/pull/53
-- Update code to not get images from placeholder.com by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/51
-- Reflect that rgb colors are in 0-1 and floats. by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/52
-- Small refactor of color utils for readibility and type checkability by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/55
-- Rename hex to float function by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/57
-- Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56
+- BUG - Fix contrast failures for high contrast light theme by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/33
+- ENH -Fix broken theme URLs in README, typo in demo html by @meli-lewis in https://github.com/Quansight-Labs/accessible-pygments/pull/53
+- ENH - Update code to not get images from placeholder.com by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/51
+- ENH -Reflect that rgb colors are in 0-1 and floats. by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/52
+- ENH - Small refactor of color utils for readibility and type checkability by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/55
+- ENH - Rename hex to float function by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/57
+- ENH - Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56
 
 ### New Contributors
 
