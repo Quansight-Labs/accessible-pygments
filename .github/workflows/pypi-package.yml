@@ -2,16 +2,12 @@ name: Build and maybe upload PyPI package
 
 on:
     push:
-        branches:
-            - main
-        tags:
-            - "*"
+        branches: [main]
+        tags: ["*"]
     pull_request:
-        branches:
-            - main
+        branches: [main]
     release:
-        types:
-        - published
+        types: [published]
     workflow_dispatch:
 
 env:
@@ -19,7 +15,6 @@ env:
 
 permissions:
     contents: read
-    id-token: write
 
 jobs:
     # Always build and lint
@@ -28,50 +23,56 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout repository 🛎
-              uses: actions/checkout@v3
+            - name: "Checkout repository 🛎"
+              uses: actions/checkout@v4
               with:
                 fetch-depth: 0
 
-            - uses: hynek/build-and-inspect-python-package@v1
+            - name: "Build and inspect package 🛠"
+              uses: hynek/build-and-inspect-python-package@v2
 
     # Upload to Test PyPI on every commit on main.
     release-test-pypi:
         name: Publish in-dev package to test.pypi.org
         environment: release-test-pypi
+        permissions:
+            id-token: write
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         runs-on: ubuntu-latest
         needs: build-package
 
         steps:
-            - name: Download package built in previous job 📥
-              uses: actions/download-artifact@v3
+            - name: "Download package built in previous job 📥"
+              uses: actions/download-artifact@v4
               with:
                 name: Packages
                 path: dist
-            - name: Upload package to Test PyPI 🚀
+            - name: "Upload package to Test PyPI 🚀"
               uses: pypa/gh-action-pypi-publish@release/v1
               with:
-                password: ${{ secrets.TEST_PYPI_API_TOKEN }}
                 repository-url: https://test.pypi.org/legacy/
 
     # Upload to real PyPI on GitHub Releases.
     release-pypi:
         name: Publish released package to pypi.org 🚀
-        environment: release-pypi
-        if: github.event.action == 'published'
+        environment:
+            name: release-pypi
+            url: https://pypi.org/project/accessible-pygments/
+        permissions:
+            id-token: write
+        if: github.repository_owner == 'Quansight-Labs' && github.event_name == 'release' && startsWith(github.ref, 'refs/tags/')
         runs-on: ubuntu-latest
         needs: build-package
 
         steps:
-            - name: Download packages built by build-and-inspect-python-package 📥
-              uses: actions/download-artifact@v3
+            - name: "Download packages built in previous job 📥"
+              uses: actions/download-artifact@v4
               with:
                 name: Packages
                 path: dist
 
-            - name: Upload package to PyPI 🚀
+            - name: "Upload package to PyPI 🚀"
               uses: pypa/gh-action-pypi-publish@release/v1
               with:
-                password: ${{ secrets.PYPI_API_TOKEN }}
                 print-hash: true
+                verbose: true
