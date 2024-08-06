@@ -1,3 +1,5 @@
+from enum import StrEnum
+
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -15,7 +17,7 @@ from pygments.token import (
 )
 
 
-class Colors:
+class Colors(StrEnum):
     comment = "#8b949e"  # grey[2]
     red = "#ff7b72"  # red[3]
     orange = "#ffa657"  # orange[2]
