@@ -107,7 +107,7 @@ HtmlFormatter(style='a11y-light').style
 
    ```toml
    # for example if using a pyproject.toml file
-   dependencies=["accessible-pygments"]
+   dependencies=["a11y_pygments"]
    ```
 
 2. Modify your `conf.py` file to specify the `accessible-pygments` style:
