@@ -9,7 +9,6 @@ Follow these instructions to make a new release of the `accessible-pygments` pac
    ```
 
 2. Document the changes since the last release
-
    - Update the `CHANGELOG.md` with `gitchangelog` or any other tool of your choice
    - Commit the changes `git add && git commit -m "Update changelog"`
 
