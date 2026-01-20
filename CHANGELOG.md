@@ -14,7 +14,7 @@
 - ENH -Fix broken theme URLs in README, typo in demo html by @meli-lewis in https://github.com/Quansight-Labs/accessible-pygments/pull/53
 - ENH - Update code to not get images from placeholder.com by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/51
 - ENH -Reflect that rgb colors are in 0-1 and floats. by @Carreau in https://github.com/Quansight-Labs/accessible-pygments/pull/52
-- ENH - Small refactor of color utils for readibility and type checkability by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/55
+- ENH - Small refactor of color utils for readability and type checkability by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/55
 - ENH - Rename hex to float function by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/57
 - ENH - Set a11y-light default background to #f2f2f2 (light gray) by @gabalafou in https://github.com/Quansight-Labs/accessible-pygments/pull/56
 
