@@ -29,8 +29,8 @@ REPO = HERE.parent
 
 # TODO fix this hack later when restructuring the repo
 sys.path.append(str(REPO / "test"))
-from render_html import outdir as html_outdir  # noqa: E402
-from render_html import render_html  # noqa: E402
+from render_html import outdir as html_outdir
+from render_html import render_html
 
 
 def markdown_table(rows: list[list[str]]) -> str:
@@ -75,7 +75,7 @@ def hexstr_to_rgb(hex_string: str) -> Tuple[int, int, int]:
     return (r, g, b)
 
 
-@lru_cache()  # just to not create the same png twice in the same run.
+@lru_cache  # just to not create the same png twice in the same run.
 def make_square_png(hex_color: str, path_tpl):
     assert hex_color.startswith("#")
     from PIL import Image
