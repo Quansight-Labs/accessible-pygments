@@ -32,7 +32,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     - name: Install dependencies 📦
       run: |
@@ -44,7 +44,7 @@ jobs:
         python test/run_css.py --save-dir docs
 
     - name: Deploy PR Preview
-      uses: rossjrw/pr-preview-action@eac2838daf487e8f054a4bc10dc957431cd6270b # v1.2.0
+      uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
       with:
         source-dir: docs
         preview-branch: gh-pages
@@ -75,7 +75,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     - name: Install dependencies 📦
       run: |
