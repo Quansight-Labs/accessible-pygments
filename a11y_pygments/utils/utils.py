@@ -1,13 +1,16 @@
+from __future__ import annotations
+
 import logging
 import os
 
 from pathlib import Path
-from typing import Union
 
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
 from pygments.token import Text
 from setuptools import find_packages
+
+log = logging.getLogger(__name__)
 
 
 def find_all_themes_packages() -> list[str]:
@@ -32,11 +35,11 @@ def get_themes_names() -> list[str]:
     """
     themes = find_all_themes_packages()
     themes = [x.replace("_", "-") for x in themes]
-    logging.info(f"Found pygment themes: {themes}")
+    log.info(f"Found pygment themes: {themes}")
     return themes
 
 
-def generate_css(themes: list[str], save_dir: Union[str, Path]):
+def generate_css(themes: list[str], save_dir: str | Path):
     """Generate css for the available themes.
     Args:
         themes (list): list of themes names
@@ -60,6 +63,6 @@ def generate_css(themes: list[str], save_dir: Union[str, Path]):
         else:
             out = Path(save_dir) / package / "style.css"
 
-        logging.info(f"Saving css to {out}")
+        log.info(f"Saving css to {out}")
         with open(out, "w") as f:
             f.write(css)

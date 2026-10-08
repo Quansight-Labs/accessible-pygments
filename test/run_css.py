@@ -13,7 +13,6 @@ from pathlib import Path
 
 from a11y_pygments.utils.utils import generate_css, get_themes_names
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -26,7 +25,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     save_dir = Path(args.save_dir).resolve()
-    logging.info(f"Saving css files to {save_dir}")
+    logger = logging.getLogger(__name__)
+    logger.info("Saving css files to %r", save_dir)
 
     themes = get_themes_names()
     generate_css(themes, args.save_dir)

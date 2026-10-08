@@ -17,7 +17,6 @@ from pygments.styles import get_style_by_name
 
 from a11y_pygments.utils.utils import get_themes_names
 
-
 # List of available language examples
 languages = {
     "python": "py",

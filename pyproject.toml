@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "accessible-pygments"
 description = "A collection of accessible pygments styles"
 license = { text = "BSD-3-Clause" }
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [
     { name = "Stephannie Jimenez Gacha", email = "steff456@hotmail.com" },
     { name = "Tania Allard", email = "trallard@bitsandchips.me" },
@@ -24,7 +24,6 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -106,7 +105,7 @@ tests = "python -m pytest test/test_*.py"
 profile = "black"
 skip_gitignore = true
 lines_between_types = 1
-lines_after_imports = 2
+lines_after_imports = -1
 
 [tool.ruff]
 fix = true
@@ -114,4 +113,12 @@ exclude = ["test/scripts/*.py"]
 ignore = [
     "E501",
     # line too long | Black takes care of this
+    "I001",
+    # import sorting | isort takes care of this
+]
+
+[tool.ruff.per-file-ignores]
+"a11y_pygments/*/style.py" = [
+    "RUF012",
+    # Pygments reads `styles` from the class body, ClassVar adds nothing
 ]
