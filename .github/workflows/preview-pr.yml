@@ -44,6 +44,11 @@ jobs:
         python test/run_css.py --save-dir docs
 
     - name: Deploy PR Preview
+      # fork and Dependabot PRs get a read-only token, so the push would fail
+      if: >-
+        github.event_name == 'push' ||
+        (github.event.pull_request.head.repo.full_name == github.repository &&
+        github.actor != 'dependabot[bot]')
       uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
       with:
         source-dir: docs
