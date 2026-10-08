@@ -1,14 +1,15 @@
 # Methods to calculate WCAG contrast ratio and check if it passes AA or AAA
 # https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
 
+from __future__ import annotations
+
 import re
 
-from typing import NewType, Tuple, TypeAlias, Union
-
+from typing import NewType, TypeAlias
 
 # float01 is a float greater than or equal to 0 and less than or equal to 1
 float01 = NewType("float01", float)
-RGBColor: TypeAlias = Tuple[float01, float01, float01]
+RGBColor: TypeAlias = tuple[float01, float01, float01]
 
 
 def hexdd_to_float01(xx: str) -> float01:
@@ -111,9 +112,7 @@ def contrast_ratio(color1: RGBColor, color2: RGBColor) -> float:
         return (l2 + 0.05) / (l1 + 0.05)
 
 
-def passes_contrast(
-    color1: RGBColor, color2: RGBColor, level="AA"
-) -> Union[bool, float]:
+def passes_contrast(color1: RGBColor, color2: RGBColor, level="AA") -> bool | float:
     """Method to verify the contrast ratio between two colours.
 
     Args:

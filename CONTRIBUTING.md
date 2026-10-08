@@ -30,7 +30,7 @@ When doing so, add a clear description, and provide as much information as possi
 You will need to have the following installed locally:
 
 - `git`
-- Python >= 3.9
+- Python >= 3.10
 - [hatch](https://hatch.pypa.io/)
 
 ### Creating your development environment 👩🏻‍💻 👨🏼‍💻

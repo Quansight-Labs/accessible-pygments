@@ -5,7 +5,6 @@ from hypothesis.strategies import floats, tuples
 
 from a11y_pygments.utils import wcag_contrast as wcag
 
-
 color_channel = floats(0.0, 1.0)
 color = tuples(color_channel, color_channel, color_channel)
 
@@ -31,7 +30,6 @@ def test_luminance(rgb1, rgb2, expected):
         ("#0a1103", "#0a1103", False),
         ("#F1AAC4", "#FEF8FA", False),
         ("#610C2B", "#FEF8FA", 12.55),
-        ("#1B78CA", "#FEF8FA", False),
         ("#1B78CA", "#FEF8FA", False),
         ("#2E3A89", "#FEF8FA", 9.61),
         ("#0B3254", "#0B3254", False),

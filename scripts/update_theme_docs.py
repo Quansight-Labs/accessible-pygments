@@ -9,7 +9,6 @@ from functools import lru_cache
 from importlib import import_module
 from inspect import getdoc
 from pathlib import Path
-from typing import Set, Tuple, Type
 
 from playwright.sync_api import sync_playwright
 from pygments.styles import get_style_by_name
@@ -23,14 +22,15 @@ from a11y_pygments.utils.wcag_contrast import (
     hexstr_without_hash,
 )
 
-
 HERE = Path(__file__).parent
 REPO = HERE.parent
 
 # TODO fix this hack later when restructuring the repo
 sys.path.append(str(REPO / "test"))
-from render_html import outdir as html_outdir  # noqa: E402
-from render_html import render_html  # noqa: E402
+from render_html import outdir as html_outdir
+from render_html import render_html
+
+log = logging.getLogger(__name__)
 
 
 def markdown_table(rows: list[list[str]]) -> str:
@@ -67,7 +67,7 @@ def markdown_table(rows: list[list[str]]) -> str:
     return "\n".join(lines)
 
 
-def hexstr_to_rgb(hex_string: str) -> Tuple[int, int, int]:
+def hexstr_to_rgb(hex_string: str) -> tuple[int, int, int]:
     hex_string = hex_string.lstrip("#")
     r = int(hex_string[0:2], 16)
     g = int(hex_string[2:4], 16)
@@ -75,7 +75,7 @@ def hexstr_to_rgb(hex_string: str) -> Tuple[int, int, int]:
     return (r, g, b)
 
 
-@lru_cache()  # just to not create the same png twice in the same run.
+@lru_cache  # just to not create the same png twice in the same run.
 def make_square_png(hex_color: str, path_tpl):
     assert hex_color.startswith("#")
     from PIL import Image
@@ -95,10 +95,10 @@ def make_square_png(hex_color: str, path_tpl):
 
 
 def contrast_markdown_table(
-    color_cls: Type,
+    color_cls: type,
     background_color: str,
     img_tpl="../../a11y_pygments/assets/{rrggbb}.png",
-) -> Tuple[str, Set[str]]:
+) -> tuple[str, set[str]]:
     """Create Markdown table of contrast ratios and WCAG ratings for foreground colors against background color
 
     Args:
@@ -201,7 +201,7 @@ def update_readme(theme: str):
     # Save the new README file
     out = REPO / "a11y_pygments" / theme / "README.md"
     with open(out, "w") as f:
-        logging.info("Updating %s", out)
+        log.info("Updating %s", out)
         f.write(result)
 
 
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     all_themes = find_all_themes_packages()
     for i, theme in enumerate(args.themes):
         if "-" in theme:
-            logging.info("Converting to snake_case: %s", theme)
+            log.info("Converting to snake_case: %s", theme)
             args.themes[i] = theme = theme.replace("-", "_")
         assert theme in all_themes, f"Theme {theme} not found"
 

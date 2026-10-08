@@ -9,6 +9,9 @@ on:
             - main
 
 concurrency: preview-${{ github.ref }}
+
+permissions: {}
+
 env:
     FORCE_COLOR: "1"
     PYTHONIOENCODING: utf-8
@@ -17,14 +20,19 @@ env:
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # push previews to the gh-pages branch
+      pull-requests: write # post the preview link comment on PRs
     steps:
     - name: Checkout repository 🛎
-      uses: actions/checkout@v3
+      uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
+      with:
+        persist-credentials: false
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     - name: Install dependencies 📦
       run: |
@@ -36,7 +44,12 @@ jobs:
         python test/run_css.py --save-dir docs
 
     - name: Deploy PR Preview
-      uses: rossjrw/pr-preview-action@v1.2.0
+      # fork and Dependabot PRs get a read-only token, so the push would fail
+      if: >-
+        github.event_name == 'push' ||
+        (github.event.pull_request.head.repo.full_name == github.repository &&
+        github.actor != 'dependabot[bot]')
+      uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
       with:
         source-dir: docs
         preview-branch: gh-pages
@@ -60,12 +73,14 @@ jobs:
 
     steps:
     - name: Checkout repository 🛎
-      uses: actions/checkout@v3
+      uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
+      with:
+        persist-credentials: false
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     - name: Install dependencies 📦
       run: |
@@ -77,12 +92,12 @@ jobs:
         python test/render_html.py
 
     - name: Setup Pages 🛠
-      uses: actions/configure-pages@v3
+      uses: actions/configure-pages@b8130d9ab958b325bbde9786d62f2c97a9885a0e # v3.0.7
 
     - name: Upload artifact 📥
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@84bb4cd4b733d5c320c9c9cfbc354937524f4d64 # v1.0.10
       with:
         path: "docs"
     - name: Deploy to GitHub Pages 🚀
       id: deployment
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@de14547edc9944350dc0481aa5b7afb08e75f254 # v2.0.5
