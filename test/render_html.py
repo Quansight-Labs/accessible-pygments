@@ -37,7 +37,7 @@ def render_html(themes: list, languages=languages, outdir=outdir):
     """Generate rendered HTML sample of the themes for the specified languages.
 
     Args:
-        themes (list): list of registred themes.
+        themes (list): list of registered themes.
         languages (dict, optional): Dict containing the languages samples to render.
             Defaults to languages.
         outdir (pathlib.Path, optional): Directory to save the rendered HTML files to.
