@@ -9,6 +9,9 @@ on:
             - main
 
 concurrency: preview-${{ github.ref }}
+
+permissions: {}
+
 env:
     FORCE_COLOR: "1"
     PYTHONIOENCODING: utf-8
@@ -17,6 +20,9 @@ env:
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # push previews to the gh-pages branch
+      pull-requests: write # post the preview link comment on PRs
     steps:
     - name: Checkout repository 🛎
       uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
